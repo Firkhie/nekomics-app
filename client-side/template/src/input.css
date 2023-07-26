@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: "Ubuntu", sans-serif;
+  }
+  h1 {
+    @apply text-6xl font-bold;
+  }
+  h2 {
+    @apply text-5xl font-bold;
+  }
+  h3 {
+    @apply lg:text-4xl md:text-3xl text-2xl font-bold;
+  }
+  h4 {
+    @apply lg:text-3xl md:text-2xl text-lg font-bold;
+  }
+  h5 {
+    @apply lg:text-2xl md:text-xl text-base font-bold;
+  }
+  h6 {
+    @apply lg:text-xl  md:text-xl text-sm font-bold;
+  }
+
+  .scroll-container::-webkit-scrollbar {
+    width: 5px; /* Lebar scrollbar */
+  }
+
+  .scroll-container::-webkit-scrollbar-thumb {
+    background-color: #fc304b; /* Warna thumb scrollbar */
+    border-radius: 4px; /* Bentuk border radius thumb scrollbar */
+  }
+
+  .scroll-container::-webkit-scrollbar-track {
+    background-color: none; /* Warna track scrollbar */
+    /* border-radius: 4px; Bentuk border radius track scrollbar */
+  }
+}
+
+@layer components {
+  .burger-bar {
+    @apply relative top-0 h-[3px] w-[21px] md:w-6 rounded-full bg-[#FC304B] transition-all;
+  }
+  .mobile-menu-item {
+    @apply flex w-full cursor-pointer items-center justify-center p-4 transition-colors hover:bg-white/10 text-sm md:text-base;
+  }
+  .genre-item {
+    @apply w-fit py-1 px-3 bg-white/30 rounded-md text-sm;
+  }
+  .user-input-form {
+    @apply flex flex-row items-center gap-4 py-3 px-7 w-full min-h-[48px] rounded-full bg-[#121213];
+  }
+
+  .prev-button,
+  .next-button {
+    @apply bg-white/20 hover:bg-white/25 w-[28px] sm:w-8 md:w-10 lg:w-12 h-[28px] sm:h-8 md:h-10 lg:h-12 rounded-full flex items-center justify-center text-xs sm:text-sm md:text-base lg:text-lg;
+  }
+}

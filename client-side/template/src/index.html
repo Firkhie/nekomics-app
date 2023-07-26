@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/dist/output.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/80994f58a8.js" crossorigin="anonymous"></script>
+    <title>Nekomics | Manga Reading Website</title>
+  </head>
+  <body class="relative bg-[#121213] flex flex-col min-h-screen">
+    <!-- ! NAVBAR -->
+    <header class="w-full h-16 md:h-20 z-20 md:mb-5 bg-[#1E1F1F] text-white">
+      <!-- DESKTOP -->
+      <nav class="items-center justify-between h-full w-full px-32 hidden lg:flex">
+        <div class="flex items-center justify-between gap-6 text-base">
+          <a href="#"><img src="../assets/logo.png" class="h-7 mr-3" /></a>
+          <a href="#" class="hover:text-white/80">Series</a>
+          <a href="#" class="hover:text-white/80">Bookmarks</a>
+          <a href="#" class="hover:text-white/80">Donate</a>
+          <a href="#" class="hover:text-white/80">About</a>
+        </div>
+        <div class="flex items-center justify-between gap-6 text-base">
+          <a href="#" class="hover:text-white/80">Log In</a>
+          <a href="#" class="px-4 py-2 rounded-[5px] bg-[#FC304B] hover:bg-[#E32B43]">Sign Up</a>
+        </div>
+      </nav>
+      <!-- MOBILE -->
+      <nav class="items-center justify-between h-full w-full px-6 md:px-8 mx-auto flex lg:hidden">
+        <div class="flex items-center justify-between gap-6">
+          <a href="#"><img src="../assets/logo.png" class="h-6 md:h-7" /></a>
+        </div>
+        <div class="flex items-center justify-between gap-4 md:gap-6 lg:text-base md:text-sm text-xs">
+          <a href="#" class="px-3 md:px-4 py-[7px] rounded-[4px] bg-[#FC304B] hover:bg-[#E32B43]">Sign Up</a>
+          <div id="mobile-menu-btn" class="group peer w-fit flex flex-col gap-1 cursor-pointer">
+            <div class="burger-bar group-open:top-[8px] group-open:rotate-45"></div>
+            <div class="burger-bar opacity-100 group-open:opacity-0"></div>
+            <div class="burger-bar group-open:-top-[6.2px] group-open:-rotate-45"></div>
+          </div>
+          <div class="absolute top-[66px] md:top-[80px] left-0 w-full bg-[#1E1F1F] hidden peer-open:block">
+            <a class="mobile-menu-item">Series</a>
+            <a class="mobile-menu-item">Bookmarks</a>
+            <a class="mobile-menu-item">Donate</a>
+            <a class="mobile-menu-item">About</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- ! HOME - HERO -->
+    <!-- <section class="relative w-full overflow-hidden text-white md:mt-10"> -->
+      <!-- BACKGROUND -->
+      <!-- <div style="background-image: url('../assets/cover-6.jpg')" class="absolute w-full h-full -z-20 bg-center bg-cover bg-no-repeat blur-2xl"></div> -->
+      <!-- CAROUSEL ITEMS -->
+      <!-- <div class="flex transition ease-in-out delay-300" id="hero-carousel" style=" -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; user-select: none;">
+        <div class="hero-carousel-item min-w-full flex py-4 md:py-8 lg:py-10 px-5 sm:px-20 md:px-24 lg:px-36 justify-between gap-4 md:gap-5 lg:gap-8">
+          <div class="flex flex-1 flex-col gap-2 sm:gap-3 md:gap-7 justify-start sm:justify-center">
+            <h4 class="line-clamp-1 md:line-clamp-2">
+              Ane ni Iwareru ga Mama ni Tokkun wo Shiteitara, Tondemonai Tsuyosa
+              ni Natteita Otouto Ane ni Iwareru ga Mama ni Tokkun wo Shiteitara,
+              Tondemonai Tsuyosa ni Natteita Otouto
+            </h4>
+            <p class="line-clamp-2 md:line-clamp-3 text-sm md:text-base">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis
+              perferendis dolore obcaecati quasi est ad deserunt autem aliquid
+              libero, facere odit incidunt deleniti doloribus quas ipsam optio
+              aut nihil tempore. Rose then set Shifa through a series of
+              training exercises, telling him, "If you want to be an adventurer,
+              you have to be able to do this!" Shifa believes Rose's words and
+              tries his best to complete the ordeal. However, Rose's training
+              becomes more and more extreme in order to prevent her brother from
+              being in danger when he becomes an adventurer lorem
+            </p>
+            <a href="#" class="py-[6px] sm:py-3 px-3 sm:px-6 bg-[#FC304B] hover:bg-[#E32B43] rounded-sm lg:text-base md:text-sm text-xs w-fit">Read Now</a>
+          </div>
+          <div class="max-w-[100px] md:max-w-[180px] lg:max-w-[250px]">
+            <img src="../assets/cover.jpg" alt="" class="w-full h-auto rounded-sm bg-center bg-cover" />
+          </div>
+        </div>
+        <div class="hero-carousel-item min-w-full flex py-4 md:py-8 lg:py-10 px-5 sm:px-20 md:px-24 lg:px-36 justify-between gap-4 md:gap-5 lg:gap-8">
+          <div class="flex flex-1 flex-col gap-2 sm:gap-3 md:gap-7 justify-start sm:justify-center">
+            <h4 class="line-clamp-1 md:line-clamp-2">
+              Ane ni Iwareru ga Mama ni Tokkun wo Shiteitara, Tondemonai Tsuyosa
+              ni Natteita Otouto Ane ni Iwareru ga Mama ni Tokkun wo Shiteitara,
+              Tondemonai Tsuyosa ni Natteita Otouto
+            </h4>
+            <p class="line-clamp-2 md:line-clamp-3 text-sm md:text-base">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis
+              perferendis dolore obcaecati quasi est ad deserunt autem aliquid
+              libero, facere odit incidunt deleniti doloribus quas ipsam optio
+              aut nihil tempore. Rose then set Shifa through a series of
+              training exercises, telling him, "If you want to be an adventurer,
+              you have to be able to do this!" Shifa believes Rose's words and
+              tries his best to complete the ordeal. However, Rose's training
+              becomes more and more extreme in order to prevent her brother from
+              being in danger when he becomes an adventurer lorem
+            </p>
+            <a href="#" class="py-[6px] sm:py-3 px-3 sm:px-6 bg-[#FC304B] hover:bg-[#E32B43] rounded-sm lg:text-base md:text-sm text-xs w-fit">Read Now</a>
+          </div>
+          <div class="max-w-[100px] md:max-w-[180px] lg:max-w-[250px]">
+            <img src="../assets/cover-2.jpg" alt="" class="w-full h-auto rounded-sm bg-center bg-cover" />
+          </div>
+        </div>
+        <div class="hero-carousel-item min-w-full flex py-4 md:py-8 lg:py-10 px-5 sm:px-20 md:px-24 lg:px-36 justify-between gap-4 md:gap-5 lg:gap-8">
+          <div class="flex flex-1 flex-col gap-2 sm:gap-3 md:gap-7 justify-start sm:justify-center">
+            <h4 class="line-clamp-1 md:line-clamp-2">
+              Ane ni Iwareru ga Mama ni Tokkun wo Shiteitara, Tondemonai Tsuyosa
+              ni Natteita Otouto Ane ni Iwareru ga Mama ni Tokkun wo Shiteitara,
+              Tondemonai Tsuyosa ni Natteita Otouto
+            </h4>
+            <p class="line-clamp-2 md:line-clamp-3 text-sm md:text-base">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis
+              perferendis dolore obcaecati quasi est ad deserunt autem aliquid
+              libero, facere odit incidunt deleniti doloribus quas ipsam optio
+              aut nihil tempore. Rose then set Shifa through a series of
+              training exercises, telling him, "If you want to be an adventurer,
+              you have to be able to do this!" Shifa believes Rose's words and
+              tries his best to complete the ordeal. However, Rose's training
+              becomes more and more extreme in order to prevent her brother from
+              being in danger when he becomes an adventurer lorem
+            </p>
+            <a href="#" class="py-[6px] sm:py-3 px-3 sm:px-6 bg-[#FC304B] hover:bg-[#E32B43] rounded-sm lg:text-base md:text-sm text-xs w-fit">Read Now</a>
+          </div>
+          <div class="max-w-[100px] md:max-w-[180px] lg:max-w-[250px]">
+            <img src="../assets/cover-3.jpg" alt="" class="w-full h-auto rounded-sm bg-center bg-cover" />
+          </div>
+        </div>
+      </div> -->
+      <!-- CAROUSEL BUTTON -->
+      <!-- <button class="prev-button absolute xs:left-5 xs:-bottom-1 sm:top-1/2 sm:left-6 md:left-8 lg:left-10 transform -translate-y-1/2">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button class="next-button absolute xs:left-[55px] xs:-bottom-1 sm:top-1/2 sm:right-6 md:right-8 lg:right-10 transform -translate-y-1/2">
+        <i class="fas fa-chevron-right"></i>
+      </button> -->
+    <!-- </section> -->
+
+    <main class="relative w-full px-3 md:px-8 lg:px-32 mt-5 text-white flex-grow">
+      <!-- ! HOME - POPULAR TODAY -->
+      <!-- <section class="w-full p-4 sm:p-8 rounded-sm bg-[#1E1F1F] md:mt-5 flex flex-col gap-2 md:gap-5">
+        <div class="flex justify-between items-center">
+          <h5>Popular Today</h5>
+          <a href="#" class="lg:text-base md:text-sm text-xs text-white/40">See More</a>
+        </div>
+        <hr />
+        <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 xl:grid-cols-6 gap-4 mt-3 md:text-base text-sm">
+          <div class="w-full hover:opacity-70 cursor-pointer">
+            <img src="../assets/cover.jpg" alt="" class="w-full h-[175px] md:h-[255px] object-cover object-center rounded-sm" />
+            <p class="line-clamp-2 font-bold mt-1">Ane ni Iwareru ga Mama ni Tokkun wo Shiteitara</p>
+            <p class="text-white/40 md:text-sm text-xs">Chapter 2</p>
+          </div>
+          <div class="w-full hover:opacity-70 cursor-pointer">
+            <img src="../assets/cover-2.jpg" alt="" class="w-full h-[175px] md:h-[255px] object-cover object-center rounded-sm" />
+            <p class="line-clamp-2 font-bold mt-1">Ane ni Iwareru ga Mama ni Tokkun wo Shiteitara</p>
+            <p class="text-white/40 md:text-sm text-xs">Chapter 2</p>
+          </div>
+          <div class="w-full hover:opacity-70 cursor-pointer">
+            <img src="../assets/cover-3.jpg" alt="" class="w-full h-[175px] md:h-[255px] object-cover object-center rounded-sm" />
+            <p class="line-clamp-2 font-bold mt-1">Ane ni Iwareru ga Mama ni Tokkun wo Shiteitara</p>
+            <p class="text-white/40 md:text-sm text-xs">Chapter 2</p>
+          </div>
+          <div class="w-full hover:opacity-70 cursor-pointer">
+            <img src="../assets/cover.jpg" alt="" class="w-full h-[175px] md:h-[255px] object-cover object-center rounded-sm" />
+            <p class="line-clamp-2 font-bold mt-1">Ane ni Iwareru ga Mama ni Tokkun wo Shiteitara</p>
+            <p class="text-white/40 md:text-sm text-xs">Chapter 2</p>
+          </div>
+          <div class="w-full hover:opacity-70 cursor-pointer">
+            <img src="../assets/cover-2.jpg" alt="" class="w-full h-[175px] md:h-[255px] object-cover object-center rounded-sm" />
+            <p class="line-clamp-2 font-bold mt-1">Ane ni Iwareru ga Mama ni Tokkun wo Shiteitara</p>
+            <p class="text-white/40 md:text-sm text-xs">Chapter 2</p>
+          </div>
+          <div class="w-full hover:opacity-70 cursor-pointer">
+            <img src="../assets/cover-3.jpg" alt="" class="w-full h-[175px] md:h-[255px] object-cover object-center rounded-sm" />
+            <p class="line-clamp-2 font-bold mt-1">Ane ni Iwareru ga Mama ni Tokkun wo Shiteitara</p>
+            <p class="text-white/40 md:text-sm text-xs">Chapter 2</p>
+          </div>
+        </div>
+      </section> -->
+
+      <!-- ! HOME - LATEST UPDATES -->
+      <!-- <section class="w-full p-4 sm:p-8 rounded-sm bg-[#1E1F1F] flex flex-col gap-2 md:gap-5 mt-5 md:mt-10">
+        <div class="flex justify-between items-center">
+          <h5>Latest Updates</h5>
+          <a href="#" class="lg:text-base md:text-sm text-xs text-white/40">See More</a>
+        </div>
+        <hr />
+        <div class="w-full grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-x-3 md:gap-x-4 mt-3 md:text-base text-sm">
+          <div class="w-full flex p-3 gap-3 bg-white/10 hover:opacity-70 cursor-pointer">
+            <div>
+              <img src="../assets/cover.jpg" alt="" class="max-w-[60px] sm:max-w-[70px] bg-center bg-cover rounded-sm" />
+            </div>
+            <div class="w-full flex flex-col gap-1">
+              <p class="line-clamp-2 font-bold">Ane ni Iwareru ga Mama ni Tokkun wo Shiteitara</p>
+              <p class="text-white/40 md:text-sm text-xs">Chapter 2</p>
+              <div class="flex justify-between items-center">
+                <div class="flex justify-center items-center gap-1 md:gap-2 md:text-sm text-xs">
+                  <i class="fa-regular fa-star"></i>
+                  <p>9.00</p>
+                </div>
+                <p class="text-xs md:text-sm text-white/40">34 minutes ago</p>
+              </div>
+            </div>
+          </div>
+          <div class="w-full flex p-3 gap-3 bg-white/10 hover:opacity-70 cursor-pointer">
+            <div>
+              <img src="../assets/cover.jpg" alt="" class="max-w-[60px] sm:max-w-[70px] bg-center bg-cover rounded-sm" />
+            </div>
+            <div class="w-full flex flex-col gap-1">
+              <p class="line-clamp-2 font-bold">Ane ni Iwareru ga Mama ni Tokkun wo Shiteitara</p>
+              <p class="text-white/40 md:text-sm text-xs">Chapter 2</p>
+              <div class="flex justify-between items-center">
+                <div class="flex justify-center items-center gap-1 md:gap-2 md:text-sm text-xs">
+                  <i class="fa-regular fa-star"></i>
+                  <p>9.00</p>
+                </div>
+                <p class="text-xs md:text-sm text-white/40">34 minutes ago</p>
+              </div>
+            </div>
+          </div>
+          <div class="w-full flex p-3 gap-3 bg-white/10 hover:opacity-70 cursor-pointer">
+            <div>
+              <img src="../assets/cover.jpg" alt="" class="max-w-[60px] sm:max-w-[70px] bg-center bg-cover rounded-sm" />
+            </div>
+            <div class="w-full flex flex-col gap-1">
+              <p class="line-clamp-2 font-bold">Ane ni Iwareru ga Mama ni Tokkun wo Shiteitara</p>
+              <p class="text-white/40 md:text-sm text-xs">Chapter 2</p>
+              <div class="flex justify-between items-center">
+                <div class="flex justify-center items-center gap-1 md:gap-2 md:text-sm text-xs">
+                  <i class="fa-regular fa-star"></i>
+                  <p>9.00</p>
+                </div>
+                <p class="text-xs md:text-sm text-white/40">34 minutes ago</p>
+              </div>
+            </div>
+          </div>
+          <div class="w-full flex p-3 gap-3 bg-white/10 hover:opacity-70 cursor-pointer">
+            <div>
+              <img src="../assets/cover.jpg" alt="" class="max-w-[60px] sm:max-w-[70px] bg-center bg-cover rounded-sm" />
+            </div>
+            <div class="w-full flex flex-col gap-1">
+              <p class="line-clamp-2 font-bold">Ane ni Iwareru ga Mama ni Tokkun wo Shiteitara</p>
+              <p class="text-white/40 md:text-sm text-xs">Chapter 2</p>
+              <div class="flex justify-between items-center">
+                <div class="flex justify-center items-center gap-1 md:gap-2 md:text-sm text-xs">
+                  <i class="fa-regular fa-star"></i>
+                  <p>9.00</p>
+                </div>
+                <p class="text-xs md:text-sm text-white/40">34 minutes ago</p>
+              </div>
+            </div>
+          </div>
+          <div class="w-full flex p-3 gap-3 bg-white/10 hover:opacity-70 cursor-pointer">
+            <div>
+              <img src="../assets/cover.jpg" alt="" class="max-w-[60px] sm:max-w-[70px] bg-center bg-cover rounded-sm" />
+            </div>
+            <div class="w-full flex flex-col gap-1">
+              <p class="line-clamp-2 font-bold">Ane ni Iwareru ga Mama ni Tokkun wo Shiteitara</p>
+              <p class="text-white/40 md:text-sm text-xs">Chapter 2</p>
+              <div class="flex justify-between items-center">
+                <div class="flex justify-center items-center gap-1 md:gap-2 md:text-sm text-xs">
+                  <i class="fa-regular fa-star"></i>
+                  <p>9.00</p>
+                </div>
+                <p class="text-xs md:text-sm text-white/40">34 minutes ago</p>
+              </div>
+            </div>
+          </div>
+          <div class="w-full flex p-3 gap-3 bg-white/10 hover:opacity-70 cursor-pointer">
+            <div>
+              <img src="../assets/cover.jpg" alt="" class="max-w-[60px] sm:max-w-[70px] bg-center bg-cover rounded-sm" />
+            </div>
+            <div class="w-full flex flex-col gap-1">
+              <p class="line-clamp-2 font-bold">Ane ni Iwareru ga Mama ni Tokkun wo Shiteitara</p>
+              <p class="text-white/40 md:text-sm text-xs">Chapter 2</p>
+              <div class="flex justify-between items-center">
+                <div class="flex justify-center items-center gap-1 md:gap-2 md:text-sm text-xs">
+                  <i class="fa-regular fa-star"></i>
+                  <p>9.00</p>
+                </div>
+                <p class="text-xs md:text-sm text-white/40">34 minutes ago</p>
+              </div>
+            </div>
+          </div>
+          <div class="w-full flex p-3 gap-3 bg-white/10 hover:opacity-70 cursor-pointer">
+            <div>
+              <img src="../assets/cover.jpg" alt="" class="max-w-[60px] sm:max-w-[70px] bg-center bg-cover rounded-sm" />
+            </div>
+            <div class="w-full flex flex-col gap-1">
+              <p class="line-clamp-2 font-bold">Ane ni Iwareru ga Mama ni Tokkun wo Shiteitara</p>
+              <p class="text-white/40 md:text-sm text-xs">Chapter 2</p>
+              <div class="flex justify-between items-center">
+                <div class="flex justify-center items-center gap-1 md:gap-2 md:text-sm text-xs">
+                  <i class="fa-regular fa-star"></i>
+                  <p>9.00</p>
+                </div>
+                <p class="text-xs md:text-sm text-white/40">34 minutes ago</p>
+              </div>
+            </div>
+          </div>
+          <div class="w-full flex p-3 gap-3 bg-white/10 hover:opacity-70 cursor-pointer">
+            <div>
+              <img src="../assets/cover.jpg" alt="" class="max-w-[60px] sm:max-w-[70px] bg-center bg-cover rounded-sm" />
+            </div>
+            <div class="w-full flex flex-col gap-1">
+              <p class="line-clamp-2 font-bold">Ane ni Iwareru ga Mama ni Tokkun wo Shiteitara</p>
+              <p class="text-white/40 md:text-sm text-xs">Chapter 2</p>
+              <div class="flex justify-between items-center">
+                <div class="flex justify-center items-center gap-1 md:gap-2 md:text-sm text-xs">
+                  <i class="fa-regular fa-star"></i>
+                  <p>9.00</p>
+                </div>
+                <p class="text-xs md:text-sm text-white/40">34 minutes ago</p>
+              </div>
+            </div>
+          </div>
+          <div class="w-full flex p-3 gap-3 bg-white/10 hover:opacity-70 cursor-pointer">
+            <div>
+              <img src="../assets/cover.jpg" alt="" class="max-w-[60px] sm:max-w-[70px] bg-center bg-cover rounded-sm" />
+            </div>
+            <div class="w-full flex flex-col gap-1">
+              <p class="line-clamp-2 font-bold">Ane ni Iwareru ga Mama ni Tokkun wo Shiteitara</p>
+              <p class="text-white/40 md:text-sm text-xs">Chapter 2</p>
+              <div class="flex justify-between items-center">
+                <div class="flex justify-center items-center gap-1 md:gap-2 md:text-sm text-xs">
+                  <i class="fa-regular fa-star"></i>
+                  <p>9.00</p>
+                </div>
+                <p class="text-xs md:text-sm text-white/40">34 minutes ago</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> -->
+
+      <!-- ! SIGNUP -->
+      <!-- <section class="max-w-[520px] max-h-[575px] mx-auto flex flex-col bg-[#1E1F1F] items-center px-4 py-8 md:p-12 lg:text-base md:text-sm text-xs md:mt-5">
+        <img src="../assets/logo.png" class="h-6 sm:h-7 md:h-9" />
+        <h4 class="mt-6 md:mt-8 mb-8 md:mb-10">Register</h4>
+        <form id="register-form" class="flex flex-col gap-2 md:gap-3 w-full ">
+          <div class="user-input-form">
+            <i class="fa-regular fa-user"></i>
+            <input
+              class="bg-transparent outline-none w-full"
+              type="text"
+              id="register-username"
+              placeholder="Your username"
+              autocomplete="off"
+              required
+            />
+          </div>
+          <div class="user-input-form">
+            <i class="fa-regular fa-envelope"></i>
+            <input
+              class="bg-transparent outline-none w-full"
+              type="email"
+              id="register-email"
+              placeholder="Your email"
+              autocomplete="off"
+              required
+            />
+          </div>
+          <div class="user-input-form">
+            <i class="fa-solid fa-lock"></i>
+            <input
+              class="bg-transparent outline-none w-full"
+              type="password"
+              id="register-password"
+              placeholder="Your password"
+              autocomplete="off"
+              required
+            />
+          </div>
+          <button type="submit" class="max-w-[488px] min-h-[48px] rounded-full bg-[#FC304B] hover:bg-[#E32B43] font-bold mt-3 md:mt-5 lg:text-base md:text-sm text-xs">Register</button>
+        </form>
+        <p class="mt-5">Already have an account? <a href="#" class="text-[#FC304B] hover:text-[#E32B43]">Log In</a></p>
+      </section> -->
+
+      <!-- ! LOGIN -->
+      <!-- <section class="max-w-[520px] max-h-[575px] mx-auto flex flex-col bg-[#1E1F1F] items-center px-4 py-8 md:p-12 lg:text-base md:text-sm text-xs md:mt-5">
+        <img src="../assets/logo.png" class="h-6 sm:h-7 md:h-9" />
+        <h4 class="mt-6 md:mt-8 mb-8 md:mb-10">Login</h4>
+        <form id="login-form" class="flex flex-col gap-2 md:gap-3 w-full ">
+          <div class="user-input-form">
+            <i class="fa-regular fa-envelope"></i>
+            <input
+              class="bg-transparent outline-none w-full"
+              type="email"
+              id="login-email"
+              placeholder="Your email"
+              autocomplete="off"
+              required
+            />
+          </div>
+          <div class="user-input-form">
+            <i class="fa-solid fa-lock"></i>
+            <input
+              class="bg-transparent outline-none w-full"
+              type="password"
+              id="login-password"
+              placeholder="Your password"
+              autocomplete="off"
+              required
+            />
+          </div>
+          <button type="submit" class="max-w-[488px] min-h-[48px] rounded-full bg-[#FC304B] hover:bg-[#E32B43] font-bold mt-3 md:mt-5 lg:text-base md:text-sm text-xs">Login</button>
+        </form>
+        <p class="mt-5">Don't have an account? <a href="#" class="text-[#FC304B] hover:text-[#E32B43]">Sign Up</a></p>
+      </section> -->
+
+      <!-- ! BOOKMARKS -->
+      <!-- <section class="flex flex-col w-full">
+      <ul class="flex flex-row gap-4 md:gap-12 md:text-2xl text-base font-medium md:font-bold">
+          <li><a href="#">Bookmarks</a></li>
+          <li><a href="#">Reading History</a></li>
+        </ul>
+        <hr class="border-white/10 my-3 md:my-8"> -->
+      <!-- BOOKMARKS -->
+      <!-- <div class="grid grid-cols-1 xl:grid-cols-2 gap-2 md:gap-6 mt-2">
+        <div class="flex flex-row w-full h-[120px] md:min-h-[200px] bg-[#1E1F1F] p-2 md:p-5 gap-3 md:gap-4 md:text-base text-sm">
+          <div
+            style="background-image: url('../assets/cover.jpg')"
+            class='min-w-[64px] md:min-w-[115px] h-auto rounded-sm bg-center bg-cover'
+          ></div>
+          <div class="flex-1 flex flex-col justify-between text-justify ">
+            <div class="flex flex-col gap-[3px] md:gap-2">
+              <h6 class="h-13 line-clamp-2">Damedol to Sekai ninoFan Da medol to Sekai ni  no Fan </h6>
+              <p class="h-6 md:h-12 line-clamp-1 md:line-clamp-2 text-white/40">
+                Lorem ipsum dolor, siti Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum neque optio dolorum quibusdam rem suscipit, nemo officia cum possimus adipisci consequuntur recusandae sapiente porro, incidunt exercitationem sit rerum. Laudantium, adipisci!. 
+              </p>
+            </div>
+            <div class="flex items-center justify-end sm:justify-between">
+              <p class="md:text-base text-sm md:font-bold italic hidden sm:block">Author Name</p>
+              <div class="flex gap-[5px] md:gap-2">
+                <a href="#" class="flex items-center justify-center bg-[#FC304B] hover:bg-[#E32B43] py-1 md:py-2 px-4 md:px-5 rounded-sm md:text-sm text-xs">Read Now</a>
+                <button class="flex items-center justify-center"><i class="fa-solid fa-bookmark bg-[#4252FF] p-2 md:p-3 rounded-sm md:text-sm text-xs"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-row w-full h-[120px] md:min-h-[200px] bg-[#1E1F1F] p-2 md:p-5 gap-3 md:gap-4 md:text-base text-sm">
+          <div
+            style="background-image: url('../assets/cover.jpg')"
+            class='min-w-[64px] md:min-w-[115px] h-auto rounded-sm bg-center bg-cover'
+          ></div>
+          <div class="flex-1 flex flex-col justify-between text-justify ">
+            <div class="flex flex-col gap-[3px] md:gap-2">
+              <h6 class="h-13 line-clamp-2">Damedol to Sekai ninoFan Da medol to Sekai ni  no Fan </h6>
+              <p class="h-6 md:h-12 line-clamp-1 md:line-clamp-2 text-white/40">
+                Lorem ipsum dolor, siti Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum neque optio dolorum quibusdam rem suscipit, nemo officia cum possimus adipisci consequuntur recusandae sapiente porro, incidunt exercitationem sit rerum. Laudantium, adipisci!. 
+              </p>
+            </div>
+            <div class="flex items-center justify-end sm:justify-between">
+              <p class="md:text-base text-sm md:font-bold italic hidden sm:block">Author Name</p>
+              <div class="flex gap-[5px] md:gap-2">
+                <a href="#" class="flex items-center justify-center bg-[#FC304B] hover:bg-[#E32B43] py-1 md:py-2 px-4 md:px-5 rounded-sm md:text-sm text-xs">Read Now</a>
+                <button class="flex items-center justify-center"><i class="fa-solid fa-bookmark bg-[#4252FF] p-2 md:p-3 rounded-sm md:text-sm text-xs"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-row w-full h-[120px] md:min-h-[200px] bg-[#1E1F1F] p-2 md:p-5 gap-3 md:gap-4 md:text-base text-sm">
+          <div
+            style="background-image: url('../assets/cover.jpg')"
+            class='min-w-[64px] md:min-w-[115px] h-auto rounded-sm bg-center bg-cover'
+          ></div>
+          <div class="flex-1 flex flex-col justify-between text-justify ">
+            <div class="flex flex-col gap-[3px] md:gap-2">
+              <h6 class="h-13 line-clamp-2">Damedol to Sekai ninoFan Da medol to Sekai ni  no Fan </h6>
+              <p class="h-6 md:h-12 line-clamp-1 md:line-clamp-2 text-white/40">
+                Lorem ipsum dolor, siti Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum neque optio dolorum quibusdam rem suscipit, nemo officia cum possimus adipisci consequuntur recusandae sapiente porro, incidunt exercitationem sit rerum. Laudantium, adipisci!. 
+              </p>
+            </div>
+            <div class="flex items-center justify-end sm:justify-between">
+              <p class="md:text-base text-sm md:font-bold italic hidden sm:block">Author Name</p>
+              <div class="flex gap-[5px] md:gap-2">
+                <a href="#" class="flex items-center justify-center bg-[#FC304B] hover:bg-[#E32B43] py-1 md:py-2 px-4 md:px-5 rounded-sm md:text-sm text-xs">Read Now</a>
+                <button class="flex items-center justify-center"><i class="fa-solid fa-bookmark bg-[#4252FF] p-2 md:p-3 rounded-sm md:text-sm text-xs"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <!-- READING HISTORY -->
+        <!-- <div class="bg-[#1E1F1F]">
+          <div class="grid grid-cols-1 scroll-container overflow-auto max-h-[300px] sm:max-h-[400px] md:max-h-[500px] lg:max-h-[600px]">
+            <div class="flex justify-between gap-1 border-white/5 border-b-[1px] min-h-[75px] md:min-h-[140px] p-2 md:p-4 cursor-pointer hover:bg-[#212121]">
+              <div class="flex gap-2 md:gap-4">
+                <div
+                  style="background-image: url('../assets/cover.jpg')"
+                  class='w-[40px] md:w-[72px] h-auto rounded-sm bg-center bg-cover'
+                ></div>
+                <div class="flex flex-col w-[160px] md:w-auto">
+                  <p class="md:text-base text-sm line-clamp-2">Damedol to Sekai ninoFan Da medol to Sekai ni  no Fan</p>
+                  <p class="text-white/40 md:text-base text-xs">Chapter 46</p>
+                </div>
+              </div>
+              <p class="md:text-base text-xs">2 days ago</p>
+            </div>
+            <div class="flex justify-between border-white/5 border-b-[1px] min-h-[75px] md:min-h-[140px] p-2 md:p-4 cursor-pointer hover:bg-[#212121]">
+              <div class="flex gap-2 md:gap-4">
+                <div
+                  style="background-image: url('../assets/cover.jpg')"
+                  class='w-[40px] md:w-[72px] h-auto rounded-sm bg-center bg-cover'
+                ></div>
+                <div class="flex flex-col w-[160px] md:w-auto">
+                  <p class="md:text-base text-sm line-clamp-2">Damedol to Sekai ninoFan Da medol to Sekai ni  no Fan</p>
+                  <p class="text-white/40 md:text-base text-xs">Chapter 46</p>
+                </div>
+              </div>
+              <p class="md:text-base text-xs">2 days ago</p>
+            </div>
+            <div class="flex justify-between border-white/5 border-b-[1px] min-h-[75px] md:min-h-[140px] p-2 md:p-4 cursor-pointer hover:bg-[#212121]">
+              <div class="flex gap-2 md:gap-4">
+                <div
+                  style="background-image: url('../assets/cover.jpg')"
+                  class='w-[40px] md:w-[72px] h-auto rounded-sm bg-center bg-cover'
+                ></div>
+                <div class="flex flex-col w-[160px] md:w-auto">
+                  <p class="md:text-base text-sm line-clamp-2">Damedol to Sekai ninoFan Da medol to Sekai ni  no Fan</p>
+                  <p class="text-white/40 md:text-base text-xs">Chapter 46</p>
+                </div>
+              </div>
+              <p class="md:text-base text-xs">2 days ago</p>
+            </div>
+            <div class="flex justify-between border-white/5 border-b-[1px] min-h-[75px] md:min-h-[140px] p-2 md:p-4 cursor-pointer hover:bg-[#212121]">
+              <div class="flex gap-2 md:gap-4">
+                <div
+                  style="background-image: url('../assets/cover.jpg')"
+                  class='w-[40px] md:w-[72px] h-auto rounded-sm bg-center bg-cover'
+                ></div>
+                <div class="flex flex-col w-[160px] md:w-auto">
+                  <p class="md:text-base text-sm line-clamp-2">Damedol to Sekai ninoFan Da medol to Sekai ni  no Fan</p>
+                  <p class="text-white/40 md:text-base text-xs">Chapter 46</p>
+                </div>
+              </div>
+              <p class="md:text-base text-xs">2 days ago</p>
+            </div>
+            <div class="flex justify-between border-white/5 border-b-[1px] min-h-[75px] md:min-h-[140px] p-2 md:p-4 cursor-pointer hover:bg-[#212121]">
+              <div class="flex gap-2 md:gap-4">
+                <div
+                  style="background-image: url('../assets/cover.jpg')"
+                  class='w-[40px] md:w-[72px] h-auto rounded-sm bg-center bg-cover'
+                ></div>
+                <div class="flex flex-col w-[160px] md:w-auto">
+                  <p class="md:text-base text-sm line-clamp-2">Damedol to Sekai ninoFan Da medol to Sekai ni  no Fan</p>
+                  <p class="text-white/40 md:text-base text-xs">Chapter 46</p>
+                </div>
+              </div>
+              <p class="md:text-base text-xs">2 days ago</p>
+            </div>
+            <div class="flex justify-between border-white/5 border-b-[1px] min-h-[75px] md:min-h-[140px] p-2 md:p-4 cursor-pointer hover:bg-[#212121]">
+              <div class="flex gap-2 md:gap-4">
+                <div
+                  style="background-image: url('../assets/cover.jpg')"
+                  class='w-[40px] md:w-[72px] h-auto rounded-sm bg-center bg-cover'
+                ></div>
+                <div class="flex flex-col w-[160px] md:w-auto">
+                  <p class="md:text-base text-sm line-clamp-2">Damedol to Sekai ninoFan Da medol to Sekai ni  no Fan</p>
+                  <p class="text-white/40 md:text-base text-xs">Chapter 46</p>
+                </div>
+              </div>
+              <p class="md:text-base text-xs">2 days ago</p>
+            </div>
+            <div class="flex justify-between border-white/5 border-b-[1px] min-h-[75px] md:min-h-[140px] p-2 md:p-4 cursor-pointer hover:bg-[#212121]">
+              <div class="flex gap-2 md:gap-4">
+                <div
+                  style="background-image: url('../assets/cover.jpg')"
+                  class='w-[40px] md:w-[72px] h-auto rounded-sm bg-center bg-cover'
+                ></div>
+                <div class="flex flex-col w-[160px] md:w-auto">
+                  <p class="md:text-base text-sm line-clamp-2">Damedol to Sekai ninoFan Da medol to Sekai ni  no Fan</p>
+                  <p class="text-white/40 md:text-base text-xs">Chapter 46</p>
+                </div>
+              </div>
+              <p class="md:text-base text-xs">2 days ago</p>
+            </div>
+            <div class="flex justify-between border-white/5 border-b-[1px] min-h-[75px] md:min-h-[140px] p-2 md:p-4 cursor-pointer hover:bg-[#212121]">
+              <div class="flex gap-2 md:gap-4">
+                <div
+                  style="background-image: url('../assets/cover.jpg')"
+                  class='w-[40px] md:w-[72px] h-auto rounded-sm bg-center bg-cover'
+                ></div>
+                <div class="flex flex-col w-[160px] md:w-auto">
+                  <p class="md:text-base text-sm line-clamp-2">Damedol to Sekai ninoFan Da medol to Sekai ni  no Fan</p>
+                  <p class="text-white/40 md:text-base text-xs">Chapter 46</p>
+                </div>
+              </div>
+              <p class="md:text-base text-xs">2 days ago</p>
+            </div>
+            <div class="flex justify-between border-white/5 border-b-[1px] min-h-[75px] md:min-h-[140px] p-2 md:p-4 cursor-pointer hover:bg-[#212121]">
+              <div class="flex gap-2 md:gap-4">
+                <div
+                  style="background-image: url('../assets/cover.jpg')"
+                  class='w-[40px] md:w-[72px] h-auto rounded-sm bg-center bg-cover'
+                ></div>
+                <div class="flex flex-col w-[160px] md:w-auto">
+                  <p class="md:text-base text-sm line-clamp-2">Damedol to Sekai ninoFan Da medol to Sekai ni  no Fan</p>
+                  <p class="text-white/40 md:text-base text-xs">Chapter 46</p>
+                </div>
+              </div>
+              <p class="md:text-base text-xs">2 days ago</p>
+            </div>
+            <div class="flex justify-between border-white/5 border-b-[1px] min-h-[75px] md:min-h-[140px] p-2 md:p-4 cursor-pointer hover:bg-[#212121]">
+              <div class="flex gap-2 md:gap-4">
+                <div
+                  style="background-image: url('../assets/cover.jpg')"
+                  class='w-[40px] md:w-[72px] h-auto rounded-sm bg-center bg-cover'
+                ></div>
+                <div class="flex flex-col w-[160px] md:w-auto">
+                  <p class="md:text-base text-sm line-clamp-2">Damedol to Sekai ninoFan Da medol to Sekai ni  no Fan</p>
+                  <p class="text-white/40 md:text-base text-xs">Chapter 46</p>
+                </div>
+              </div>
+              <p class="md:text-base text-xs">2 days ago</p>
+            </div>
+          </div>
+        </div> -->
+      <!-- </section> -->
+
+      <!-- ! SERIES -->
+      <!-- <section class="w-full">
+        <div class="bg-[#1E1F1F] py-3 px-3 lg:text-base md:text-sm text-xs">
+          <div class="flex gap-2">
+            <input type="text" placeholder="Search..." class="w-full py-3 px-4 outline-none bg-[#121213]">
+            <div class="flex items-center justify-center gap-2 px-5 bg-white/5 cursor-pointer">
+              <i class="fa-solid fa-filter"></i>
+              <p>Filter</p>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between gap-2 mt-3 lg:text-base md:text-sm text-xs">
+          <div id="sort-by-btn" class="relative w-[220px] cursor-pointer group">
+            <div class="flex justify-between items-center py-2 px-4 bg-[#1E1F1F] rounded-sm">
+              <div>
+                <p class="md:text-sm text-xs text-white/20">Sort By</p>
+                <span id="sort-by-selected">Latest Upload</span>
+              </div>
+              <i class="fa-solid fa-chevron-down"></i>
+            </div>
+            <ul id="sort-by-menu" class="absolute flex-col bg-[#1E1F1F] rounded-sm w-full cursor-pointer top-[62px] left-0 hidden group-open:block">
+              <li class="p-4 hover:bg-white/5">Latest Upload</li>
+              <li class="p-4 hover:bg-white/5">Oldest Upload</li>
+              <li class="p-4 hover:bg-white/5">Title Ascending</li>
+              <li class="p-4 hover:bg-white/5">Title Descending</li>
+            </ul>
+          </div>
+          <div class="flex gap-2 md:gap-3">
+            <button><i class="fa-solid fa-list p-[15px] md:p-5 bg-[#1E1F1F] text-base sm:text-lg md:text-xl"></i></button>
+            <button><i class="fa-solid fa-grip p-[15px] md:p-5 bg-[#1E1F1F] text-base sm:text-lg md:text-xl"></i></button>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 xl:grid-cols-2 gap-2 md:gap-3 mt-3">
+          <div class="flex flex-row w-full h-[125px] md:min-h-[220px] bg-[#1E1F1F] p-2 md:p-5 gap-3 md:gap-4 md:text-base text-sm cursor-pointer hover:opacity-70">
+            <div
+              style="background-image: url('../assets/cover.jpg')"
+              class='min-w-[64px] md:min-w-[115px] h-auto rounded-sm bg-center bg-cover'
+            ></div>
+            <div class="flex-1 flex flex-col justify-between text-justify ">
+              <div class="flex flex-col gap-[3px] md:gap-2">
+                <h6 class="h-13 line-clamp-2">Damedol to Sekai ninoFan Da medol to Sekai ni  no Fan </h6>
+                <div class="flex gap-2">
+                  <span class="px-2 bg-white/20 text-xs md:text-sm rounded-md">Action</span>
+                </div>
+                <p class="h-6 md:h-12 line-clamp-1 md:line-clamp-2 text-white/40">
+                  Lorem ipsum dolor, siti Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum neque optio dolorum quibusdam rem suscipit, nemo officia cum possimus adipisci consequuntur recusandae sapiente porro, incidunt exercitationem sit rerum. Laudantium, adipisci!. 
+                </p>
+                <div class="flex items-center gap-2 md:text-base sm:text-sm text-xs">
+                  <i class="fa-regular fa-star"></i>
+                  <p>9.00</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-row w-full h-[125px] md:min-h-[220px] bg-[#1E1F1F] p-2 md:p-5 gap-3 md:gap-4 md:text-base text-sm cursor-pointer hover:opacity-70">
+            <div
+              style="background-image: url('../assets/cover.jpg')"
+              class='min-w-[64px] md:min-w-[115px] h-auto rounded-sm bg-center bg-cover'
+            ></div>
+            <div class="flex-1 flex flex-col justify-between text-justify ">
+              <div class="flex flex-col gap-[3px] md:gap-2">
+                <h6 class="h-13 line-clamp-2">Damedol to Sekai ninoFan Da medol to Sekai ni  no Fan </h6>
+                <div class="flex gap-2">
+                  <span class="px-2 bg-white/20 text-xs md:text-sm rounded-md">Action</span>
+                </div>
+                <p class="h-6 md:h-12 line-clamp-1 md:line-clamp-2 text-white/40">
+                  Lorem ipsum dolor, siti Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum neque optio dolorum quibusdam rem suscipit, nemo officia cum possimus adipisci consequuntur recusandae sapiente porro, incidunt exercitationem sit rerum. Laudantium, adipisci!. 
+                </p>
+                <div class="flex items-center gap-2 md:text-base sm:text-sm text-xs">
+                  <i class="fa-regular fa-star"></i>
+                  <p>9.00</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-row w-full h-[125px] md:min-h-[220px] bg-[#1E1F1F] p-2 md:p-5 gap-3 md:gap-4 md:text-base text-sm cursor-pointer hover:opacity-70">
+            <div
+              style="background-image: url('../assets/cover.jpg')"
+              class='min-w-[64px] md:min-w-[115px] h-auto rounded-sm bg-center bg-cover'
+            ></div>
+            <div class="flex-1 flex flex-col justify-between text-justify ">
+              <div class="flex flex-col gap-[3px] md:gap-2">
+                <h6 class="h-13 line-clamp-2">Damedol to Sekai ninoFan Da medol to Sekai ni  no Fan </h6>
+                <div class="flex gap-2">
+                  <span class="px-2 bg-white/20 text-xs md:text-sm rounded-md">Action</span>
+                </div>
+                <p class="h-6 md:h-12 line-clamp-1 md:line-clamp-2 text-white/40">
+                  Lorem ipsum dolor, siti Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum neque optio dolorum quibusdam rem suscipit, nemo officia cum possimus adipisci consequuntur recusandae sapiente porro, incidunt exercitationem sit rerum. Laudantium, adipisci!. 
+                </p>
+                <div class="flex items-center gap-2 md:text-base sm:text-sm text-xs">
+                  <i class="fa-regular fa-star"></i>
+                  <p>9.00</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-row w-full h-[125px] md:min-h-[220px] bg-[#1E1F1F] p-2 md:p-5 gap-3 md:gap-4 md:text-base text-sm cursor-pointer hover:opacity-70">
+            <div
+              style="background-image: url('../assets/cover.jpg')"
+              class='min-w-[64px] md:min-w-[115px] h-auto rounded-sm bg-center bg-cover'
+            ></div>
+            <div class="flex-1 flex flex-col justify-between text-justify ">
+              <div class="flex flex-col gap-[3px] md:gap-2">
+                <h6 class="h-13 line-clamp-2">Damedol to Sekai ninoFan Da medol to Sekai ni  no Fan </h6>
+                <div class="flex gap-2">
+                  <span class="px-2 bg-white/20 text-xs md:text-sm rounded-md">Action</span>
+                </div>
+                <p class="h-6 md:h-12 line-clamp-1 md:line-clamp-2 text-white/40">
+                  Lorem ipsum dolor, siti Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum neque optio dolorum quibusdam rem suscipit, nemo officia cum possimus adipisci consequuntur recusandae sapiente porro, incidunt exercitationem sit rerum. Laudantium, adipisci!. 
+                </p>
+                <div class="flex items-center gap-2 md:text-base sm:text-sm text-xs">
+                  <i class="fa-regular fa-star"></i>
+                  <p>9.00</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-row w-full h-[125px] md:min-h-[220px] bg-[#1E1F1F] p-2 md:p-5 gap-3 md:gap-4 md:text-base text-sm cursor-pointer hover:opacity-70">
+            <div
+              style="background-image: url('../assets/cover.jpg')"
+              class='min-w-[64px] md:min-w-[115px] h-auto rounded-sm bg-center bg-cover'
+            ></div>
+            <div class="flex-1 flex flex-col justify-between text-justify ">
+              <div class="flex flex-col gap-[3px] md:gap-2">
+                <h6 class="h-13 line-clamp-2">Damedol to Sekai ninoFan Da medol to Sekai ni  no Fan </h6>
+                <div class="flex gap-2">
+                  <span class="px-2 bg-white/20 text-xs md:text-sm rounded-md">Action</span>
+                </div>
+                <p class="h-6 md:h-12 line-clamp-1 md:line-clamp-2 text-white/40">
+                  Lorem ipsum dolor, siti Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum neque optio dolorum quibusdam rem suscipit, nemo officia cum possimus adipisci consequuntur recusandae sapiente porro, incidunt exercitationem sit rerum. Laudantium, adipisci!. 
+                </p>
+                <div class="flex items-center gap-2 md:text-base sm:text-sm text-xs">
+                  <i class="fa-regular fa-star"></i>
+                  <p>9.00</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-row w-full h-[125px] md:min-h-[220px] bg-[#1E1F1F] p-2 md:p-5 gap-3 md:gap-4 md:text-base text-sm cursor-pointer hover:opacity-70">
+            <div
+              style="background-image: url('../assets/cover.jpg')"
+              class='min-w-[64px] md:min-w-[115px] h-auto rounded-sm bg-center bg-cover'
+            ></div>
+            <div class="flex-1 flex flex-col justify-between text-justify ">
+              <div class="flex flex-col gap-[3px] md:gap-2">
+                <h6 class="h-13 line-clamp-2">Damedol to Sekai ninoFan Da medol to Sekai ni  no Fan </h6>
+                <div class="flex gap-2">
+                  <span class="px-2 bg-white/20 text-xs md:text-sm rounded-md">Action</span>
+                </div>
+                <p class="h-6 md:h-12 line-clamp-1 md:line-clamp-2 text-white/40">
+                  Lorem ipsum dolor, siti Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum neque optio dolorum quibusdam rem suscipit, nemo officia cum possimus adipisci consequuntur recusandae sapiente porro, incidunt exercitationem sit rerum. Laudantium, adipisci!. 
+                </p>
+                <div class="flex items-center gap-2 md:text-base sm:text-sm text-xs">
+                  <i class="fa-regular fa-star"></i>
+                  <p>9.00</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-row w-full h-[125px] md:min-h-[220px] bg-[#1E1F1F] p-2 md:p-5 gap-3 md:gap-4 md:text-base text-sm cursor-pointer hover:opacity-70">
+            <div
+              style="background-image: url('../assets/cover.jpg')"
+              class='min-w-[64px] md:min-w-[115px] h-auto rounded-sm bg-center bg-cover'
+            ></div>
+            <div class="flex-1 flex flex-col justify-between text-justify ">
+              <div class="flex flex-col gap-[3px] md:gap-2">
+                <h6 class="h-13 line-clamp-2">Damedol to Sekai ninoFan Da medol to Sekai ni  no Fan </h6>
+                <div class="flex gap-2">
+                  <span class="px-2 bg-white/20 text-xs md:text-sm rounded-md">Action</span>
+                </div>
+                <p class="h-6 md:h-12 line-clamp-1 md:line-clamp-2 text-white/40">
+                  Lorem ipsum dolor, siti Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum neque optio dolorum quibusdam rem suscipit, nemo officia cum possimus adipisci consequuntur recusandae sapiente porro, incidunt exercitationem sit rerum. Laudantium, adipisci!. 
+                </p>
+                <div class="flex items-center gap-2 md:text-base sm:text-sm text-xs">
+                  <i class="fa-regular fa-star"></i>
+                  <p>9.00</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-row w-full h-[125px] md:min-h-[220px] bg-[#1E1F1F] p-2 md:p-5 gap-3 md:gap-4 md:text-base text-sm cursor-pointer hover:opacity-70">
+            <div
+              style="background-image: url('../assets/cover.jpg')"
+              class='min-w-[64px] md:min-w-[115px] h-auto rounded-sm bg-center bg-cover'
+            ></div>
+            <div class="flex-1 flex flex-col justify-between text-justify ">
+              <div class="flex flex-col gap-[3px] md:gap-2">
+                <h6 class="h-13 line-clamp-2">Damedol to Sekai ninoFan Da medol to Sekai ni  no Fan </h6>
+                <div class="flex gap-2">
+                  <span class="px-2 bg-white/20 text-xs md:text-sm rounded-md">Action</span>
+                </div>
+                <p class="h-6 md:h-12 line-clamp-1 md:line-clamp-2 text-white/40">
+                  Lorem ipsum dolor, siti Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum neque optio dolorum quibusdam rem suscipit, nemo officia cum possimus adipisci consequuntur recusandae sapiente porro, incidunt exercitationem sit rerum. Laudantium, adipisci!. 
+                </p>
+                <div class="flex items-center gap-2 md:text-base sm:text-sm text-xs">
+                  <i class="fa-regular fa-star"></i>
+                  <p>9.00</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center justify-center mt-6 lg:text-base md:text-sm text-xs">
+          <div class="flex items-center justify-center gap-2 flex-wrap">
+            <button class="flex items-center justify-center p-3 sm:p-4 rounded-sm bg-[#FC304B] hover:bg-[#E32B43] h-10 gap-2"><i class="fa-solid fa-chevron-left text-xs"></i> Prev</button>
+            <button class="flex items-center justify-center p-3 sm:p-4 rounded-sm bg-white/10 hover:bg-white/20 h-10">1</button>
+            <button class="flex items-center justify-center p-3 sm:p-4 rounded-sm bg-white/10 hover:bg-white/20 h-10">2</button>
+            <button class="flex items-center justify-center p-3 sm:p-4 rounded-sm bg-white/10 hover:bg-white/20 h-10">275</button>
+            <button class="flex items-center justify-center p-3 sm:p-4 rounded-sm bg-[#FC304B] hover:bg-[#E32B43] h-10 gap-2">Next <i class="fa-solid fa-chevron-right text-xs"></i></button>
+          </div>
+        </div>
+      </section> -->
+
+      <!-- ! DETAIL -->
+      <!-- <section class="w-full flex items-center md:items-start flex-col md:flex-row gap-3 lg:gap-5 md:text-base text-sm"> -->
+      <!-- LEFT -->
+      <!-- <div class="flex flex-col items-center md:items-start justify-center md:justify-start gap-3 w-full md:max-w-[240px] lg:max-w-[300px] h-auto md:min-h-[850px] lg:text-base md:text-sm text-xs">
+          <div class="max-w-[400px] md:w-auto">
+            <img src="../assets/cover.jpg" alt="" class="w-auto h-auto rounded-sm bg-center bg-cover">
+          </div>
+          <button class="p-3 bg-[#4252FF] hover:bg-[#3C4BEC] w-full rounded-sm flex justify-center items-center gap-3 "><i class="fa-solid fa-bookmark"></i>Bookmark</button>
+          <div class="p-4 bg-[#1E1F1F] w-full rounded-sm">
+            <div class="flex justify-between py-1 md:py-2">
+              <p class="text-white/40">Type</p>
+              <p>Comic</p>
+            </div>
+            <div class="flex justify-between py-1 md:py-2">
+              <p class="text-white/40">Released</p>
+              <p>2022</p>
+            </div>
+            <div class="flex justify-between py-1 md:py-2">
+              <p class="text-white/40">Author</p>
+              <p>Author Name</p>
+            </div>
+            <div class="flex justify-between py-1 md:py-2">
+              <p class="text-white/40">Updated On</p>
+              <p>22 Jul 2023</p>
+            </div>
+            <div class="flex justify-between py-1 md:py-2">
+              <p class="text-white/40">Status</p>
+              <p>Ongoing</p>
+            </div>
+            <div class="flex justify-between py-1 md:py-2">
+              <p class="text-white/40">Total Chapters</p>
+              <p>45</p>
+            </div>
+          </div>
+        </div> -->
+      <!-- RIGHT -->
+      <!-- <div class="flex-1 flex flex-col text-justify gap-3">
+          <div class="flex flex-col justify-between p-4 bg-[#1E1F1F] min-h-[300px] md:min-h-[350px] rounded-sm">
+            <div class="flex flex-col gap-2 md:gap-3">
+              <h4 class="line-clamp-2">Damedol to Sekai ninoFan Da medol to Sekai ni no Fan</h4>
+              <div class="flex gap-2">
+                <span class="px-4 bg-white/30 text-xs md:text-sm rounded-lg">Action</span>
+              </div>
+              <p class="text-white/40 max-h-[120px] scroll-container overflow-auto">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, magnam assumenda pariatur quod ipsam corrupti neque possimus, maxime recusandae eveniet, optio consequuntur voluptate? Cum debitis consequatur veniam cumque. Culpa, beatae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae dolore aut ex sit debitis minima aspernatur ipsam quibusdam culpa, ducimus, accusantium atque odit porro asperiores praesentium quis perferendis iure provident? Lorem ipsum dolor, siti Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum neque optio dolorum quibusdam rem suscipit, nemo officia cum possimus adipisci consequuntur recusandae sapiente porro, incidunt exercitationem sit rerum. Laudantium, adipisci!. 
+              </p>
+            </div>
+            <div class="flex gap-3">
+              <a href="#" class="py-2 md:py-3 px-3 md:px-5 bg-[#FC304B] hover:bg-[#E32B43] lg:text-base md:text-sm text-xs">First Chapter</a>
+              <a href="#" class="py-2 md:py-3 px-3 md:px-6 bg-[#FC304B] hover:bg-[#E32B43] lg:text-base md:text-sm text-xs">Latest Chapter</a>
+            </div>
+          </div>
+          <div class="flex flex-col gap-3 p-4 bg-[#1E1F1F] rounded-sm">
+            <p class="font-bold">Chapters</p>
+            <hr class="mb-2">
+            <div class="grid grid-cols-1 gap-2 max-h-[475px] scroll-container overflow-auto">
+              <div class="bg-white/5 p-3 cursor-pointer hover:bg-white/10">
+                <div class="w-full flex justify-between items-center">
+                  <p>Chapter 1</p>
+                  <p class="text-white/40 md:text-sm text-xs">15 days ago</p>
+                </div>
+                <p class="text-white/40">AsuraScans</p>
+              </div>
+              <div class="bg-white/5 p-3 cursor-pointer hover:bg-white/10">
+                <div class="w-full flex justify-between items-center">
+                  <p>Chapter 1</p>
+                  <p class="text-white/40 md:text-sm text-xs">15 days ago</p>
+                </div>
+                <p class="text-white/40">AsuraScans</p>
+              </div>
+              <div class="bg-white/5 p-3 cursor-pointer hover:bg-white/10">
+                <div class="w-full flex justify-between items-center">
+                  <p>Chapter 1</p>
+                  <p class="text-white/40 md:text-sm text-xs">15 days ago</p>
+                </div>
+                <p class="text-white/40">AsuraScans</p>
+              </div>
+              <div class="bg-white/5 p-3 cursor-pointer hover:bg-white/10">
+                <div class="w-full flex justify-between items-center">
+                  <p>Chapter 1</p>
+                  <p class="text-white/40 md:text-sm text-xs">15 days ago</p>
+                </div>
+                <p class="text-white/40">AsuraScans</p>
+              </div>
+              <div class="bg-white/5 p-3 cursor-pointer hover:bg-white/10">
+                <div class="w-full flex justify-between items-center">
+                  <p>Chapter 1</p>
+                  <p class="text-white/40 md:text-sm text-xs">15 days ago</p>
+                </div>
+                <p class="text-white/40">AsuraScans</p>
+              </div>
+              <div class="bg-white/5 p-3 cursor-pointer hover:bg-white/10">
+                <div class="w-full flex justify-between items-center">
+                  <p>Chapter 1</p>
+                  <p class="text-white/40 md:text-sm text-xs">15 days ago</p>
+                </div>
+                <p class="text-white/40">AsuraScans</p>
+              </div>
+              <div class="bg-white/5 p-3 cursor-pointer hover:bg-white/10">
+                <div class="w-full flex justify-between items-center">
+                  <p>Chapter 1</p>
+                  <p class="text-white/40 md:text-sm text-xs">15 days ago</p>
+                </div>
+                <p class="text-white/40">AsuraScans</p>
+              </div>
+              <div class="bg-white/5 p-3 cursor-pointer hover:bg-white/10">
+                <div class="w-full flex justify-between items-center">
+                  <p>Chapter 1</p>
+                  <p class="text-white/40 md:text-sm text-xs">15 days ago</p>
+                </div>
+                <p class="text-white/40">AsuraScans</p>
+              </div>
+              <div class="bg-white/5 p-3 cursor-pointer hover:bg-white/10">
+                <div class="w-full flex justify-between items-center">
+                  <p>Chapter 1</p>
+                  <p class="text-white/40 md:text-sm text-xs">15 days ago</p>
+                </div>
+                <p class="text-white/40">AsuraScans</p>
+              </div>
+              <div class="bg-white/5 p-3 cursor-pointer hover:bg-white/10">
+                <div class="w-full flex justify-between items-center">
+                  <p>Chapter 1</p>
+                  <p class="text-white/40 md:text-sm text-xs">15 days ago</p>
+                </div>
+                <p class="text-white/40">AsuraScans</p>
+              </div>
+              <div class="bg-white/5 p-3 cursor-pointer hover:bg-white/10">
+                <div class="w-full flex justify-between items-center">
+                  <p>Chapter 1</p>
+                  <p class="text-white/40 md:text-sm text-xs">15 days ago</p>
+                </div>
+                <p class="text-white/40">AsuraScans</p>
+              </div>
+              <div class="bg-white/5 p-3 cursor-pointer hover:bg-white/10">
+                <div class="w-full flex justify-between items-center">
+                  <p>Chapter 1</p>
+                  <p class="text-white/40 md:text-sm text-xs">15 days ago</p>
+                </div>
+                <p class="text-white/40">AsuraScans</p>
+              </div>
+              <div class="bg-white/5 p-3 cursor-pointer hover:bg-white/10">
+                <div class="w-full flex justify-between items-center">
+                  <p>Chapter 1</p>
+                  <p class="text-white/40 md:text-sm text-xs">15 days ago</p>
+                </div>
+                <p class="text-white/40">AsuraScans</p>
+              </div>
+              <div class="bg-white/5 p-3 cursor-pointer hover:bg-white/10">
+                <div class="w-full flex justify-between items-center">
+                  <p>Chapter 1</p>
+                  <p class="text-white/40 md:text-sm text-xs">15 days ago</p>
+                </div>
+                <p class="text-white/40">AsuraScans</p>
+              </div>
+              <div class="bg-white/5 p-3 cursor-pointer hover:bg-white/10">
+                <div class="w-full flex justify-between items-center">
+                  <p>Chapter 1</p>
+                  <p class="text-white/40 md:text-sm text-xs">15 days ago</p>
+                </div>
+                <p class="text-white/40">AsuraScans</p>
+              </div>
+              <div class="bg-white/5 p-3 cursor-pointer hover:bg-white/10">
+                <div class="w-full flex justify-between items-center">
+                  <p>Chapter 1</p>
+                  <p class="text-white/40 md:text-sm text-xs">15 days ago</p>
+                </div>
+                <p class="text-white/40">AsuraScans</p>
+              </div>
+              <div class="bg-white/5 p-3 cursor-pointer hover:bg-white/10">
+                <div class="w-full flex justify-between items-center">
+                  <p>Chapter 1</p>
+                  <p class="text-white/40 md:text-sm text-xs">15 days ago</p>
+                </div>
+                <p class="text-white/40">AsuraScans</p>
+              </div>
+              <div class="bg-white/5 p-3 cursor-pointer hover:bg-white/10">
+                <div class="w-full flex justify-between items-center">
+                  <p>Chapter 1</p>
+                  <p class="text-white/40 md:text-sm text-xs">15 days ago</p>
+                </div>
+                <p class="text-white/40">AsuraScans</p>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      <!-- </section> -->
+
+      <!-- ! CHAPTER -->
+      <!-- <section class="relative w-full flex flex-col md:text-base text-sm">
+        <div class="flex flex-col justify-center items-center">
+          <h4 class="text-center">Infinite Level up in Murim Chapter 157</h4>
+          <p class="text-center">All chapters are in <span class="text-[#FC304B] hover:text-[#E32B43] cursor-pointer">Infinite Level up in Murim</span></p>
+          <p class="text-white/40 text-center my-3 md:mt-4 md:mb-10">All the data including images and translation results from this comic are obtained exclusively from the Mangadex API, ensuring that there are no advertisements or any other additional elements added to it.</p>
+        </div>
+        <div class="flex flex-row justify-between items-center">
+          <div id="sort-by-btn" class="relative w-[150px] cursor-pointer group text-xs md:text-sm">
+            <div class="flex justify-between items-center py-2 px-4 bg-[#1E1F1F] rounded-sm">
+              <div>
+                <span id="sort-by-selected">Chapter 5</span>
+              </div>
+              <i class="fa-solid fa-chevron-down"></i>
+            </div>
+            <ul id="sort-by-menu" class="absolute flex-col bg-[#1E1F1F] rounded-sm w-full cursor-pointer scroll-container z-30 top-[38px] max-h-[165px] overflow-auto left-0 hidden group-open:block">
+              <li class="py-2 px-4 hover:bg-white/5">Chapter 10</li>
+              <li class="py-2 px-4 hover:bg-white/5">Chapter 9</li>
+              <li class="py-2 px-4 hover:bg-white/5">Chapter 8</li>
+              <li class="py-2 px-4 hover:bg-white/5">Chapter 7</li>
+              <li class="py-2 px-4 hover:bg-white/5">Chapter 6</li>
+              <li class="py-2 px-4 hover:bg-white/5">Chapter 5</li>
+              <li class="py-2 px-4 hover:bg-white/5">Chapter 4</li>
+              <li class="py-2 px-4 hover:bg-white/5">Chapter 3</li>
+              <li class="py-2 px-4 hover:bg-white/5">Chapter 2</li>
+              <li class="py-2 px-4 hover:bg-white/5">Chapter 1</li>
+            </ul>
+          </div>
+          <div class="flex gap-2">
+            <a href="#" class="py-2 px-4 md:px-5 bg-[#FC304B] hover:bg-[#E32B43] text-xs md:text-sm rounded-sm">Prev</a>
+            <a href="#" class="py-2 px-4 md:px-5 bg-[#FC304B] hover:bg-[#E32B43] text-xs md:text-sm rounded-sm">Next</a>
+          </div>
+        </div>
+        <div class="flex flex-col justify-between items-center my-4 md:my-10" class="w-max-[700px]">
+          <img src="../assets/chapter-page.png" alt="">
+          <img src="../assets/chapter-page.png" alt="">
+          <img src="../assets/chapter-page.png" alt="">
+          <img src="../assets/chapter-page.png" alt="">
+          <img src="../assets/chapter-page.png" alt="">
+          <img src="../assets/chapter-page.png" alt="">
+          <img src="../assets/chapter-page.png" alt="">
+        </div>
+        <div class="flex flex-row justify-between items-center">
+          <div id="sort-by-btn" class="relative w-[150px] cursor-pointer group text-xs md:text-sm">
+            <div class="flex justify-between items-center py-2 px-4 bg-[#1E1F1F] rounded-sm">
+              <div>
+                <span id="sort-by-selected">Chapter 5</span>
+              </div>
+              <i class="fa-solid fa-chevron-down"></i>
+            </div>
+            <ul id="sort-by-menu" class="absolute flex-col bg-[#1E1F1F] rounded-sm w-full cursor-pointer top-[35px] left-0 hidden group-open:block">
+              <li class="py-2 px-4 hover:bg-white/5">Chapter 5</li>
+              <li class="py-2 px-4 hover:bg-white/5">Chapter 4</li>
+              <li class="py-2 px-4 hover:bg-white/5">Chapter 3</li>
+              <li class="py-2 px-4 hover:bg-white/5">Chapter 2</li>
+              <li class="py-2 px-4 hover:bg-white/5">Chapter 1</li>
+            </ul>
+          </div>
+          <div class="flex gap-2">
+            <a href="#" class="py-2 px-4 md:px-5 bg-[#FC304B] hover:bg-[#E32B43] text-xs md:text-sm rounded-sm">Prev</a>
+            <a href="#" class="py-2 px-4 md:px-5 bg-[#FC304B] hover:bg-[#E32B43] text-xs md:text-sm rounded-sm">Next</a>
+          </div>
+        </div>
+        <div id="scroll-top-btn" class="fixed z-30 bottom-8 lg:bottom-12 right-7 w-[35px] md:w-[40px] h-[35px] md:h-[40px] flex justify-center items-center rounded-full bg-[#FC304B] hover:bg-[#E32B43] cursor-pointer"><i class="fa-solid fa-chevron-up text-xs md:text-sm font-bold"></i></div>
+      </section> -->
+
+      <!-- ! DONATE -->
+      <!-- <section class="max-w-[700px] max-h-[600px] mx-auto flex flex-col bg-[#1E1F1F] items-center px-4 py-8 md:p-12 lg:text-base md:text-sm text-xs md:mt-5">
+        <img src="../assets/logo.png" class="h-6 sm:h-7 md:h-9" />
+        <div class="grid grid-cols-2 gap-2 w-full mt-10 mb-3 md:mb-5">
+          <button class="p-4 bg-white/10 hover:bg-white/20 rounded-sm">Rp. 10.000</button>
+          <button class="p-4 bg-white/10 hover:bg-white/20 rounded-sm">Rp. 20.000</button>
+          <button class="p-4 bg-white/10 hover:bg-white/20 rounded-sm">Rp. 50.000</button>
+          <button class="p-4 bg-white/10 hover:bg-white/20 rounded-sm">Rp. 100.000</button>
+        </div>
+        <hr class="w-full border-[#FF3852]">
+        <form id="donate-form" class="flex flex-col gap-2 w-full mt-3 md:mt-5">
+          <div class="user-input-form">
+            <i class="fa-solid fa-rupiah-sign"></i>
+            <input
+              class="bg-transparent outline-none w-full"
+              type="text"
+              id="donate-username"
+              placeholder="Your donation amount"
+              autocomplete="off"
+              required
+            />
+          </div>
+          <div class="user-input-form">
+            <i class="fa-regular fa-envelope"></i>
+            <input
+              class="bg-transparent outline-none w-full"
+              type="email"
+              id="login-email"
+              placeholder="Your email"
+              autocomplete="off"
+              required
+            />
+          </div>
+          <button type="submit" class="w-full min-h-[48px] rounded-full bg-[#FC304B] hover:bg-[#E32B43] font-bold my-3 md:my-5">Donate</button>
+        </form>
+        <div class="flex gap-2 sm:gap-3 items-center justify-center p-2 bg-white/5 rounded-md">
+          <i class="fa-solid fa-circle-exclamation text-[#9a2b3a]"></i>
+          <p class="text-white/40 sm:text-xs text-[11px]">This donation page is only used for learning, in fact we will not be able to receive a penny of money that has been donated</p>
+        </div>
+      </section> -->
+
+      <!-- ! ABOUT -->
+      <!-- <section class="bg-[#1E1F1F] p-5 md:p-10 w-full flex flex-col gap-3 md:gap-6 text-justify md:text-base text-sm md:mt-3">
+        <h4 class="mb-2">About</h4>
+        <p>Welcome to Nekomics!</p>
+        <p>I created this website with the sole purpose of enriching my knowledge in the field of programming, focusing specifically on the JavaScript language, while also using it as a platform to showcase and build up my portfolio. Through this project, I aim to immerse myself in practical coding challenges, experiment with various JavaScript frameworks and libraries, and gain hands-on experience in web development.</p>
+        <p>By incorporating the design inspirations from websites like <span class="text-[#FC304B] hover:text-[#E32B43] cursor-pointer">Alandal</span> and <span class="text-[#FC304B] hover:text-[#E32B43] cursor-pointer">Realmscans</span>, I sought to create an aesthetically pleasing and user-friendly interface for my website. However, I want to emphasize that while I drew inspiration from these sources, I ensured that all the code and content I used were either original or appropriately attributed to their respective sources, adhering to ethical and legal practices.</p>
+        <p>Additionally, I want to credit MangaDex for providing the manga data and chapter images through their API. The manga data and chapter images displayed on this website are sourced from <span class="text-[#FC304B] hover:text-[#E32B43] cursor-pointer">MangaDex API</span>, and I am grateful for their valuable resources.</p>
+        <p>It is essential to clarify that this website does not generate any profits, and I have intentionally kept it ad-free and devoid of any commercial aspects. It exists solely for educational purposes and personal growth, with a focus on honing my programming skills and expanding my expertise in JavaScript.</p>
+        <p>I would be more than happy to receive feedback and constructive criticism from visitors to improve the website continually. For those interested in reaching out to me, please feel free to email me at <span class="underline">Alfalakhie@gmail.com</span> or find detailed contact information in the footer, specifically under the <span class="text-[#FC304B]">"Contact Us"</span> section.</p>
+      </section> -->
+    </main>
+    <!-- ! FOOTER -->
+    <footer class="flex-shrink-0 mt-16 w-full h-[205px] z-20 bg-[#1E1F1F] text-white font-bold">
+      <!-- DESKTOP -->
+      <div class="hidden flex-row px-8 lg:px-32 items-center justify-center py-12 md:flex">
+        <div class="flex items-center justify-start flex-1 gap-5 md:text-base text-sm">
+          <a href="#">About</a>
+          <a href="#" class="text-center">Privacy Policy</a>
+          <a href="#" class="text-center">Terms of Service</a>
+        </div>
+        <div class="flex-1 flex items-center justify-center">
+          <img src="../assets/logo.png" class="h-6 md:h-7 cursor-pointer" />
+        </div>
+        <div class="flex flex-1 items-center justify-end gap-5">
+          <p class="text-center md:text-base text-sm">Contact Us</p>
+          <i class="fa-brands fa-whatsapp md:text-2xl text-xl cursor-pointer"></i>
+          <i class="fa-solid fa-envelope md:text-2xl text-xl cursor-pointer"></i>
+          <i class="fa-brands fa-linkedin md:text-2xl text-xl cursor-pointer"></i>
+          <i class="fa-brands fa-instagram md:text-2xl text-xl cursor-pointer"></i>
+        </div>
+      </div>
+      <!-- MOBILE -->
+      <div class="flex flex-col px-6 md:px-8 py-6 md:hidden md:text-base text-sm">
+        <div class="flex-1 flex items-center">
+          <img src="../assets/logo.png" class="h-6 md:h-7 mb-4 cursor-pointer"/>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <a href="#">About</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <div class="flex flex-1 items-center gap-3 sm:gap-5">
+            <i class="fa-brands fa-whatsapp text-2xl cursor-pointer"></i>
+            <i class="fa-solid fa-envelope text-2xl cursor-pointer"></i>
+            <i class="fa-brands fa-linkedin text-2xl cursor-pointer"></i>
+            <i class="fa-brands fa-instagram text-2xl cursor-pointer"></i>
+          </div>
+        </div>
+      </div>
+      <hr class="border-white/10 mx-6 md:mx-8 lg:mx-32" />
+      <p class="py-5 text-center text-zinc-500 font-normal md:text-base sm:text-sm text-xs">
+        © 2023 Nekomics. All rights reserved.
+      </p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
