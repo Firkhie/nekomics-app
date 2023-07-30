@@ -2,25 +2,52 @@ const { default: axios } = require('axios');
 
 class ComicController {
   static async fetchComics(req, res, next) {
+    console.log(req.path)
     try {
+      let limitPage
+      let offsetPage
+      let queryOfParams
+
+      if (req.path === '/comics/popularcomics') {
+        limitPage = 6
+        offsetPage = 0
+        queryOfParams = {
+          'order[latestUploadedChapter]': 'desc',
+          'order[rating]': 'desc',
+        }
+      } else if (req.path === '/comics/latestcomics') {
+        limitPage = 10
+        offsetPage = 0
+        queryOfParams = {
+          'order[latestUploadedChapter]': 'desc',
+          'order[rating]': 'desc',
+        }
+      }
+
       const baseUrl = 'https://api.mangadex.org'
       const imageBaseUrl = 'https://uploads.mangadex.org'
-      let comics = await axios({
-        method: 'get',
-        url: `${baseUrl}/manga`
-      })
+      const comics = await axios.get(`${baseUrl}/manga`, {
+        params: {
+            limit: limitPage,
+            offset: offsetPage,
+            ...queryOfParams,
+        },
+      });
       
       let comicsData = await Promise.all(comics.data.data.map(async comic => {
+      let comicId = comic.id
       // Get comics rating
       let getRating = (await axios.get(`${baseUrl}/statistics/manga/${comic.id}`)).data.statistics
       let dataRating = Object.values(getRating)
       // Get latest chapter detail
       let chapterId = comic.attributes.latestUploadedChapter
       let latestChapter = (await axios.get(`${baseUrl}/chapter/${chapterId}`)).data.data
-      // Get cover art
+      // Get cover art picture
+      let coverArtId = comic.relationships.filter(relationship => relationship.type === 'cover_art')[0].id
+      let coverFileName =  (await axios.get(`${baseUrl}/cover/${coverArtId}`)).data.data.attributes.fileName
+      // let coverArt = (await axios.get(`${imageBaseUrl}/covers/${comicId}/${coverFileName}`, { responseType: 'stream' }))
+      let coverArt = `${imageBaseUrl}/covers/${comicId}/${coverFileName}`
       // let coverArtId = comic.relationships.filter(relationship => relationship.type === 'cover_art')[0].id
-      // let coverArt = (await axios.get(`${imageBaseUrl}/covers/${comicId}/${coverFileName}`, { responseType: 'arraybuffer' })).data
-      // let coverArtDataURI = `data:image/jpeg;base64,${Buffer.from(coverArt, 'binary').toString('base64')}`;
         return {
           id: comic.id,
           title: comic.attributes.altTitles.find(title => 'ja-ro' in title)?.['ja-ro'] || comic.attributes.title.en,
@@ -31,7 +58,7 @@ class ComicController {
           updatedAt: comic.attributes.updatedAt,
           latestChapter: latestChapter.attributes.chapter,
           publishAt: latestChapter.attributes.publishAt,
-          // coverArt:
+          coverArt: coverArt,
           rating: dataRating[0].rating.average
         }
       }))
@@ -59,7 +86,8 @@ class ComicController {
       let author = (await axios.get(`${baseUrl}/author/${authorId}`)).data.data.attributes.name
       // Get cover art picture
       let coverFileName =  (await axios.get(`${baseUrl}/cover/${coverArtId}`)).data.data.attributes.fileName
-      let coverArt = (await axios.get(`${imageBaseUrl}/covers/${comicId}/${coverFileName}`, { responseType: 'stream' }))
+      // let coverArt = (await axios.get(`${imageBaseUrl}/covers/${comicId}/${coverFileName}`, { responseType: 'stream' }))
+      let coverArt = `${imageBaseUrl}/covers/${comicId}/${coverFileName}`
       // Get all comic chapters based on english languange
       let chapters = await axios({
         method: 'get',
@@ -109,17 +137,17 @@ class ComicController {
         }),
         createdAt: comic.data.data.attributes.createdAt,
         updatedAt: comic.data.data.attributes.updatedAt,
-        // coverArt: coverArt,
+        coverArt: coverArt,
         author: author,
         rating: setRating,
         totalChapter: chapters.data.data.length,
         detailChapters: detailChapters
       }
 
-      let mimeType = coverFileName.endsWith('.png') ? 'image/png' : 'image/jpeg'
+      // let mimeType = coverFileName.endsWith('.png') ? 'image/png' : 'image/jpeg'
       // res.setHeader('Content-Type', mimeType);
-      
       // coverArt.data.pipe(res);
+      
       res.status(200).json(comicData)
     } catch (err) {
       console.log(err)

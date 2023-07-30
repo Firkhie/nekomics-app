@@ -440,6 +440,15 @@ html {
   font-family: "Ubuntu", sans-serif;
 }
 
+body{
+  position: relative;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  --tw-bg-opacity: 1;
+  background-color: rgb(18 18 19 / var(--tw-bg-opacity));
+}
+
 h1{
   font-size: 3.75rem;
   line-height: 1;
