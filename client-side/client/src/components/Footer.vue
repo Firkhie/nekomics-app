@@ -3,35 +3,35 @@
     <!-- DESKTOP -->
     <div class="hidden flex-row px-8 lg:px-32 items-center justify-center py-12 md:flex">
       <div class="flex items-center justify-start flex-1 gap-5 md:text-base text-sm">
-        <a href="#">About</a>
-        <a href="#" class="text-center">Privacy Policy</a>
-        <a href="#" class="text-center">Terms of Service</a>
+        <router-link to="/about">About</router-link>
+        <p class="text-center cursor-pointer">Privacy Policy</p>
+        <p class="text-center cursor-pointer">Terms of Service</p>
       </div>
       <div class="flex-1 flex items-center justify-center">
-        <img src="../assets/logo.png" class="h-6 md:h-7 cursor-pointer" />
+        <router-link to="/"><img src="../assets/logo.png" class="h-6 md:h-7" /></router-link>
       </div>
       <div class="flex flex-1 items-center justify-end gap-5">
         <p class="text-center md:text-base text-sm">Contact Us</p>
-        <i class="fa-brands fa-whatsapp md:text-2xl text-xl cursor-pointer"></i>
-        <i class="fa-solid fa-envelope md:text-2xl text-xl cursor-pointer"></i>
-        <i class="fa-brands fa-linkedin md:text-2xl text-xl cursor-pointer"></i>
-        <i class="fa-brands fa-instagram md:text-2xl text-xl cursor-pointer"></i>
+        <a href="https://wa.me/083834572348" target="_blank"><i class="fa-brands fa-whatsapp md:text-2xl text-xl cursor-pointer"></i></a>
+        <a href="mailto:alfalakhie@gmail.com" target="_blank"><i class="fa-solid fa-envelope md:text-2xl text-xl cursor-pointer"></i></a>
+        <a href="https://www.linkedin.com/in/firdigalfalakhi/" target="_blank"><i class="fa-brands fa-linkedin md:text-2xl text-xl cursor-pointer"></i></a>
+        <a href="https://github.com/Firkhie" target="_blank"><i class="fa-brands fa-github md:text-2xl text-xl cursor-pointer"></i></a>
       </div>
     </div>
     <!-- MOBILE -->
     <div class="flex flex-col px-6 md:px-8 py-6 md:hidden md:text-base text-sm">
       <div class="flex-1 flex items-center">
-        <img src="../assets/logo.png" class="h-6 md:h-7 mb-4 cursor-pointer"/>
+        <router-link to="/"><img src="../assets/logo.png" class="h-6 md:h-7 mb-4" /></router-link>
       </div>
       <div class="grid grid-cols-2 gap-3">
-        <a href="#">About</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
+        <router-link to="/about">About</router-link>
+        <p class="cursor-pointer">Privacy Policy</p>
+        <p class="cursor-pointer">Terms of Service</p>
         <div class="flex flex-1 items-center gap-3 sm:gap-5">
-          <i class="fa-brands fa-whatsapp text-2xl cursor-pointer"></i>
-          <i class="fa-solid fa-envelope text-2xl cursor-pointer"></i>
-          <i class="fa-brands fa-linkedin text-2xl cursor-pointer"></i>
-          <i class="fa-brands fa-instagram text-2xl cursor-pointer"></i>
+          <a href="https://wa.me/083834572348" target="_blank"><i class="fa-brands fa-whatsapp md:text-2xl text-xl cursor-pointer"></i></a>
+          <a href="mailto:alfalakhie@gmail.com" target="_blank"><i class="fa-solid fa-envelope md:text-2xl text-xl cursor-pointer"></i></a>
+          <a href="https://www.linkedin.com/in/firdigalfalakhi/" target="_blank"><i class="fa-brands fa-linkedin md:text-2xl text-xl cursor-pointer"></i></a>
+          <a href="https://github.com/Firkhie" target="_blank"><i class="fa-brands fa-github md:text-2xl text-xl cursor-pointer"></i></a>
         </div>
       </div>
     </div>

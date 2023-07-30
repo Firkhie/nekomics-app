@@ -1,11 +1,11 @@
 <template>
   <div class="grid grid-cols-1 xl:grid-cols-2 gap-2 md:gap-6 mt-2">
-    <div class="flex flex-row w-full h-[120px] md:min-h-[200px] bg-[#1E1F1F] p-2 md:p-5 gap-3 md:gap-4 md:text-base text-sm">
+    <div class="flex flex-row w-full h-[120px] md:min-h-[210px] bg-[#1E1F1F] p-2 md:p-5 gap-3 md:gap-4 md:text-base text-sm">
       <div
-        style="background-image: url('../assets/cover.jpg')"
+        style="background-image: url('src/assets/cover.jpg')"
         class='min-w-[64px] md:min-w-[115px] h-auto rounded-sm bg-center bg-cover'
       ></div>
-      <div class="flex-1 flex flex-col justify-between text-justify ">
+      <div class="flex-1 flex flex-col justify-between text-justify md:gap-2">
         <div class="flex flex-col gap-[3px] md:gap-2">
           <h6 class="h-13 line-clamp-2">Damedol to Sekai ninoFan Da medol to Sekai ni  no Fan </h6>
           <p class="h-6 md:h-12 line-clamp-1 md:line-clamp-2 text-white/40">
@@ -21,12 +21,12 @@
         </div>
       </div>
     </div>
-    <div class="flex flex-row w-full h-[120px] md:min-h-[200px] bg-[#1E1F1F] p-2 md:p-5 gap-3 md:gap-4 md:text-base text-sm">
+    <div class="flex flex-row w-full h-[120px] md:min-h-[210px] bg-[#1E1F1F] p-2 md:p-5 gap-3 md:gap-4 md:text-base text-sm">
       <div
-        style="background-image: url('../assets/cover.jpg')"
+        style="background-image: url('src/assets/cover.jpg')"
         class='min-w-[64px] md:min-w-[115px] h-auto rounded-sm bg-center bg-cover'
       ></div>
-      <div class="flex-1 flex flex-col justify-between text-justify ">
+      <div class="flex-1 flex flex-col justify-between text-justify md:gap-2">
         <div class="flex flex-col gap-[3px] md:gap-2">
           <h6 class="h-13 line-clamp-2">Damedol to Sekai ninoFan Da medol to Sekai ni  no Fan </h6>
           <p class="h-6 md:h-12 line-clamp-1 md:line-clamp-2 text-white/40">
@@ -42,12 +42,12 @@
         </div>
       </div>
     </div>
-    <div class="flex flex-row w-full h-[120px] md:min-h-[200px] bg-[#1E1F1F] p-2 md:p-5 gap-3 md:gap-4 md:text-base text-sm">
+    <div class="flex flex-row w-full h-[120px] md:min-h-[210px] bg-[#1E1F1F] p-2 md:p-5 gap-3 md:gap-4 md:text-base text-sm">
       <div
-        style="background-image: url('../assets/cover.jpg')"
+        style="background-image: url('src/assets/cover.jpg')"
         class='min-w-[64px] md:min-w-[115px] h-auto rounded-sm bg-center bg-cover'
       ></div>
-      <div class="flex-1 flex flex-col justify-between text-justify ">
+      <div class="flex-1 flex flex-col justify-between text-justify md:gap-2">
         <div class="flex flex-col gap-[3px] md:gap-2">
           <h6 class="h-13 line-clamp-2">Damedol to Sekai ninoFan Da medol to Sekai ni  no Fan </h6>
           <p class="h-6 md:h-12 line-clamp-1 md:line-clamp-2 text-white/40">

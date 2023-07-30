@@ -3,15 +3,15 @@
     <section class="w-full">
       <div class="bg-[#1E1F1F] py-3 px-3 lg:text-base md:text-sm text-xs">
         <div class="flex gap-2">
-          <input type="text" placeholder="Search..." class="w-full py-3 px-4 outline-none bg-[#121213]">
-          <div class="flex items-center justify-center gap-2 px-5 bg-white/5 cursor-pointer">
-            <i class="fa-solid fa-filter"></i>
-            <p>Filter</p>
+          <input type="text" placeholder="Type comic title..." class="w-full py-3 px-4 outline-none bg-[#121213]">
+          <div class="flex items-center justify-center gap-2 px-5 bg-white/5 hover:opacity-70 cursor-pointer">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <p>Search</p>
           </div>
         </div>
       </div>
-      <div class="flex items-center justify-between gap-2 mt-3 lg:text-base md:text-sm text-xs">
-        <div id="sort-by-btn" class="relative w-[220px] cursor-pointer group">
+      <div class="relative flex items-center justify-between gap-2 mt-3 lg:text-base md:text-sm text-xs">
+        <div id="sort-by-btn" class="relative w-[220px] cursor-pointer group" @click="toggleSortBy">
           <div class="flex justify-between items-center py-2 px-4 bg-[#1E1F1F] rounded-sm">
             <div>
               <p class="md:text-sm text-xs text-white/20">Sort By</p>
@@ -27,179 +27,12 @@
           </ul>
         </div>
         <div class="flex gap-2 md:gap-3">
-          <button><i class="fa-solid fa-list p-[15px] md:p-5 bg-[#1E1F1F] text-base sm:text-lg md:text-xl"></i></button>
-          <button><i class="fa-solid fa-grip p-[15px] md:p-5 bg-[#1E1F1F] text-base sm:text-lg md:text-xl"></i></button>
+          <button><i class="fa-solid fa-list px-4 md:px-5 py-3 md:py-4 bg-[#1E1F1F] hover:opacity-70 text-base md:text-lg lg:text-xl"></i></button>
+          <button><i class="fa-solid fa-grip px-4 md:px-5 py-3 md:py-4 bg-[#1E1F1F] hover:opacity-70 text-base md:text-lg lg:text-xl"></i></button>
         </div>
       </div>
       <div class="grid grid-cols-1 xl:grid-cols-2 gap-2 md:gap-3 mt-3">
-        <div class="flex flex-row w-full h-[125px] md:min-h-[220px] bg-[#1E1F1F] p-2 md:p-5 gap-3 md:gap-4 md:text-base text-sm cursor-pointer hover:opacity-70">
-          <div
-            style="background-image: url('../assets/cover.jpg')"
-            class='min-w-[64px] md:min-w-[115px] h-auto rounded-sm bg-center bg-cover'
-          ></div>
-          <div class="flex-1 flex flex-col justify-between text-justify ">
-            <div class="flex flex-col gap-[3px] md:gap-2">
-              <h6 class="h-13 line-clamp-2">Damedol to Sekai ninoFan Da medol to Sekai ni  no Fan </h6>
-              <div class="flex gap-2">
-                <span class="px-2 bg-white/20 text-xs md:text-sm rounded-md">Action</span>
-              </div>
-              <p class="h-6 md:h-12 line-clamp-1 md:line-clamp-2 text-white/40">
-                Lorem ipsum dolor, siti Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum neque optio dolorum quibusdam rem suscipit, nemo officia cum possimus adipisci consequuntur recusandae sapiente porro, incidunt exercitationem sit rerum. Laudantium, adipisci!. 
-              </p>
-              <div class="flex items-center gap-2 md:text-base sm:text-sm text-xs">
-                <i class="fa-regular fa-star"></i>
-                <p>9.00</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="flex flex-row w-full h-[125px] md:min-h-[220px] bg-[#1E1F1F] p-2 md:p-5 gap-3 md:gap-4 md:text-base text-sm cursor-pointer hover:opacity-70">
-          <div
-            style="background-image: url('../assets/cover.jpg')"
-            class='min-w-[64px] md:min-w-[115px] h-auto rounded-sm bg-center bg-cover'
-          ></div>
-          <div class="flex-1 flex flex-col justify-between text-justify ">
-            <div class="flex flex-col gap-[3px] md:gap-2">
-              <h6 class="h-13 line-clamp-2">Damedol to Sekai ninoFan Da medol to Sekai ni  no Fan </h6>
-              <div class="flex gap-2">
-                <span class="px-2 bg-white/20 text-xs md:text-sm rounded-md">Action</span>
-              </div>
-              <p class="h-6 md:h-12 line-clamp-1 md:line-clamp-2 text-white/40">
-                Lorem ipsum dolor, siti Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum neque optio dolorum quibusdam rem suscipit, nemo officia cum possimus adipisci consequuntur recusandae sapiente porro, incidunt exercitationem sit rerum. Laudantium, adipisci!. 
-              </p>
-              <div class="flex items-center gap-2 md:text-base sm:text-sm text-xs">
-                <i class="fa-regular fa-star"></i>
-                <p>9.00</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="flex flex-row w-full h-[125px] md:min-h-[220px] bg-[#1E1F1F] p-2 md:p-5 gap-3 md:gap-4 md:text-base text-sm cursor-pointer hover:opacity-70">
-          <div
-            style="background-image: url('../assets/cover.jpg')"
-            class='min-w-[64px] md:min-w-[115px] h-auto rounded-sm bg-center bg-cover'
-          ></div>
-          <div class="flex-1 flex flex-col justify-between text-justify ">
-            <div class="flex flex-col gap-[3px] md:gap-2">
-              <h6 class="h-13 line-clamp-2">Damedol to Sekai ninoFan Da medol to Sekai ni  no Fan </h6>
-              <div class="flex gap-2">
-                <span class="px-2 bg-white/20 text-xs md:text-sm rounded-md">Action</span>
-              </div>
-              <p class="h-6 md:h-12 line-clamp-1 md:line-clamp-2 text-white/40">
-                Lorem ipsum dolor, siti Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum neque optio dolorum quibusdam rem suscipit, nemo officia cum possimus adipisci consequuntur recusandae sapiente porro, incidunt exercitationem sit rerum. Laudantium, adipisci!. 
-              </p>
-              <div class="flex items-center gap-2 md:text-base sm:text-sm text-xs">
-                <i class="fa-regular fa-star"></i>
-                <p>9.00</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="flex flex-row w-full h-[125px] md:min-h-[220px] bg-[#1E1F1F] p-2 md:p-5 gap-3 md:gap-4 md:text-base text-sm cursor-pointer hover:opacity-70">
-          <div
-            style="background-image: url('../assets/cover.jpg')"
-            class='min-w-[64px] md:min-w-[115px] h-auto rounded-sm bg-center bg-cover'
-          ></div>
-          <div class="flex-1 flex flex-col justify-between text-justify ">
-            <div class="flex flex-col gap-[3px] md:gap-2">
-              <h6 class="h-13 line-clamp-2">Damedol to Sekai ninoFan Da medol to Sekai ni  no Fan </h6>
-              <div class="flex gap-2">
-                <span class="px-2 bg-white/20 text-xs md:text-sm rounded-md">Action</span>
-              </div>
-              <p class="h-6 md:h-12 line-clamp-1 md:line-clamp-2 text-white/40">
-                Lorem ipsum dolor, siti Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum neque optio dolorum quibusdam rem suscipit, nemo officia cum possimus adipisci consequuntur recusandae sapiente porro, incidunt exercitationem sit rerum. Laudantium, adipisci!. 
-              </p>
-              <div class="flex items-center gap-2 md:text-base sm:text-sm text-xs">
-                <i class="fa-regular fa-star"></i>
-                <p>9.00</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="flex flex-row w-full h-[125px] md:min-h-[220px] bg-[#1E1F1F] p-2 md:p-5 gap-3 md:gap-4 md:text-base text-sm cursor-pointer hover:opacity-70">
-          <div
-            style="background-image: url('../assets/cover.jpg')"
-            class='min-w-[64px] md:min-w-[115px] h-auto rounded-sm bg-center bg-cover'
-          ></div>
-          <div class="flex-1 flex flex-col justify-between text-justify ">
-            <div class="flex flex-col gap-[3px] md:gap-2">
-              <h6 class="h-13 line-clamp-2">Damedol to Sekai ninoFan Da medol to Sekai ni  no Fan </h6>
-              <div class="flex gap-2">
-                <span class="px-2 bg-white/20 text-xs md:text-sm rounded-md">Action</span>
-              </div>
-              <p class="h-6 md:h-12 line-clamp-1 md:line-clamp-2 text-white/40">
-                Lorem ipsum dolor, siti Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum neque optio dolorum quibusdam rem suscipit, nemo officia cum possimus adipisci consequuntur recusandae sapiente porro, incidunt exercitationem sit rerum. Laudantium, adipisci!. 
-              </p>
-              <div class="flex items-center gap-2 md:text-base sm:text-sm text-xs">
-                <i class="fa-regular fa-star"></i>
-                <p>9.00</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="flex flex-row w-full h-[125px] md:min-h-[220px] bg-[#1E1F1F] p-2 md:p-5 gap-3 md:gap-4 md:text-base text-sm cursor-pointer hover:opacity-70">
-          <div
-            style="background-image: url('../assets/cover.jpg')"
-            class='min-w-[64px] md:min-w-[115px] h-auto rounded-sm bg-center bg-cover'
-          ></div>
-          <div class="flex-1 flex flex-col justify-between text-justify ">
-            <div class="flex flex-col gap-[3px] md:gap-2">
-              <h6 class="h-13 line-clamp-2">Damedol to Sekai ninoFan Da medol to Sekai ni  no Fan </h6>
-              <div class="flex gap-2">
-                <span class="px-2 bg-white/20 text-xs md:text-sm rounded-md">Action</span>
-              </div>
-              <p class="h-6 md:h-12 line-clamp-1 md:line-clamp-2 text-white/40">
-                Lorem ipsum dolor, siti Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum neque optio dolorum quibusdam rem suscipit, nemo officia cum possimus adipisci consequuntur recusandae sapiente porro, incidunt exercitationem sit rerum. Laudantium, adipisci!. 
-              </p>
-              <div class="flex items-center gap-2 md:text-base sm:text-sm text-xs">
-                <i class="fa-regular fa-star"></i>
-                <p>9.00</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="flex flex-row w-full h-[125px] md:min-h-[220px] bg-[#1E1F1F] p-2 md:p-5 gap-3 md:gap-4 md:text-base text-sm cursor-pointer hover:opacity-70">
-          <div
-            style="background-image: url('../assets/cover.jpg')"
-            class='min-w-[64px] md:min-w-[115px] h-auto rounded-sm bg-center bg-cover'
-          ></div>
-          <div class="flex-1 flex flex-col justify-between text-justify ">
-            <div class="flex flex-col gap-[3px] md:gap-2">
-              <h6 class="h-13 line-clamp-2">Damedol to Sekai ninoFan Da medol to Sekai ni  no Fan </h6>
-              <div class="flex gap-2">
-                <span class="px-2 bg-white/20 text-xs md:text-sm rounded-md">Action</span>
-              </div>
-              <p class="h-6 md:h-12 line-clamp-1 md:line-clamp-2 text-white/40">
-                Lorem ipsum dolor, siti Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum neque optio dolorum quibusdam rem suscipit, nemo officia cum possimus adipisci consequuntur recusandae sapiente porro, incidunt exercitationem sit rerum. Laudantium, adipisci!. 
-              </p>
-              <div class="flex items-center gap-2 md:text-base sm:text-sm text-xs">
-                <i class="fa-regular fa-star"></i>
-                <p>9.00</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="flex flex-row w-full h-[125px] md:min-h-[220px] bg-[#1E1F1F] p-2 md:p-5 gap-3 md:gap-4 md:text-base text-sm cursor-pointer hover:opacity-70">
-          <div
-            style="background-image: url('../assets/cover.jpg')"
-            class='min-w-[64px] md:min-w-[115px] h-auto rounded-sm bg-center bg-cover'
-          ></div>
-          <div class="flex-1 flex flex-col justify-between text-justify ">
-            <div class="flex flex-col gap-[3px] md:gap-2">
-              <h6 class="h-13 line-clamp-2">Damedol to Sekai ninoFan Da medol to Sekai ni  no Fan </h6>
-              <div class="flex gap-2">
-                <span class="px-2 bg-white/20 text-xs md:text-sm rounded-md">Action</span>
-              </div>
-              <p class="h-6 md:h-12 line-clamp-1 md:line-clamp-2 text-white/40">
-                Lorem ipsum dolor, siti Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum neque optio dolorum quibusdam rem suscipit, nemo officia cum possimus adipisci consequuntur recusandae sapiente porro, incidunt exercitationem sit rerum. Laudantium, adipisci!. 
-              </p>
-              <div class="flex items-center gap-2 md:text-base sm:text-sm text-xs">
-                <i class="fa-regular fa-star"></i>
-                <p>9.00</p>
-              </div>
-            </div>
-          </div>
-        </div>
+        <SeriesCard />
       </div>
       <div class="flex items-center justify-center mt-6 lg:text-base md:text-sm text-xs">
         <div class="flex items-center justify-center gap-2 flex-wrap">
@@ -215,8 +48,26 @@
 </template>
 
 <script>
+import SeriesCard from '../components/SeriesCard.vue';
+
 export default {
-  name: 'SeriesPage'
+  name: 'SeriesPage',
+  components: {
+    SeriesCard
+  },
+  methods: {
+    toggleSortBy() {
+      let sortByBtn = document.querySelector('#sort-by-btn');
+      let sortBySelected = document.querySelector('#sort-by-selected');
+      let sortByMenu = document.querySelectorAll('#sort-by-menu li');
+      sortByBtn.classList.toggle("open");
+      sortByMenu.forEach((menu) => {
+          menu.addEventListener("click", () => {
+              sortBySelected.innerText = menu.innerText;
+          });
+      });
+    }
+  }
 }
 </script>
 

@@ -1,5 +1,5 @@
 <template>
-  <main class="relative w-full px-3 md:px-8 lg:px-32 mt-5 text-white flex-grow">
+  <main class="relative w-full px-3 md:px-8 lg:px-32 mt-5 lg:mt-12 text-white flex-grow">
     <section class="max-w-[700px] max-h-[600px] mx-auto flex flex-col bg-[#1E1F1F] items-center px-4 py-8 md:p-12 lg:text-base md:text-sm text-xs md:mt-5">
       <img src="../assets/logo.png" class="h-6 sm:h-7 md:h-9" />
       <div class="grid grid-cols-2 gap-2 w-full mt-10 mb-3 md:mb-5">

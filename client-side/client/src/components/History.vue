@@ -4,7 +4,7 @@
       <div class="flex justify-between gap-1 border-white/5 border-b-[1px] min-h-[75px] md:min-h-[140px] p-2 md:p-4 cursor-pointer hover:bg-[#212121]">
         <div class="flex gap-2 md:gap-4">
           <div
-            style="background-image: url('../assets/cover.jpg')"
+            style="background-image: url('src/assets/cover.jpg')"
             class='w-[40px] md:w-[72px] h-auto rounded-sm bg-center bg-cover'
           ></div>
           <div class="flex flex-col w-[160px] md:w-auto">
@@ -17,7 +17,7 @@
       <div class="flex justify-between border-white/5 border-b-[1px] min-h-[75px] md:min-h-[140px] p-2 md:p-4 cursor-pointer hover:bg-[#212121]">
         <div class="flex gap-2 md:gap-4">
           <div
-            style="background-image: url('../assets/cover.jpg')"
+            style="background-image: url('src/assets/cover.jpg')"
             class='w-[40px] md:w-[72px] h-auto rounded-sm bg-center bg-cover'
           ></div>
           <div class="flex flex-col w-[160px] md:w-auto">
@@ -30,7 +30,7 @@
       <div class="flex justify-between border-white/5 border-b-[1px] min-h-[75px] md:min-h-[140px] p-2 md:p-4 cursor-pointer hover:bg-[#212121]">
         <div class="flex gap-2 md:gap-4">
           <div
-            style="background-image: url('../assets/cover.jpg')"
+            style="background-image: url('src/assets/cover.jpg')"
             class='w-[40px] md:w-[72px] h-auto rounded-sm bg-center bg-cover'
           ></div>
           <div class="flex flex-col w-[160px] md:w-auto">
@@ -43,7 +43,7 @@
       <div class="flex justify-between border-white/5 border-b-[1px] min-h-[75px] md:min-h-[140px] p-2 md:p-4 cursor-pointer hover:bg-[#212121]">
         <div class="flex gap-2 md:gap-4">
           <div
-            style="background-image: url('../assets/cover.jpg')"
+            style="background-image: url('src/assets/cover.jpg')"
             class='w-[40px] md:w-[72px] h-auto rounded-sm bg-center bg-cover'
           ></div>
           <div class="flex flex-col w-[160px] md:w-auto">
@@ -56,7 +56,7 @@
       <div class="flex justify-between border-white/5 border-b-[1px] min-h-[75px] md:min-h-[140px] p-2 md:p-4 cursor-pointer hover:bg-[#212121]">
         <div class="flex gap-2 md:gap-4">
           <div
-            style="background-image: url('../assets/cover.jpg')"
+            style="background-image: url('src/assets/cover.jpg')"
             class='w-[40px] md:w-[72px] h-auto rounded-sm bg-center bg-cover'
           ></div>
           <div class="flex flex-col w-[160px] md:w-auto">
@@ -69,7 +69,7 @@
       <div class="flex justify-between border-white/5 border-b-[1px] min-h-[75px] md:min-h-[140px] p-2 md:p-4 cursor-pointer hover:bg-[#212121]">
         <div class="flex gap-2 md:gap-4">
           <div
-            style="background-image: url('../assets/cover.jpg')"
+            style="background-image: url('src/assets/cover.jpg')"
             class='w-[40px] md:w-[72px] h-auto rounded-sm bg-center bg-cover'
           ></div>
           <div class="flex flex-col w-[160px] md:w-auto">
@@ -82,7 +82,7 @@
       <div class="flex justify-between border-white/5 border-b-[1px] min-h-[75px] md:min-h-[140px] p-2 md:p-4 cursor-pointer hover:bg-[#212121]">
         <div class="flex gap-2 md:gap-4">
           <div
-            style="background-image: url('../assets/cover.jpg')"
+            style="background-image: url('src/assets/cover.jpg')"
             class='w-[40px] md:w-[72px] h-auto rounded-sm bg-center bg-cover'
           ></div>
           <div class="flex flex-col w-[160px] md:w-auto">
@@ -95,7 +95,7 @@
       <div class="flex justify-between border-white/5 border-b-[1px] min-h-[75px] md:min-h-[140px] p-2 md:p-4 cursor-pointer hover:bg-[#212121]">
         <div class="flex gap-2 md:gap-4">
           <div
-            style="background-image: url('../assets/cover.jpg')"
+            style="background-image: url('src/assets/cover.jpg')"
             class='w-[40px] md:w-[72px] h-auto rounded-sm bg-center bg-cover'
           ></div>
           <div class="flex flex-col w-[160px] md:w-auto">
@@ -108,7 +108,7 @@
       <div class="flex justify-between border-white/5 border-b-[1px] min-h-[75px] md:min-h-[140px] p-2 md:p-4 cursor-pointer hover:bg-[#212121]">
         <div class="flex gap-2 md:gap-4">
           <div
-            style="background-image: url('../assets/cover.jpg')"
+            style="background-image: url('src/assets/cover.jpg')"
             class='w-[40px] md:w-[72px] h-auto rounded-sm bg-center bg-cover'
           ></div>
           <div class="flex flex-col w-[160px] md:w-auto">
@@ -121,7 +121,7 @@
       <div class="flex justify-between border-white/5 border-b-[1px] min-h-[75px] md:min-h-[140px] p-2 md:p-4 cursor-pointer hover:bg-[#212121]">
         <div class="flex gap-2 md:gap-4">
           <div
-            style="background-image: url('../assets/cover.jpg')"
+            style="background-image: url('src/assets/cover.jpg')"
             class='w-[40px] md:w-[72px] h-auto rounded-sm bg-center bg-cover'
           ></div>
           <div class="flex flex-col w-[160px] md:w-auto">

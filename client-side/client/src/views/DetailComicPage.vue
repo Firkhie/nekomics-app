@@ -55,132 +55,7 @@
           <p class="font-bold">Chapters</p>
           <hr class="mb-2">
           <div class="grid grid-cols-1 gap-2 max-h-[475px] scroll-container overflow-auto">
-            <div class="bg-white/5 p-3 cursor-pointer hover:bg-white/10">
-              <div class="w-full flex justify-between items-center">
-                <p>Chapter 1</p>
-                <p class="text-white/40 md:text-sm text-xs">15 days ago</p>
-              </div>
-              <p class="text-white/40">AsuraScans</p>
-            </div>
-            <div class="bg-white/5 p-3 cursor-pointer hover:bg-white/10">
-              <div class="w-full flex justify-between items-center">
-                <p>Chapter 1</p>
-                <p class="text-white/40 md:text-sm text-xs">15 days ago</p>
-              </div>
-              <p class="text-white/40">AsuraScans</p>
-            </div>
-            <div class="bg-white/5 p-3 cursor-pointer hover:bg-white/10">
-              <div class="w-full flex justify-between items-center">
-                <p>Chapter 1</p>
-                <p class="text-white/40 md:text-sm text-xs">15 days ago</p>
-              </div>
-              <p class="text-white/40">AsuraScans</p>
-            </div>
-            <div class="bg-white/5 p-3 cursor-pointer hover:bg-white/10">
-              <div class="w-full flex justify-between items-center">
-                <p>Chapter 1</p>
-                <p class="text-white/40 md:text-sm text-xs">15 days ago</p>
-              </div>
-              <p class="text-white/40">AsuraScans</p>
-            </div>
-            <div class="bg-white/5 p-3 cursor-pointer hover:bg-white/10">
-              <div class="w-full flex justify-between items-center">
-                <p>Chapter 1</p>
-                <p class="text-white/40 md:text-sm text-xs">15 days ago</p>
-              </div>
-              <p class="text-white/40">AsuraScans</p>
-            </div>
-            <div class="bg-white/5 p-3 cursor-pointer hover:bg-white/10">
-              <div class="w-full flex justify-between items-center">
-                <p>Chapter 1</p>
-                <p class="text-white/40 md:text-sm text-xs">15 days ago</p>
-              </div>
-              <p class="text-white/40">AsuraScans</p>
-            </div>
-            <div class="bg-white/5 p-3 cursor-pointer hover:bg-white/10">
-              <div class="w-full flex justify-between items-center">
-                <p>Chapter 1</p>
-                <p class="text-white/40 md:text-sm text-xs">15 days ago</p>
-              </div>
-              <p class="text-white/40">AsuraScans</p>
-            </div>
-            <div class="bg-white/5 p-3 cursor-pointer hover:bg-white/10">
-              <div class="w-full flex justify-between items-center">
-                <p>Chapter 1</p>
-                <p class="text-white/40 md:text-sm text-xs">15 days ago</p>
-              </div>
-              <p class="text-white/40">AsuraScans</p>
-            </div>
-            <div class="bg-white/5 p-3 cursor-pointer hover:bg-white/10">
-              <div class="w-full flex justify-between items-center">
-                <p>Chapter 1</p>
-                <p class="text-white/40 md:text-sm text-xs">15 days ago</p>
-              </div>
-              <p class="text-white/40">AsuraScans</p>
-            </div>
-            <div class="bg-white/5 p-3 cursor-pointer hover:bg-white/10">
-              <div class="w-full flex justify-between items-center">
-                <p>Chapter 1</p>
-                <p class="text-white/40 md:text-sm text-xs">15 days ago</p>
-              </div>
-              <p class="text-white/40">AsuraScans</p>
-            </div>
-            <div class="bg-white/5 p-3 cursor-pointer hover:bg-white/10">
-              <div class="w-full flex justify-between items-center">
-                <p>Chapter 1</p>
-                <p class="text-white/40 md:text-sm text-xs">15 days ago</p>
-              </div>
-              <p class="text-white/40">AsuraScans</p>
-            </div>
-            <div class="bg-white/5 p-3 cursor-pointer hover:bg-white/10">
-              <div class="w-full flex justify-between items-center">
-                <p>Chapter 1</p>
-                <p class="text-white/40 md:text-sm text-xs">15 days ago</p>
-              </div>
-              <p class="text-white/40">AsuraScans</p>
-            </div>
-            <div class="bg-white/5 p-3 cursor-pointer hover:bg-white/10">
-              <div class="w-full flex justify-between items-center">
-                <p>Chapter 1</p>
-                <p class="text-white/40 md:text-sm text-xs">15 days ago</p>
-              </div>
-              <p class="text-white/40">AsuraScans</p>
-            </div>
-            <div class="bg-white/5 p-3 cursor-pointer hover:bg-white/10">
-              <div class="w-full flex justify-between items-center">
-                <p>Chapter 1</p>
-                <p class="text-white/40 md:text-sm text-xs">15 days ago</p>
-              </div>
-              <p class="text-white/40">AsuraScans</p>
-            </div>
-            <div class="bg-white/5 p-3 cursor-pointer hover:bg-white/10">
-              <div class="w-full flex justify-between items-center">
-                <p>Chapter 1</p>
-                <p class="text-white/40 md:text-sm text-xs">15 days ago</p>
-              </div>
-              <p class="text-white/40">AsuraScans</p>
-            </div>
-            <div class="bg-white/5 p-3 cursor-pointer hover:bg-white/10">
-              <div class="w-full flex justify-between items-center">
-                <p>Chapter 1</p>
-                <p class="text-white/40 md:text-sm text-xs">15 days ago</p>
-              </div>
-              <p class="text-white/40">AsuraScans</p>
-            </div>
-            <div class="bg-white/5 p-3 cursor-pointer hover:bg-white/10">
-              <div class="w-full flex justify-between items-center">
-                <p>Chapter 1</p>
-                <p class="text-white/40 md:text-sm text-xs">15 days ago</p>
-              </div>
-              <p class="text-white/40">AsuraScans</p>
-            </div>
-            <div class="bg-white/5 p-3 cursor-pointer hover:bg-white/10">
-              <div class="w-full flex justify-between items-center">
-                <p>Chapter 1</p>
-                <p class="text-white/40 md:text-sm text-xs">15 days ago</p>
-              </div>
-              <p class="text-white/40">AsuraScans</p>
-            </div>
+            <DetailChapterCard />
           </div>
         </div>
       </div>
@@ -189,8 +64,13 @@
 </template>
 
 <script>
+import DetailChapterCard from '../components/DetailChapterCard.vue';
+
 export default {
-  name: 'DetailComicPage'
+    name: 'DetailComicPage',
+    components: {
+      DetailChapterCard
+    }
 }
 </script>
 
