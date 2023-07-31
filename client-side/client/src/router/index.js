@@ -56,8 +56,17 @@ const router = createRouter({
       path: '/read',
       name: 'read',
       component: ReadComicPage
-    },
+    }
   ]
+})
+
+router.beforeEach((to, from, next) => {
+  let isAuthenticated = localStorage.getItem('access_token')
+
+  if (to.name === 'bookmark' && !isAuthenticated) next({ name: 'login' })
+  if (to.name === 'login' && isAuthenticated) next({ name: 'home' })
+  if (to.name === 'register' && isAuthenticated) next({ name: 'home' })
+  else next()
 })
 
 export default router

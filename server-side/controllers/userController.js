@@ -29,7 +29,7 @@ class UserController {
         let checkPassword = checkPass(password, user.password)
         if (checkPassword) {
           let jwtToken = generateJwtToken({ email })
-          res.status(201).json({ token: jwtToken })
+          res.status(200).json({ token: jwtToken })
         } else throw { name: 'EmailPasswordInvalid' }
       } else throw { name: 'EmailPasswordInvalid' }
     } catch (err) {

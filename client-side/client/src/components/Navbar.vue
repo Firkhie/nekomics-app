@@ -9,9 +9,13 @@
         <router-link to="/donate" class="hover:text-white/80">Donate</router-link>
         <router-link to="/about" class="hover:text-white/80">About</router-link>
       </div>
-      <div class="flex items-center justify-between gap-6 text-base">
+      <div class="flex items-center justify-between gap-6 text-base" v-if="!access_token">
         <router-link to="/login" class="hover:text-white/80">Log In</router-link>
         <router-link to="/register" class="px-4 py-2 rounded-[5px] bg-[#FC304B] hover:bg-[#E32B43]">Sign Up</router-link>
+      </div>
+      <div class="flex items-center justify-between gap-6 text-base" v-if="access_token">
+        <router-link to="/login" class="hover:text-white/80">Welcome, {{ username }}</router-link>
+        <router-link to="/" class="px-4 py-2 rounded-[5px] bg-[#FC304B] hover:bg-[#E32B43]" @click.prevent="clickLogout">Log Out</router-link>
       </div>
     </nav>
     <!-- MOBILE -->
@@ -20,7 +24,8 @@
         <router-link to="/"><img src="../assets/logo.png" class="h-6 md:h-7" /></router-link>
       </div>
       <div class="flex items-center justify-between gap-4 md:gap-6 lg:text-base md:text-sm text-xs">
-        <router-link to="/register" class="px-3 md:px-4 py-[7px] rounded-[4px] bg-[#FC304B] hover:bg-[#E32B43]">Sign Up</router-link>
+        <router-link to="/register" class="px-3 md:px-4 py-[7px] rounded-[4px] bg-[#FC304B] hover:bg-[#E32B43]" v-if="!access_token">Sign Up</router-link>
+        <router-link to="/" class="px-3 md:px-4 py-[7px] rounded-[4px] bg-[#FC304B] hover:bg-[#E32B43]" v-if="access_token" @click.prevent="clickLogout">Log Out</router-link>
         <div id="mobile-menu-btn" class="group peer w-fit flex flex-col gap-1 cursor-pointer" @click="toggleMenu">
           <div class="burger-bar group-open:top-[8px] group-open:rotate-45"></div>
           <div class="burger-bar opacity-100 group-open:opacity-0"></div>
@@ -31,7 +36,8 @@
           <router-link to="/bookmark" class="mobile-menu-item" @click="closeMenu">Bookmarks</router-link>
           <router-link to="/donate" class="mobile-menu-item" @click="closeMenu">Donate</router-link>
           <router-link to="/about" class="mobile-menu-item" @click="closeMenu">About</router-link>
-          <router-link to="/login" class="mobile-menu-item" @click="closeMenu">Login</router-link>
+          <router-link to="/login" class="mobile-menu-item" @click="closeMenu" v-if="!access_token">Login</router-link>
+          <router-link to="/" class="mobile-menu-item" @click="closeMenu" v-if="access_token">Welcome, {{ username }}</router-link>
         </div>
       </div>
     </nav>
@@ -39,8 +45,16 @@
 </template>
 
 <script>
+import { mapActions } from 'pinia'
+import { useCounterStore } from '../stores/counter'
+
 export default {
   name: 'Navbar',
+  data() {
+    return {
+      username: 'test'
+    }
+  },
   methods: {
     toggleMenu() {
       let mobileMenuBtn = document.querySelector("#mobile-menu-btn");
@@ -49,6 +63,15 @@ export default {
     closeMenu() {
       let mobileMenuBtn = document.querySelector("#mobile-menu-btn");
       mobileMenuBtn.classList.remove("open");
+    },
+    ...mapActions(useCounterStore, ['handleLogout']),
+    clickLogout() {
+      this.handleLogout()
+    }
+  },
+  computed: {
+    access_token() {
+      return localStorage.getItem('access_token')
     }
   }
 }

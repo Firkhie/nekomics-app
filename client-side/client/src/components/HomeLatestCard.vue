@@ -127,7 +127,7 @@
       </div>
     </div>
   </div>
-  <div class="w-full flex p-3 gap-3 bg-white/10 hover:opacity-70 cursor-pointer">
+  <div class="w-full hidden xl:flex p-3 gap-3 bg-white/10 hover:opacity-70 cursor-pointer">
     <div>
       <img src="../assets/cover.jpg" alt="" class="max-w-[60px] sm:max-w-[70px] bg-center bg-cover rounded-sm" />
     </div>
