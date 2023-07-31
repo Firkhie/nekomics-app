@@ -1,6 +1,6 @@
 const ComicController = require("../controllers/comicController");
 const UserController = require("../controllers/userController");
-
+const authentication = require("../middlewares/authentication");
 const router = require("express").Router();
 
 router.post('/register', UserController.register)
@@ -11,5 +11,7 @@ router.get('/comics/popularcomics', ComicController.fetchComics)
 router.get('/comics/latestcomics', ComicController.fetchComics)
 router.get('/comics/detail/:id', ComicController.fetchComicById)
 router.get('/comics/read/:chapterId', ComicController.fetchChapterPages)
+
+router.use(authentication)
 
 module.exports = router;

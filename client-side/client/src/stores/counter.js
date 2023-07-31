@@ -18,7 +18,8 @@ export const useCounterStore = defineStore('counter', {
           url: `${this.baseUrl}/login`,
           data: { email, password }
         })
-        localStorage.setItem('access_token', user.data.token)
+        localStorage.setItem('access_token', user.data.access_token)
+        localStorage.setItem('username', user.data.username)
         this.router.push('/')
       } catch (err) {
         console.log(err)

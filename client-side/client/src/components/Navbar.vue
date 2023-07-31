@@ -52,7 +52,7 @@ export default {
   name: 'Navbar',
   data() {
     return {
-      username: 'test'
+      username: localStorage.getItem('username') || 'noname'
     }
   },
   methods: {

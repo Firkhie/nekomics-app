@@ -23,6 +23,11 @@ function errorHandler(err, req, res, next) {
       message = "Invalid email / password";
       break;
 
+    case "InvalidToken":
+      status = 401;
+      message = "Invalid token";
+      break;
+
     case "SequelizeValidationError":
       status = 400;
       message = err.errors[0].message;
