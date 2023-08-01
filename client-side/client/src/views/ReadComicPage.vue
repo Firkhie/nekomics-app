@@ -36,13 +36,7 @@
         </div>
       </div>
       <div class="flex flex-col justify-between items-center my-4 md:my-10 w-max-[700px]">
-        <img src="../assets/chapter-page.png" alt="">
-        <img src="../assets/chapter-page.png" alt="">
-        <img src="../assets/chapter-page.png" alt="">
-        <img src="../assets/chapter-page.png" alt="">
-        <img src="../assets/chapter-page.png" alt="">
-        <img src="../assets/chapter-page.png" alt="">
-        <img src="../assets/chapter-page.png" alt="">
+        <img v-bind:src="chapterPages" alt="" />
       </div>
       <div class="flex flex-row justify-between items-center">
         <div id="chapter-btn" class="relative w-[150px] cursor-pointer group text-xs md:text-sm">
@@ -75,8 +69,14 @@
 </template>
 
 <script>
+import { mapState } from 'pinia'
+import { useCounterStore } from '../stores/counter'
+
 export default {
   name: 'ReadComicPage',
+  computed: {
+    ...mapState(useCounterStore, ['chapterPages'])
+  },
   methods: {
     scrollTop() {
       let scrollTopBtn = document.querySelector("#scroll-top-btn")

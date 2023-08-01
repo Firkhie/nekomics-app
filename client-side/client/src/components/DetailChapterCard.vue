@@ -1,135 +1,34 @@
 <template>
-  <div class="bg-white/5 p-3 cursor-pointer hover:bg-white/10">
+  <div
+    class="bg-white/5 p-3 cursor-pointer hover:bg-white/10"
+    v-for="chapter in detailComic.detailChapters"
+    :key="chapter.chapterId"
+    @click="submitChapterPagesId(detailComic.id, chapter.chapterId)"
+  >
     <div class="w-full flex justify-between items-center">
-      <p>Chapter 1</p>
-      <p class="text-white/40 md:text-sm text-xs">15 days ago</p>
+      <p>Chapter {{ chapter.chapter }}</p>
+      <p class="text-white/40 md:text-sm text-xs">{{ chapter.publishAt }}</p>
     </div>
-    <p class="text-white/40">AsuraScans</p>
-  </div>
-  <div class="bg-white/5 p-3 cursor-pointer hover:bg-white/10">
-    <div class="w-full flex justify-between items-center">
-      <p>Chapter 1</p>
-      <p class="text-white/40 md:text-sm text-xs">15 days ago</p>
-    </div>
-    <p class="text-white/40">AsuraScans</p>
-  </div>
-  <div class="bg-white/5 p-3 cursor-pointer hover:bg-white/10">
-    <div class="w-full flex justify-between items-center">
-      <p>Chapter 1</p>
-      <p class="text-white/40 md:text-sm text-xs">15 days ago</p>
-    </div>
-    <p class="text-white/40">AsuraScans</p>
-  </div>
-  <div class="bg-white/5 p-3 cursor-pointer hover:bg-white/10">
-    <div class="w-full flex justify-between items-center">
-      <p>Chapter 1</p>
-      <p class="text-white/40 md:text-sm text-xs">15 days ago</p>
-    </div>
-    <p class="text-white/40">AsuraScans</p>
-  </div>
-  <div class="bg-white/5 p-3 cursor-pointer hover:bg-white/10">
-    <div class="w-full flex justify-between items-center">
-      <p>Chapter 1</p>
-      <p class="text-white/40 md:text-sm text-xs">15 days ago</p>
-    </div>
-    <p class="text-white/40">AsuraScans</p>
-  </div>
-  <div class="bg-white/5 p-3 cursor-pointer hover:bg-white/10">
-    <div class="w-full flex justify-between items-center">
-      <p>Chapter 1</p>
-      <p class="text-white/40 md:text-sm text-xs">15 days ago</p>
-    </div>
-    <p class="text-white/40">AsuraScans</p>
-  </div>
-  <div class="bg-white/5 p-3 cursor-pointer hover:bg-white/10">
-    <div class="w-full flex justify-between items-center">
-      <p>Chapter 1</p>
-      <p class="text-white/40 md:text-sm text-xs">15 days ago</p>
-    </div>
-    <p class="text-white/40">AsuraScans</p>
-  </div>
-  <div class="bg-white/5 p-3 cursor-pointer hover:bg-white/10">
-    <div class="w-full flex justify-between items-center">
-      <p>Chapter 1</p>
-      <p class="text-white/40 md:text-sm text-xs">15 days ago</p>
-    </div>
-    <p class="text-white/40">AsuraScans</p>
-  </div>
-  <div class="bg-white/5 p-3 cursor-pointer hover:bg-white/10">
-    <div class="w-full flex justify-between items-center">
-      <p>Chapter 1</p>
-      <p class="text-white/40 md:text-sm text-xs">15 days ago</p>
-    </div>
-    <p class="text-white/40">AsuraScans</p>
-  </div>
-  <div class="bg-white/5 p-3 cursor-pointer hover:bg-white/10">
-    <div class="w-full flex justify-between items-center">
-      <p>Chapter 1</p>
-      <p class="text-white/40 md:text-sm text-xs">15 days ago</p>
-    </div>
-    <p class="text-white/40">AsuraScans</p>
-  </div>
-  <div class="bg-white/5 p-3 cursor-pointer hover:bg-white/10">
-    <div class="w-full flex justify-between items-center">
-      <p>Chapter 1</p>
-      <p class="text-white/40 md:text-sm text-xs">15 days ago</p>
-    </div>
-    <p class="text-white/40">AsuraScans</p>
-  </div>
-  <div class="bg-white/5 p-3 cursor-pointer hover:bg-white/10">
-    <div class="w-full flex justify-between items-center">
-      <p>Chapter 1</p>
-      <p class="text-white/40 md:text-sm text-xs">15 days ago</p>
-    </div>
-    <p class="text-white/40">AsuraScans</p>
-  </div>
-  <div class="bg-white/5 p-3 cursor-pointer hover:bg-white/10">
-    <div class="w-full flex justify-between items-center">
-      <p>Chapter 1</p>
-      <p class="text-white/40 md:text-sm text-xs">15 days ago</p>
-    </div>
-    <p class="text-white/40">AsuraScans</p>
-  </div>
-  <div class="bg-white/5 p-3 cursor-pointer hover:bg-white/10">
-    <div class="w-full flex justify-between items-center">
-      <p>Chapter 1</p>
-      <p class="text-white/40 md:text-sm text-xs">15 days ago</p>
-    </div>
-    <p class="text-white/40">AsuraScans</p>
-  </div>
-  <div class="bg-white/5 p-3 cursor-pointer hover:bg-white/10">
-    <div class="w-full flex justify-between items-center">
-      <p>Chapter 1</p>
-      <p class="text-white/40 md:text-sm text-xs">15 days ago</p>
-    </div>
-    <p class="text-white/40">AsuraScans</p>
-  </div>
-  <div class="bg-white/5 p-3 cursor-pointer hover:bg-white/10">
-    <div class="w-full flex justify-between items-center">
-      <p>Chapter 1</p>
-      <p class="text-white/40 md:text-sm text-xs">15 days ago</p>
-    </div>
-    <p class="text-white/40">AsuraScans</p>
-  </div>
-  <div class="bg-white/5 p-3 cursor-pointer hover:bg-white/10">
-    <div class="w-full flex justify-between items-center">
-      <p>Chapter 1</p>
-      <p class="text-white/40 md:text-sm text-xs">15 days ago</p>
-    </div>
-    <p class="text-white/40">AsuraScans</p>
-  </div>
-  <div class="bg-white/5 p-3 cursor-pointer hover:bg-white/10">
-    <div class="w-full flex justify-between items-center">
-      <p>Chapter 1</p>
-      <p class="text-white/40 md:text-sm text-xs">15 days ago</p>
-    </div>
-    <p class="text-white/40">AsuraScans</p>
+    <p class="text-white/40">{{ chapter.scanGroup }}</p>
   </div>
 </template>
 
 <script>
+import { mapState } from 'pinia'
+import { mapActions } from 'pinia'
+import { useCounterStore } from '../stores/counter'
+
 export default {
-  name: 'DetailChapterCard'
+  name: 'DetailChapterCard',
+  computed: {
+    ...mapState(useCounterStore, ['detailComic'])
+  },
+  methods: {
+    ...mapActions(useCounterStore, ['fetchChapterPages']),
+    submitChapterPagesId(comicId, chapterId) {
+      this.fetchChapterPages(comicId, chapterId)
+    }
+  }
 }
 </script>
 

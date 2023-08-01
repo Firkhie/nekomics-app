@@ -14,7 +14,7 @@
         <router-link to="/register" class="px-4 py-2 rounded-[5px] bg-[#FC304B] hover:bg-[#E32B43]">Sign Up</router-link>
       </div>
       <div class="flex items-center justify-between gap-6 text-base" v-if="access_token">
-        <router-link to="/login" class="hover:text-white/80">Welcome, {{ username }}</router-link>
+        <p>Welcome, {{ username }}</p>
         <router-link to="/" class="px-4 py-2 rounded-[5px] bg-[#FC304B] hover:bg-[#E32B43]" @click.prevent="clickLogout">Log Out</router-link>
       </div>
     </nav>
@@ -37,7 +37,7 @@
           <router-link to="/donate" class="mobile-menu-item" @click="closeMenu">Donate</router-link>
           <router-link to="/about" class="mobile-menu-item" @click="closeMenu">About</router-link>
           <router-link to="/login" class="mobile-menu-item" @click="closeMenu" v-if="!access_token">Login</router-link>
-          <router-link to="/" class="mobile-menu-item" @click="closeMenu" v-if="access_token">Welcome, {{ username }}</router-link>
+          <p class="flex w-full items-center justify-center p-4 transition-color font-bold text-sm md:text-base border-t-2 border-[#FC304B]" v-if="access_token">Welcome, {{ username }}</p>
         </div>
       </div>
     </nav>

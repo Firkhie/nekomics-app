@@ -1,13 +1,15 @@
 const { default: axios } = require('axios');
+const comicUpdateDate = require('../helpers/comicUpdateDate');
+const { History, User } = require('../models');
+const { decodeJwtToken } = require("../helpers/jwt");
 
 class ComicController {
   static async fetchComics(req, res, next) {
-    console.log(req.path)
     try {
       let limitPage
       let offsetPage
       let queryOfParams
-
+  
       if (req.path === '/comics/popularcomics') {
         limitPage = 6
         offsetPage = 0
@@ -16,11 +18,34 @@ class ComicController {
           'order[rating]': 'desc',
         }
       } else if (req.path === '/comics/latestcomics') {
-        limitPage = 10
+        limitPage = 9
         offsetPage = 0
-        queryOfParams = {
-          'order[latestUploadedChapter]': 'desc',
-          'order[rating]': 'desc',
+        queryOfParams = { 'order[latestUploadedChapter]': 'desc' }
+      } else if (req.path === '/comics/seriescomics') {
+        const { page } = req.query
+        const { query } = req.query
+        console.log(page)
+
+        limitPage = 8
+        offsetPage = 8 * page 
+        queryOfParams = {}
+  
+        if (!query) {
+          queryOfParams['order[latestUploadedChapter]'] = 'desc';
+        } else if (query === 'Latest Upload') {
+          queryOfParams['order[latestUploadedChapter]'] = 'desc';
+        } else if (query === 'Oldest Upload') {
+          queryOfParams['order[latestUploadedChapter]'] = 'asc';
+        } else if (query === 'Title Descending') {
+          queryOfParams['order[title]'] = 'desc';
+        } else if (query === 'Title Ascending') {
+          queryOfParams['order[title]'] = 'asc';
+        } else if (query === 'Year Descending') {
+          queryOfParams['order[year]'] = 'desc';
+        } else if (query === 'Year Ascending') {
+          queryOfParams['order[year]'] = 'asc';
+        } else {
+          queryOfParams['title'] = query
         }
       }
 
@@ -28,11 +53,12 @@ class ComicController {
       const imageBaseUrl = 'https://uploads.mangadex.org'
       const comics = await axios.get(`${baseUrl}/manga`, {
         params: {
-            limit: limitPage,
-            offset: offsetPage,
-            ...queryOfParams,
+          limit: limitPage,
+          offset: offsetPage,
+          ...queryOfParams,
         },
       });
+      let totalComics = comics.data.total
       
       let comicsData = await Promise.all(comics.data.data.map(async comic => {
       let comicId = comic.id
@@ -41,12 +67,19 @@ class ComicController {
       let dataRating = Object.values(getRating)
       // Get latest chapter detail
       let chapterId = comic.attributes.latestUploadedChapter
-      let latestChapter = (await axios.get(`${baseUrl}/chapter/${chapterId}`)).data.data
+      let latestChapter
+      if (!chapterId) latestChapter = null
+      else latestChapter = (await axios.get(`${baseUrl}/chapter/${chapterId}`)).data.data
       // Get cover art picture
       let coverArtId = comic.relationships.filter(relationship => relationship.type === 'cover_art')[0].id
-      let coverFileName =  (await axios.get(`${baseUrl}/cover/${coverArtId}`)).data.data.attributes.fileName
+      let coverFileName
+      let coverArt
+      if (!coverArtId) coverFileName = null
+      else {
+        coverFileName =  (await axios.get(`${baseUrl}/cover/${coverArtId}`)).data.data.attributes.fileName
+        coverArt = `${imageBaseUrl}/covers/${comicId}/${coverFileName}`
+      }
       // let coverArt = (await axios.get(`${imageBaseUrl}/covers/${comicId}/${coverFileName}`, { responseType: 'stream' }))
-      let coverArt = `${imageBaseUrl}/covers/${comicId}/${coverFileName}`
       // let coverArtId = comic.relationships.filter(relationship => relationship.type === 'cover_art')[0].id
         return {
           id: comic.id,
@@ -55,14 +88,14 @@ class ComicController {
           tags: comic.attributes.tags.map(el => {
             return el.attributes.name.en
           }),
-          updatedAt: comic.attributes.updatedAt,
-          latestChapter: latestChapter.attributes.chapter,
-          publishAt: latestChapter.attributes.publishAt,
-          coverArt: coverArt,
-          rating: dataRating[0].rating.average
+          updatedAt: comicUpdateDate(comic.attributes.updatedAt),
+          latestChapter: latestChapter === null ? null : latestChapter.attributes.chapter,
+          publishAt: latestChapter === null ? null : latestChapter.attributes.publishAt,
+          coverArt: coverArt === null ? null : coverArt,
+          rating: dataRating[0]?.rating?.average?.toFixed(1) || null
         }
       }))
-      res.status(200).json(comicsData)
+      res.status(200).json({ comicsData, totalComics })
     } catch (err) {
       console.log(err)
     }
@@ -119,7 +152,7 @@ class ComicController {
         return {
           chapterId: chapter.id,
           chapter: chapter.attributes.chapter,
-          publishAt: chapter.attributes.publishAt,
+          publishAt: comicUpdateDate(chapter.attributes.publishAt),
           totalPages: chapter.attributes.pages,
           scanGroup: scanGroup
         }
@@ -136,10 +169,10 @@ class ComicController {
           return el.attributes.name.en
         }),
         createdAt: comic.data.data.attributes.createdAt,
-        updatedAt: comic.data.data.attributes.updatedAt,
+        updatedAt: comicUpdateDate(comic.data.data.attributes.updatedAt),
         coverArt: coverArt,
         author: author,
-        rating: setRating,
+        rating: setRating?.toFixed(1) || null,
         totalChapter: chapters.data.data.length,
         detailChapters: detailChapters
       }
@@ -158,7 +191,16 @@ class ComicController {
     try {
       const baseUrl = 'https://api.mangadex.org';
       const imageBaseUrl = 'https://uploads.mangadex.org'
-      const { chapterId } = req.params
+      const { comicId, chapterId } = req.params
+      // Add read history
+      const { access_token } = req.headers
+      if (access_token) {
+        const payload = decodeJwtToken(access_token)
+        const user = await User.findByPk(payload.id)
+        const userId = user.id
+        await History.create({ ComicId: comicId, ChapterId: chapterId, UserId: userId })
+      }
+
       const getChapterPages = (await axios.get(`${baseUrl}/at-home/server/${chapterId}`)).data;
       let chapterHash = getChapterPages.chapter.hash
       let chapterArr = getChapterPages.chapter.data
@@ -166,7 +208,7 @@ class ComicController {
         return (await axios.get(`${imageBaseUrl}/data/${chapterHash}/${pageId}`, { responseType: 'stream' }))
       }))
       res.setHeader('Content-Type', 'image/jpeg');
-      chapterPages[1].data.pipe(res);
+      chapterPages[0].data.pipe(res);
     } catch (err) { 
       console.log(err)
     }

@@ -5,7 +5,7 @@
     <section class="w-full p-4 sm:p-8 rounded-sm bg-[#1E1F1F] md:mt-5 flex flex-col gap-2 md:gap-5">
       <div class="flex justify-between items-center">
         <h5>Popular Today</h5>
-        <a href="#" class="lg:text-base md:text-sm text-xs text-white/40">See More</a>
+        <router-link to="/series" class="lg:text-base md:text-sm text-xs text-white/40">See More</router-link>
       </div>
       <hr />
       <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 xl:grid-cols-6 gap-4 mt-3 md:text-base text-sm">
@@ -17,7 +17,7 @@
     <section class="w-full p-4 sm:p-8 rounded-sm bg-[#1E1F1F] flex flex-col gap-2 md:gap-5 mt-5 md:mt-10">
       <div class="flex justify-between items-center">
         <h5>Latest Updates</h5>
-        <a href="#" class="lg:text-base md:text-sm text-xs text-white/40">See More</a>
+        <router-link to="/series" class="lg:text-base md:text-sm text-xs text-white/40">See More</router-link>
       </div>
       <hr />
       <div class="w-full grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-x-3 md:gap-x-4 mt-3 md:text-base text-sm">

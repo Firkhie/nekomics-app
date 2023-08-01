@@ -28,6 +28,21 @@ function errorHandler(err, req, res, next) {
       message = "Invalid token";
       break;
 
+    case "NotFound":
+      status = 404;
+      message = "Not found";
+      break;
+
+    case 'Forbidden':
+      status = 403
+      message = 'You are not authorized'
+      break;
+
+    case 'Duplicated':
+        status = 409
+        message = 'Already existed'
+        break;
+
     case "SequelizeValidationError":
       status = 400;
       message = err.errors[0].message;
