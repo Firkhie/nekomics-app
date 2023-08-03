@@ -1,10 +1,19 @@
 <template>
+  <Navbar />
   <main class="relative w-full px-3 md:px-8 lg:px-32 mt-5 text-white flex-grow">
     <section class="w-full">
       <div class="bg-[#1E1F1F] py-3 px-3 lg:text-base md:text-sm text-xs">
         <div class="flex gap-2">
-          <input type="text" placeholder="Type comic title..." class="w-full py-3 px-4 outline-none bg-[#121213]" v-model="searchQuery">
-          <div class="flex items-center justify-center gap-2 px-5 bg-white/5 hover:opacity-70 cursor-pointer" @click="submitSearchQuery">
+          <input 
+            ref="searchInput"
+            type="text" 
+            placeholder="Type comic title..." 
+            class="w-full py-3 px-4 outline-none bg-[#121213]" 
+          >
+          <div 
+            class="flex items-center justify-center gap-2 px-5 bg-white/5 hover:opacity-70 cursor-pointer" 
+            @click="submitSearchQuery"
+          >
             <i class="fa-solid fa-magnifying-glass"></i>
             <p>Search</p>
           </div>
@@ -34,7 +43,12 @@
         </div>
       </div>
       <div class="grid grid-cols-1 xl:grid-cols-2 gap-2 md:gap-3 mt-3">
-        <SeriesCard />
+        <SeriesCard
+          :isLoading="isLoading"
+          :searchQuery="searchQuery"
+          :currentIndex="currentIndex"
+          @isLoading="handleIsLoading"
+        />
       </div>
       <div class="flex items-center justify-center mt-6 lg:text-base md:text-sm text-xs">
         <div class="flex items-center justify-center gap-2 flex-wrap">
@@ -72,17 +86,19 @@ import { mapState } from 'pinia'
 import { mapActions } from 'pinia'
 import { useCounterStore } from '../stores/counter'
 import SeriesCard from '../components/SeriesCard.vue';
+import Navbar from '../components/Navbar.vue';
 
 export default {
   name: 'SeriesPage',
   components: {
-    SeriesCard
-  },
+    SeriesCard,
+    Navbar
+},
   data() {
     return {
+      isLoading: true,
       searchQuery: '',
       currentIndex: 0,
-      // totalPages: this.totalComics / 8
     }
   },
   computed: {
@@ -102,37 +118,37 @@ export default {
       sortByMenu.forEach((menu) => {
           menu.addEventListener("click", () => {
               sortBySelected.innerText = menu.innerText;
-              this.fetchSeriesComics(sortBySelected.innerText)
-              this.clearSearchQuery()
+              this.searchQuery = sortBySelected.innerText
+              this.isLoading = true
+              this.currentIndex = 0
           });
       });
     },
     // Search Title
     submitSearchQuery() {
-      this.fetchSeriesComics(this.searchQuery)
-    },
-    clearSearchQuery() {
-      this.searchQuery = ''
+      this.isLoading = true
+      this.searchQuery = this.$refs.searchInput.value
+      this.currentIndex = 0
     },
     // Pagination
     prevButtonHandler() {
       if (this.currentIndex > 0) {
-        this.currentIndex--;
-        this.fetchSeriesComics(this.searchQuery, this.currentIndex);
-        this.clearSearchQuery()
+        this.currentIndex--
+        this.isLoading = true
       }
     },
     nextButtonHandler() {
       if (this.currentIndex < this.totalPages - 1) {
-        this.currentIndex++;
-        this.fetchSeriesComics(this.searchQuery, this.currentIndex);
-        this.clearSearchQuery()
+        this.currentIndex++
+        this.isLoading = true
       }
     },
     numberHandler(pageNumber) {
       this.currentIndex = pageNumber - 1; // Kurangi 1 karena indeks dimulai dari 0
-      this.fetchSeriesComics(this.searchQuery, this.currentIndex);
-      this.clearSearchQuery()
+      this.isLoading = true
+    },
+    handleIsLoading(changeStatus) {
+      this.isLoading = changeStatus
     }
   }
 }

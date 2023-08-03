@@ -50,11 +50,6 @@ import { useCounterStore } from '../stores/counter'
 
 export default {
   name: 'Navbar',
-  data() {
-    return {
-      username: localStorage.getItem('username') || 'noname'
-    }
-  },
   methods: {
     toggleMenu() {
       let mobileMenuBtn = document.querySelector("#mobile-menu-btn");
@@ -71,7 +66,10 @@ export default {
   },
   computed: {
     access_token() {
-      return localStorage.getItem('access_token')
+      return localStorage.access_token
+    },
+    username() {
+      return localStorage.username
     }
   }
 }

@@ -6,7 +6,7 @@ class HistoryController {
   static async fetchHistories(req, res, next) {
     try {
       const { userId } = req.user
-      const histories = await History.findAll({ where: { UserId: userId } })
+      const histories = await History.findAll({ where: { UserId: userId }, order: [ ['id', 'DESC'] ], limit: 15 })
 
       const baseUrl = 'https://api.mangadex.org'
       const imageBaseUrl = 'https://uploads.mangadex.org'

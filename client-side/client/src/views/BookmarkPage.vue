@@ -1,5 +1,6 @@
 <template>
-  <main class="relative w-full px-3 md:px-8 lg:px-32 mt-5 md:mt-8 text-white flex-grow">
+  <Navbar />
+  <main class="relative w-full min-h-[50vh] px-3 md:px-8 lg:px-32 mt-5 md:mt-8 text-white flex-grow">
     <section class="flex flex-col w-full">
       <ul class="flex flex-row gap-4 md:gap-12 md:text-2xl text-base font-medium md:font-bold">
         <li><p @click="chooseSection('bookmark')" class="cursor-pointer hover:text-white/80">Bookmarks</p></li>
@@ -17,6 +18,7 @@
 <script>
 import Bookmark from '../components/Bookmark.vue';
 import History from '../components/History.vue';
+import Navbar from '../components/Navbar.vue';
 
 export default {
   name: 'BookmarkPage',
@@ -27,8 +29,9 @@ export default {
   },
   components: {
     Bookmark,
-    History
-  },
+    History,
+    Navbar
+},
   methods: {
     chooseSection(input) {
       this.section = input

@@ -2,6 +2,7 @@ const { default: axios } = require('axios');
 const comicUpdateDate = require('../helpers/comicUpdateDate');
 const { History, User } = require('../models');
 const { decodeJwtToken } = require("../helpers/jwt");
+const quickSort = require('../helpers/quicksort');
 
 class ComicController {
   static async fetchComics(req, res, next) {
@@ -24,7 +25,6 @@ class ComicController {
       } else if (req.path === '/comics/seriescomics') {
         const { page } = req.query
         const { query } = req.query
-        console.log(page)
 
         limitPage = 8
         offsetPage = 8 * page 
@@ -158,11 +158,18 @@ class ComicController {
         }
       }))
 
+      // Trim description
+      let comicDescription = 'Description not found'
+      let checkDescription = comic.data.data.attributes.description.en
+      if (checkDescription) {
+        comicDescription = checkDescription.replace(/\[.*\]\([^)]+\)/g, '').trim()
+      }
+
       let comicData = {
         id: comic.data.data.id,
         title: comic.data.data.attributes.altTitles.find(title => 'ja-ro' in title)?.['ja-ro'] || comic.data.data.attributes.title.en,
         type: comic.data.data.type,
-        description: comic.data.data.attributes.description.en || 'Description not found',
+        description: comicDescription,
         status: comic.data.data.attributes.status,
         year: comic.data.data.attributes.year,
         tags: comic.data.data.attributes.tags.map(el => {
@@ -174,7 +181,7 @@ class ComicController {
         author: author,
         rating: setRating?.toFixed(1) || null,
         totalChapter: chapters.data.data.length,
-        detailChapters: detailChapters
+        detailChapters: quickSort(detailChapters)
       }
 
       // let mimeType = coverFileName.endsWith('.png') ? 'image/png' : 'image/jpeg'
@@ -204,11 +211,25 @@ class ComicController {
       const getChapterPages = (await axios.get(`${baseUrl}/at-home/server/${chapterId}`)).data;
       let chapterHash = getChapterPages.chapter.hash
       let chapterArr = getChapterPages.chapter.data
-      let chapterPages = await Promise.all(chapterArr.map(async pageId => {
-        return (await axios.get(`${imageBaseUrl}/data/${chapterHash}/${pageId}`, { responseType: 'stream' }))
-      }))
+      
       res.setHeader('Content-Type', 'image/jpeg');
-      chapterPages[0].data.pipe(res);
+
+      for (const pageId of chapterArr) {
+        const response = await axios.get(`${imageBaseUrl}/data/${chapterHash}/${pageId}`, { responseType: 'stream' });
+        const imageStream = response.data;
+
+        // Pipe the image stream to the response object with { end: false }
+        imageStream.pipe(res, { end: false });
+
+        // When the image stream ends, move to the next image
+        await new Promise((resolve) => {
+          imageStream.on('end', resolve);
+        });
+      }
+
+      // End the response after all images are sent
+      res.end();
+
     } catch (err) { 
       console.log(err)
     }

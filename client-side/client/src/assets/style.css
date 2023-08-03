@@ -1,14 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   html {
-    font-family: "Ubuntu", sans-serif;
+    font-family: 'Ubuntu', sans-serif;
   }
   body {
-    @apply relative bg-[#121213] flex flex-col min-h-screen
+    @apply relative bg-[#121213] flex flex-col min-h-screen;
   }
   h1 {
     @apply text-6xl font-bold;
@@ -41,6 +41,32 @@
   .scroll-container::-webkit-scrollbar-track {
     background-color: none; /* Warna track scrollbar */
     /* border-radius: 4px; Bentuk border radius track scrollbar */
+  }
+  #container {
+    @apply w-[50px] sm:w-[75px] md:w-[100px] h-[50px] sm:h-[75px] md:h-[100px] my-24;
+  }
+
+  @keyframes animation {
+    0% {
+      stroke-dasharray: 1 98;
+      stroke-dashoffset: -105;
+    }
+    50% {
+      stroke-dasharray: 80 10;
+      stroke-dashoffset: -160;
+    }
+    100% {
+      stroke-dasharray: 1 98;
+      stroke-dashoffset: -300;
+    }
+  }
+
+  #spinner {
+    transform-origin: center;
+    animation-name: animation;
+    animation-duration: 1.2s;
+    animation-timing-function: cubic-bezier;
+    animation-iteration-count: infinite;
   }
 }
 

@@ -1,4 +1,5 @@
 <template>
+  <Navbar />
   <Hero />
   <main class="relative w-full px-3 md:px-8 lg:px-32 mt-5 text-white flex-grow">
     <!-- ! HOME - POPULAR TODAY -->
@@ -31,13 +32,15 @@
 import Hero from '../components/Hero.vue';
 import HomePopularCard from '../components/HomePopularCard.vue';
 import HomeLatestCard from '../components/HomeLatestCard.vue';
+import Navbar from '../components/Navbar.vue';
 
 export default {
     name: 'HomePage',
     components: {
     Hero,
     HomePopularCard,
-    HomeLatestCard
+    HomeLatestCard,
+    Navbar
 }
 }
 </script>

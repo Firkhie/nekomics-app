@@ -1,13 +1,15 @@
 <template>
-  <div v-if="isLoading" class="w-full hover:opacity-70 cursor-pointer">
-    <p>LOADING</p>
+  <div v-if="isLoading" class="flex flex-col gap-2 w-full h-full p-3 bg-white/10 animate-pulse" v-for="index in 4" :key="index">
+    <div class="w-full h-[155px] md:h-[255px] rounded-md bg-[#515050]"></div>
+    <div class="w-full h-[13px] md:h-[17px] rounded-full bg-[#515050]"></div>
+    <div class="w-1/2 h-[13px] md:h-[17px] rounded-full bg-[#515050]"></div>
   </div>
   <div
     v-else
     class="w-full hover:opacity-70 cursor-pointer"
     v-for="comic in popularComics"
     :key="comic.id"
-    @click.prevent="submitDetailComicId(comic.id)"
+    @click.prevent="submitComicId(comic.id)"
   >
     <img
       v-bind:src="comic.coverArt"
@@ -36,7 +38,6 @@ export default {
   },
   methods: {
     ...mapActions(useCounterStore, ['fetchPopularComics']),
-    ...mapActions(useCounterStore, ['fetchDetailComic']),
     async fetchData() {
       try {
         await this.fetchPopularComics()
@@ -46,8 +47,9 @@ export default {
         this.isLoading = false
       }
     },
-    submitDetailComicId(comicId) {
-      this.fetchDetailComic(comicId)
+    submitComicId(comicId) {
+      localStorage.setItem('comicId', comicId)
+      this.$router.push('/detail')
     }
   },
   created() {

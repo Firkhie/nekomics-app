@@ -1,4 +1,5 @@
 <template>
+  <Navbar />
   <main class="relative w-full px-3 md:px-8 lg:px-32 mt-5 lg:mt-12 text-white flex-grow">
     <section class="max-w-[520px] max-h-[575px] mx-auto flex flex-col bg-[#1E1F1F] items-center px-4 py-8 md:p-12 lg:text-base md:text-sm text-xs md:mt-5">
       <img src="../assets/logo.png" class="h-6 sm:h-7 md:h-9" />
@@ -50,22 +51,24 @@
 <script>
 import { mapActions } from 'pinia'
 import { useCounterStore } from '../stores/counter'
+import Navbar from '../components/Navbar.vue'
 
 export default {
-  name: 'RegisterPage',
-  data() {
-    return {
-      username: '',
-      email: '',
-      password: ''
-    }
-  },
-  methods: {
-    ...mapActions(useCounterStore, ['handleRegister']),
-    submitRegister() {
-      this.handleRegister(this.username, this.email, this.password)
-    }
-  }
+    name: 'RegisterPage',
+    data() {
+        return {
+            username: '',
+            email: '',
+            password: ''
+        };
+    },
+    methods: {
+        ...mapActions(useCounterStore, ['handleRegister']),
+        submitRegister() {
+            this.handleRegister(this.username, this.email, this.password);
+        }
+    },
+    components: { Navbar }
 }
 </script>
 

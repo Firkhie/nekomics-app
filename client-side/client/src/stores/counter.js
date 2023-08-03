@@ -10,7 +10,7 @@ export const useCounterStore = defineStore('counter', {
     latestComics: [],
     seriesComics: [],
     detailComic: {},
-    chapterPages: '',
+    chapterPages: [],
     bookmarks: [],
     histories: []
   }),
@@ -47,6 +47,7 @@ export const useCounterStore = defineStore('counter', {
     handleLogout() {
       try {
         localStorage.clear()
+        this.router.push('/login')
       } catch (err) {
         console.log(err)
       }
@@ -76,17 +77,21 @@ export const useCounterStore = defineStore('counter', {
         console.log(err)
       }
     },
-    async fetchDetailComic(comicId) {
+    async fetchDetailComic() {
       try {
+        let comicId = localStorage.getItem('comicId')
         const detailComic = await axios.get(`${this.baseUrl}/comics/detail/${comicId}`)
         this.detailComic = detailComic.data
-        this.router.push('/detail')
+        console.log(this.detailComic)
       } catch (err) {
         console.log(err)
       }
     },
-    async fetchChapterPages(comicId, chapterId) {
+    async fetchChapterPages() {
       try {
+        this.chapterPages = []
+        let comicId = localStorage.getItem('comicId')
+        let chapterId = localStorage.getItem('chapterId')
         const chapterPages = await axios({
           method: 'get',
           url: `${this.baseUrl}/comics/read/${comicId}/${chapterId}`,
@@ -95,9 +100,26 @@ export const useCounterStore = defineStore('counter', {
           },
           responseType: 'arraybuffer'
         })
-        const blob = new Blob([chapterPages.data], { type: 'image/jpeg' })
-        this.chapterPages = URL.createObjectURL(blob)
-        this.router.push('/read')
+        const imageArrayBuffer = chapterPages.data;
+        const imageUint8Array = new Uint8Array(imageArrayBuffer);
+
+        // Split the array buffer into separate image data for each page
+        const pageImageData = [];
+        let start = 0;
+        for (let i = 0; i < imageUint8Array.length; i++) {
+          if (imageUint8Array[i] === 255 && imageUint8Array[i + 1] === 217) { // Check for end of image marker (FF D9)
+            pageImageData.push(imageUint8Array.subarray(start, i + 2));
+            start = i + 2;
+          }
+        }
+
+        // Create Blob and URL Object for each image data
+        for (const imageData of pageImageData) {
+          const blob = new Blob([imageData], { type: 'image/jpeg' });
+          this.chapterPages.push(URL.createObjectURL(blob));
+        }
+
+        this.router.push('/read');
       } catch (err) {
         console.log(err)
       }

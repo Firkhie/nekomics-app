@@ -1,4 +1,5 @@
 <template>
+  <Navbar />
   <main class="relative w-full px-3 md:px-8 lg:px-32 mt-5 lg:mt-12 text-white flex-grow">
     <section class="bg-[#1E1F1F] p-5 md:p-10 w-full flex flex-col gap-3 md:gap-6 text-justify md:text-base text-sm md:mt-3">
       <h4 class="mb-2">About</h4>
@@ -13,8 +14,11 @@
 </template>
 
 <script>
+import Navbar from '../components/Navbar.vue';
+
 export default {
-  name: 'AboutPage'
+    name: 'AboutPage',
+    components: { Navbar }
 }
 </script>
 

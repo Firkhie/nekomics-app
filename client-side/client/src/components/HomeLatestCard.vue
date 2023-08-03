@@ -1,13 +1,21 @@
 <template>
-  <div v-if="isLoading" class="w-full h-full flex p-3 gap-3 bg-white/10 hover:opacity-70 cursor-pointer">
-    <p>LOADING</p>
+  <div v-if="isLoading" class="w-full h-full flex p-3 gap-3 bg-white/10 animate-pulse" v-for="index in 3" :key="index">
+    <div class="w-[60px] sm:min-w-[70px] h-[82px] sm:h-[100px] bg-[#515050] rounded-md"></div>
+    <div class="w-full flex flex-col justify-between">
+      <div class="w-full flex flex-col gap-[6px] sm:gap-2">
+        <div class="w-2/3 h-[17px] sm:h-[20px] bg-[#515050] rounded-full"></div>
+        <div class="w-full h-[12px] sm:h-[15px] bg-[#515050] rounded-full"></div>
+        <div class="w-full h-[12px] sm:h-[15px] bg-[#515050] rounded-full"></div>
+      </div>
+      <div class="w-1/2 h-[12px] sm:h-[14px] bg-[#515050] rounded-full"></div>
+    </div>
   </div>
   <div
     v-else
     class="w-full flex p-3 gap-3 bg-white/10 hover:opacity-70 cursor-pointer"
     v-for="comic in latestComics"
     :key="comic.id"
-    @click.prevent="submitDetailComicId(comic.id)"
+    @click.prevent="submitComicId(comic.id)"
   >
     <div class="w-[60px] sm:min-w-[70px] h-[82px] sm:h-[100px]">
       <img v-bind:src="comic.coverArt" alt="" class="w-full h-full object-cover object-center rounded-sm" />
@@ -53,8 +61,9 @@ export default {
         this.isLoading = false
       }
     },
-    submitDetailComicId(comicId) {
-      this.fetchDetailComic(comicId)
+    submitComicId(comicId) {
+      localStorage.setItem('comicId', comicId)
+      this.$router.push('/detail')
     }
   },
   created() {
