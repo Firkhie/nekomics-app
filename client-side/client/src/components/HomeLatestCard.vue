@@ -13,7 +13,7 @@
   <div
     v-else
     class="w-full flex p-3 gap-3 bg-white/10 hover:opacity-70 cursor-pointer"
-    v-for="comic in latestComics"
+    v-for="comic in visibleComics"
     :key="comic.id"
     @click.prevent="submitComicId(comic.id)"
   >
@@ -43,11 +43,22 @@ export default {
   name: 'HomeLatestCard',
   data() {
     return {
-      isLoading: true
+      isLoading: true,
+      screenWidth: window.innerWidth
     }
   },
   computed: {
-    ...mapState(useCounterStore, ['latestComics'])
+    ...mapState(useCounterStore, ['latestComics']),
+    comicToShow() {
+      if (this.screenWidth >= 1280) {
+        return 9
+      } else {
+        return 8
+      }
+    },
+    visibleComics() {
+      return this.latestComics.slice(0, this.comicToShow)
+    }
   },
   methods: {
     ...mapActions(useCounterStore, ['fetchLatestComics']),
@@ -64,10 +75,22 @@ export default {
     submitComicId(comicId) {
       localStorage.setItem('comicId', comicId)
       this.$router.push('/detail')
+    },
+    handleResize() {
+      this.screenWidth = window.innerWidth
     }
   },
   created() {
     this.fetchData()
+    window.addEventListener('resize', this.handleResize)
+  },
+  watch: {
+    screenWidth(newWidth) {
+      this.$nextTick(() => {
+        this.comicsToShow = this.calculateComicsToShow(newWidth);
+        this.visibleComics = this.latestComics.slice(0, this.comicsToShow);
+      });
+    }
   }
 }
 </script>

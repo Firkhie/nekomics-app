@@ -2,7 +2,7 @@
   <section class="relative w-full overflow-hidden text-white md:mt-5">
     <!-- BACKGROUND -->
     <div
-      style="background-image: url('src/assets/cover-6.jpg')"
+      style="background-image: url('src/assets/cover-1.jpg')"
       class="absolute w-full h-full -z-20 bg-center bg-cover bg-no-repeat blur-2xl"
     ></div>
     <!-- CAROUSEL ITEMS -->
@@ -31,7 +31,7 @@
           <button 
             class="py-[6px] sm:py-3 px-3 sm:px-6 bg-[#FC304B] hover:bg-[#E32B43] rounded-sm lg:text-base md:text-sm text-xs w-fit" 
             @dragstart="handleDragPrevent" 
-            @click="handleButtonClick"
+            @click="submitComicId(item.comicId)"
           >Read Now</button>
         </div>
         <div class="max-w-[100px] md:max-w-[180px] lg:max-w-[250px]">
@@ -67,19 +67,22 @@ export default {
     return {
       items: [
         {
-          title: "Ane ni Iwareru ga Mama ni Tokkun wo Shiteitara, Tondemonai Tsuyosa ni Natteita Otouto Ane ni Iwareru ga Mama ni Tokkun wo Shiteitara, Tondemonai Tsuyosa ni Natteita Otouto",
-          description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis perferendis dolore obcaecati quasi est ad deserunt autem aliquid libero, facere odit incidunt deleniti doloribus quas ipsam optio aut nihil tempore. Rose then set Shifa through a series of training exercises, telling him, 'If you want to be an adventurer, you have to be able to do this!' Shifa believes Rose's words and tries his best to complete the ordeal. However, Rose's training becomes more and more extreme in order to prevent her brother from being in danger when he becomes an adventurer.",
-          imageUrl: "src/assets/cover.jpg",
+          comicId: "720466f8-2eee-43a5-893b-67f9190c04ae",
+          title: "Isekaigaeri no Moto Yuusha Desuga, Death Game ni Makikomare Mashita",
+          description: "He was living a peaceful life as any normal high schooler would, until one day he and his classmates were suddenly brought to uninhabited island.\r\n\r\n“I’ll have you kill each other until there’s only one of you remaining.”\r\n\r\nHearing these words from the man strangely dressed in a military uniform, his classmates panicked. Yes, he was setting up the stage for a death game. One where the strong devoured the weak. The weak would die without mercy and only the strong would taste victory. That was the plan.\r\n\r\nHowever, they were unaware that the hero who was hailed as the strongest had just recently returned from another world. The organizers behind the game were already out of luck by the time the game started as the expectations they had for death game that they had worked so desperately to set up would be unwittingly crushed before them.",
+          imageUrl: "src/assets/hero-1.jpg",
         },
         {
-          title: "Ane ni Iwareru ga Mama ni Tokkun wo Shiteitara, Tondemonai Tsuyosa ni Natteita Otouto Ane ni Iwareru ga Mama ni Tokkun wo Shiteitara, Tondemonai Tsuyosa ni Natteita Otouto",
-          description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis perferendis dolore obcaecati quasi est ad deserunt autem aliquid libero, facere odit incidunt deleniti doloribus quas ipsam optio aut nihil tempore. Rose then set Shifa through a series of training exercises, telling him, 'If you want to be an adventurer, you have to be able to do this!' Shifa believes Rose's words and tries his best to complete the ordeal. However, Rose's training becomes more and more extreme in order to prevent her brother from being in danger when he becomes an adventurer.",
-          imageUrl: "src/assets/cover-2.jpg",
+          comicId: "94e6f5a4-a215-4f5b-ae82-febc560be66d",
+          title: "Villain to Kill",
+          description: "You must become the greater evil to fight against the real evil!\"\n \nCassian dies after being framed for the murder of a comrade. Just when he thought it was all over for him, his soul is transferred into a young boy… A popular, top-class Psyker who was everyone's envy turns into a Villain overnight!",
+          imageUrl: "src/assets/hero-2.jpg",
         },
         {
-          title: "Ane ni Iwareru ga Mama ni Tokkun wo Shiteitara, Tondemonai Tsuyosa ni Natteita Otouto Ane ni Iwareru ga Mama ni Tokkun wo Shiteitara, Tondemonai Tsuyosa ni Natteita Otouto",
-          description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis perferendis dolore obcaecati quasi est ad deserunt autem aliquid libero, facere odit incidunt deleniti doloribus quas ipsam optio aut nihil tempore. Rose then set Shifa through a series of training exercises, telling him, 'If you want to be an adventurer, you have to be able to do this!' Shifa believes Rose's words and tries his best to complete the ordeal. However, Rose's training becomes more and more extreme in order to prevent her brother from being in danger when he becomes an adventurer.",
-          imageUrl: "src/assets/cover-3.jpg",
+          comicId: "4a169ddc-22f9-4566-92c4-0440cec2bb54",
+          title: "Tanbo de Hirotta Onna Kishi, Inaka de Ore no Yome da to Omowareteiru",
+          description: "Jin Mita, a farmer living in a small countryside town, discovers an unconscious female knight in his rice field one morning. She calls herself Seraphim, and she seems to have come from another world. She has no knowledge of this world and nowhere to go. Unable to bear seeing her like this, Jin offered to take her in, but apparently the people around him think that Seraphim is his wife...!? A slow life in the countryside begins with a beautiful female knight!",
+          imageUrl: "src/assets/hero-3.jpg",
         },
         // Tambahkan data item carousel selanjutnya sesuai kebutuhan Anda
       ],
@@ -92,8 +95,9 @@ export default {
     };
   },
   methods: {
-    handleButtonClick() {
-      console.log("Tombol 'Read Now' diklik!");
+    submitComicId(comicId) {
+      localStorage.setItem('comicId', comicId)
+      this.$router.push('/detail')
     },
     handleDragPrevent(e) {
       e.preventDefault();

@@ -7,7 +7,7 @@
   <div
     v-else
     class="w-full hover:opacity-70 cursor-pointer"
-    v-for="comic in popularComics"
+    v-for="comic in visibleComics"
     :key="comic.id"
     @click.prevent="submitComicId(comic.id)"
   >
@@ -30,11 +30,26 @@ export default {
   name: 'HomePopularCard',
   data() {
     return {
-      isLoading: true
+      isLoading: true,
+      screenWidth: window.innerWidth,
     }
   },
   computed: {
-    ...mapState(useCounterStore, ['popularComics'])
+    ...mapState(useCounterStore, ['popularComics']),
+    comicsToShow() {
+      if (this.screenWidth >= 1280) {
+        return 6;
+      } else if (this.screenWidth >= 768) {
+        return 5;
+      } else if (this.screenWidth >= 640) {
+        return 4;
+      } else {
+        return 6;
+      }
+    },
+    visibleComics() {
+      return this.popularComics.slice(0, this.comicsToShow);
+    }
   },
   methods: {
     ...mapActions(useCounterStore, ['fetchPopularComics']),
@@ -50,11 +65,23 @@ export default {
     submitComicId(comicId) {
       localStorage.setItem('comicId', comicId)
       this.$router.push('/detail')
-    }
+    },
+    handleResize() {
+      this.screenWidth = window.innerWidth;
+    },
   },
   created() {
-    this.fetchData()
-  }
+    this.fetchData();
+    window.addEventListener('resize', this.handleResize);
+  },
+  watch: {
+    screenWidth(newWidth) {
+      this.$nextTick(() => {
+        this.comicsToShow = this.calculateComicsToShow(newWidth);
+        this.visibleComics = this.popularComics.slice(0, this.comicsToShow);
+      });
+    },
+  },
 }
 </script>
 
