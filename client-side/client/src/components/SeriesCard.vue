@@ -2,14 +2,14 @@
   <div v-if="isLoading" class="flex flex-row w-full h-[125px] md:min-h-[220px] bg-white/10 animate-pulse p-2 md:p-5 gap-3 md:gap-4" v-for="index in 4" :key="index">
     <div class="min-w-[64px] md:min-w-[115px] h-full rounded-md bg-[#515050]"></div>
     <div class="flex-1 flex flex-col gap-2 md:gap-3">
-      <div class="w-full h-[18px] md:h-[30px] rounded-full bg-[#515050]"></div>
+      <div class="w-full h-[15px] md:h-[20px] rounded-full bg-[#515050]"></div>
       <div class="w-1/3 flex gap-2">
-        <div class="w-full h-[10px] md:h-[20px] rounded-full bg-[#515050]"></div>
-        <div class="w-full h-[10px] md:h-[20px] rounded-full bg-[#515050]"></div>
+        <div class="w-full h-[10px] md:h-[15px] rounded-full bg-[#515050]"></div>
+        <div class="w-full h-[10px] md:h-[15px] rounded-full bg-[#515050]"></div>
       </div>
-      <div class="w-full h-[13px] md:h-[20px] rounded-full bg-[#515050]"></div>
-      <div class="w-full h-[13px] md:h-[20px] rounded-full bg-[#515050]"></div>
-      <div class="w-1/3 h-[11px] md:h-[17px] rounded-full bg-[#515050]"></div>
+      <div class="w-full h-[12px] md:h-[17px] rounded-full bg-[#515050]"></div>
+      <div class="w-full h-[12px] md:h-[17px] rounded-full bg-[#515050]"></div>
+      <div class="w-1/3 h-[10px] md:h-[15px] rounded-full bg-[#515050]"></div>
     </div>
   </div>
   <div v-else 

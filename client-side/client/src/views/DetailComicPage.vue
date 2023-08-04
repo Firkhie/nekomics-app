@@ -8,42 +8,42 @@
           <div class="w-full h-full rounded-md bg-[#515050]"></div>
         </div>
         <div class="bg-white/10 w-full h-[50px] rounded-sm p-2 flex justify-center items-center">
-          <div class="w-1/2 h-[10px] md:h-[16px] rounded-full bg-[#515050]"></div>
+          <div class="w-1/2 h-[10px] sm:h-[15px] rounded-full bg-[#515050]"></div>
         </div>
         <div class="flex flex-col gap-3 p-4 bg-white/10 w-full rounded-sm">
-          <div class="w-full h-[10px] md:h-[16px] rounded-full bg-[#515050]"></div>
-          <div class="w-full h-[10px] md:h-[16px] rounded-full bg-[#515050]"></div>
-          <div class="w-full h-[10px] md:h-[16px] rounded-full bg-[#515050]"></div>
-          <div class="w-full h-[10px] md:h-[16px] rounded-full bg-[#515050]"></div>
-          <div class="w-full h-[10px] md:h-[16px] rounded-full bg-[#515050]"></div>
-          <div class="w-full h-[10px] md:h-[16px] rounded-full bg-[#515050]"></div>
+          <div class="w-full h-[10px] sm:h-[15px] rounded-full bg-[#515050]"></div>
+          <div class="w-full h-[10px] sm:h-[15px] rounded-full bg-[#515050]"></div>
+          <div class="w-full h-[10px] sm:h-[15px] rounded-full bg-[#515050]"></div>
+          <div class="w-full h-[10px] sm:h-[15px] rounded-full bg-[#515050]"></div>
+          <div class="w-full h-[10px] sm:h-[15px] rounded-full bg-[#515050]"></div>
+          <div class="w-full h-[10px] sm:h-[15px] rounded-full bg-[#515050]"></div>
         </div>
       </div>
       <!-- RIGHT -->
       <div class="flex-1 flex flex-col text-justify gap-3 w-full">
         <div class="flex flex-col justify-between p-4 bg-white/10 min-h-[200px] md:min-h-[350px] rounded-sm">
-          <div class="flex flex-col gap-2 md:gap-3">
-            <div class="w-full h-[17px] md:h-[25px] rounded-full bg-[#515050]"></div>
+          <div class="flex flex-col gap-3">
+            <div class="w-full h-[17px] md:h-[22px] rounded-full bg-[#515050]"></div>
             <div class="w-full flex flex-row gap-2">
-              <div class="w-[100px] h-[10px] md:h-[16px] rounded-full bg-[#515050]"></div>
-              <div class="w-[100px] h-[10px] md:h-[16px] rounded-full bg-[#515050]"></div>
-              <div class="w-[100px] h-[10px] md:h-[16px] rounded-full bg-[#515050]"></div>
+              <div class="w-[100px] h-[10px] sm:h-[15px] rounded-full bg-[#515050]"></div>
+              <div class="w-[100px] h-[10px] sm:h-[15px] rounded-full bg-[#515050]"></div>
+              <div class="w-[100px] h-[10px] sm:h-[15px] rounded-full bg-[#515050]"></div>
             </div>
-            <div class="w-full h-[10px] md:h-[16px] rounded-full bg-[#515050]"></div>
-            <div class="w-full h-[10px] md:h-[16px] rounded-full bg-[#515050]"></div>
-            <div class="w-full h-[10px] md:h-[16px] rounded-full bg-[#515050]"></div>
+            <div class="w-full h-[10px] sm:h-[15px] rounded-full bg-[#515050]"></div>
+            <div class="w-full h-[10px] sm:h-[15px] rounded-full bg-[#515050]"></div>
+            <div class="w-full h-[10px] sm:h-[15px] rounded-full bg-[#515050]"></div>
             <div class="w-full flex flex-row gap-2 mt-10">
-              <div class="w-[100px] h-[15px] md:h-[25px] rounded-full bg-[#515050]"></div>
-              <div class="w-[100px] h-[15px] md:h-[25px] rounded-full bg-[#515050]"></div>
+              <div class="w-[100px] h-[17px] sm:h-[22px] rounded-full bg-[#515050]"></div>
+              <div class="w-[100px] h-[17px] sm:h-[22px] rounded-full bg-[#515050]"></div>
             </div>
           </div>
         </div>
         <div class="flex flex-col gap-6 p-4 bg-white/10 rounded-sm">
-          <div class="w-full h-[10px] md:h-[20px] rounded-full bg-[#515050]"></div>
+          <div class="w-full h-[15px] sm:h-[20px] rounded-full bg-[#515050]"></div>
           <div class="grid grid-cols-1 gap-3 max-h-[475px] scroll-container overflow-auto">
-            <div class="w-full h-[10px] md:h-[16px] rounded-full bg-[#515050]"></div>
-            <div class="w-full h-[10px] md:h-[16px] rounded-full bg-[#515050]"></div>
-            <div class="w-full h-[10px] md:h-[16px] rounded-full bg-[#515050]"></div>
+            <div class="w-full h-[10px] sm:h-[15px] rounded-full bg-[#515050]"></div>
+            <div class="w-full h-[10px] sm:h-[15px] rounded-full bg-[#515050]"></div>
+            <div class="w-full h-[10px] sm:h-[15px] rounded-full bg-[#515050]"></div>
           </div>
         </div>
       </div>

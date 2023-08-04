@@ -4,12 +4,12 @@
       <div v-if="isLoading" class="flex justify-between gap-1 min-h-[75px] md:min-h-[140px] p-2 md:p-3 bg-white/10 animate-pulse">
         <div class="flex gap-2 md:gap-4">
           <div class="w-[40px] md:w-[72px] h-auto bg-[#515050] rounded-md"></div>
-          <div class="flex flex-col min-w-[150px] md:min-w-[400px] gap-2">
-            <div class="w-full h-[10px] md:h-[16px] rounded-full bg-[#515050]"></div>
-            <div class="w-1/3 h-[10px] md:h-[16px] rounded-full bg-[#515050]"></div>
+          <div class="flex flex-col min-w-[150px] sm:min-w-[400px] gap-2">
+            <div class="w-full h-[12px] md:h-[17px] rounded-full bg-[#515050]"></div>
+            <div class="w-1/3 h-[12px] md:h-[17px] rounded-full bg-[#515050]"></div>
           </div>
         </div>
-        <div class="w-1/6 sm:w-1/12 h-[10px] md:h-[16px] rounded-full bg-[#515050]"></div>
+        <div class="w-1/6 sm:w-1/12 h-[10px]  md:h-[15px] rounded-full bg-[#515050]"></div>
       </div>
       <div
         v-else-if="!isLoading && histories.length > 0"

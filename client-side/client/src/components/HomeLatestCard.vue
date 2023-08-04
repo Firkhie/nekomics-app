@@ -3,11 +3,11 @@
     <div class="w-[60px] sm:min-w-[70px] h-[82px] sm:h-[100px] bg-[#515050] rounded-md"></div>
     <div class="w-full flex flex-col justify-between">
       <div class="w-full flex flex-col gap-[6px] sm:gap-2">
-        <div class="w-2/3 h-[17px] sm:h-[20px] bg-[#515050] rounded-full"></div>
-        <div class="w-full h-[12px] sm:h-[15px] bg-[#515050] rounded-full"></div>
-        <div class="w-full h-[12px] sm:h-[15px] bg-[#515050] rounded-full"></div>
+        <div class="w-2/3 h-[15px] sm:h-[20px] bg-[#515050] rounded-full"></div>
+        <div class="w-full h-[10px] sm:h-[15px] bg-[#515050] rounded-full"></div>
+        <div class="w-full h-[10px] sm:h-[15px] bg-[#515050] rounded-full"></div>
       </div>
-      <div class="w-1/2 h-[12px] sm:h-[14px] bg-[#515050] rounded-full"></div>
+      <div class="w-1/2 h-[10px] sm:h-[15px] bg-[#515050] rounded-full"></div>
     </div>
   </div>
   <div

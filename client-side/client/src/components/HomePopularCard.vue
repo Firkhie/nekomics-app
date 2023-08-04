@@ -1,8 +1,8 @@
 <template>
   <div v-if="isLoading" class="flex flex-col gap-2 w-full h-full p-3 bg-white/10 animate-pulse" v-for="index in 4" :key="index">
-    <div class="w-full h-[155px] md:h-[255px] rounded-md bg-[#515050]"></div>
-    <div class="w-full h-[13px] md:h-[17px] rounded-full bg-[#515050]"></div>
-    <div class="w-1/2 h-[13px] md:h-[17px] rounded-full bg-[#515050]"></div>
+    <div class="w-full h-[155px] md:h-[210px] rounded-md bg-[#515050]"></div>
+    <div class="w-full h-[10px] md:h-[15px] rounded-full bg-[#515050]"></div>
+    <div class="w-1/2 h-[10px] md:h-[15px] rounded-full bg-[#515050]"></div>
   </div>
   <div
     v-else

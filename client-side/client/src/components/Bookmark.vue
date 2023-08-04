@@ -2,15 +2,15 @@
   <div class="grid grid-cols-1 xl:grid-cols-2 gap-2 md:gap-6 mt-2">
     <div v-if="isLoading" class="flex flex-row w-full h-[120px] md:min-h-[210px] bg-white/10 p-2 md:p-5 gap-3 md:gap-4 animate-pulse">
       <div class="min-w-[64px] md:min-w-[115px] h-full rounded-md bg-[#515050]"></div>
-      <div class="flex-1 flex flex-col gap-2 md:gap-4">
-        <div class="w-full h-[18px] md:h-[30px] rounded-full bg-[#515050]"></div>
-        <div class="w-full flex flex-col gap-3">
-          <div class="w-full h-[13px] md:h-[20px] rounded-full bg-[#515050]"></div>
-          <div class="w-full h-[13px] md:h-[20px] rounded-full bg-[#515050]"></div>
+      <div class="flex-1 flex flex-col gap-3 md:gap-4">
+        <div class="w-full h-[15px] md:h-[20px] rounded-full bg-[#515050]"></div>
+        <div class="w-full flex flex-col gap-2 md:gap-3">
+          <div class="w-full h-[12px] md:h-[17px] rounded-full bg-[#515050]"></div>
+          <div class="w-full h-[12px] md:h-[17px] rounded-full bg-[#515050]"></div>
         </div>
         <div class="w-full flex justify-between pt-3">
-          <div class="w-1/3 h-[11px] md:h-[17px] rounded-full bg-[#515050]"></div>
-          <div class="w-1/3 h-[11px] md:h-[17px] rounded-full bg-[#515050]"></div>
+          <div class="w-1/3 h-[10px] md:h-[15px] rounded-full bg-[#515050]"></div>
+          <div class="w-1/3 h-[10px] md:h-[15px] rounded-full bg-[#515050]"></div>
         </div>
       </div>
     </div>
