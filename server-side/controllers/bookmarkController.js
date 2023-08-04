@@ -6,8 +6,9 @@ class BookmarkController {
     try {
       const { comicId } = req.body
       const { userId } = req.user
+      
       const comic = await Bookmark.findOne({ where: { ComicId: comicId, UserId: userId } })
-      if (comic) throw { name: 'Duplicated' }
+      if (comic) throw { name: 'BookmarkDuplicated' }
       const bookmark = await Bookmark.create({ ComicId: comicId, UserId: userId })
       res.status(201).json({ bookmark })
     } catch (err) {

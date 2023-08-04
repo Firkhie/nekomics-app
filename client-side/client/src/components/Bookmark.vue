@@ -56,7 +56,8 @@ export default {
   name: 'Bookmark',
   data() {
     return {
-      isLoading: true
+      isLoading: true,
+      deleteBookmark: false
     }
   },
   computed: {
@@ -79,13 +80,19 @@ export default {
       localStorage.setItem('comicId', comicId)
       this.$router.push('/detail')
     },
-    submitDeleteBookmarkById(comicId) {
-      this.deleteBookmarkById(comicId)
+    async submitDeleteBookmarkById(comicId) {
+      try {
+        await this.deleteBookmarkById(comicId)
+      } catch (err) {
+        console.error(err)
+      } finally {
+        this.fetchData()
+      }
     }
   },
   created() {
     this.fetchData()
-  }
+  },
 }
 </script>
 

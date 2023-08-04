@@ -16,7 +16,7 @@
         class="flex justify-between gap-1 border-white/5 border-b-[1px] min-h-[75px] md:min-h-[140px] p-2 md:p-4 cursor-pointer hover:bg-[#212121]"
         v-for="(history, index) in histories"
         :key="index"
-        @click="submitChapterPagesId(history.comicId, history.chapterId)"
+        @click="submitChapterPagesId(history.comicId, history.title, history.chapterId, history.chapter)"
       >
         <div class="flex gap-2 md:gap-4">
           <div
@@ -65,8 +65,12 @@ export default {
         this.isLoading = false
       }
     },
-    submitChapterPagesId(comicId, chapterId) {
-      this.fetchChapterPages(comicId, chapterId)
+    submitChapterPagesId(comicId, comicName, chapterId, chapter) {
+      localStorage.setItem('comicId', comicId)
+      localStorage.setItem('comicName', comicName)
+      localStorage.setItem('chapterId', chapterId)
+      localStorage.setItem('chapter', chapter)
+      this.$router.push('/read')
     }
   },
   created() {

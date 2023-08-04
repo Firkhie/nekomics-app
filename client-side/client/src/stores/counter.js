@@ -1,9 +1,12 @@
 import { defineStore } from 'pinia'
 import axios from 'axios'
+import { toast } from 'vue3-toastify';
+import 'vue3-toastify/dist/index.css';
 
 export const useCounterStore = defineStore('counter', {
   state: () => ({
     baseUrl: 'http://localhost:3000',
+    // baseUrl: 'https://nekomics.firkhiep2c1server.site',
     totalComics: 0,
     sortByQuery: '',
     popularComics: [],
@@ -18,6 +21,9 @@ export const useCounterStore = defineStore('counter', {
     // doubleCount: (state) => state.count * 2,
   },
   actions: {
+    notify(message, type) {
+      toast(message, { autoClose: 1000, type: type, theme: 'dark' })
+    },
     async handleLogin(email, password) {
       try {
         let user = await axios({
@@ -27,8 +33,12 @@ export const useCounterStore = defineStore('counter', {
         })
         localStorage.setItem('access_token', user.data.access_token)
         localStorage.setItem('username', user.data.username)
+        
+        localStorage.setItem('notify_type', 'success')
+        localStorage.setItem('notify_message', 'Login success!')
         this.router.push('/')
       } catch (err) {
+        this.notify(err.response.data.message, 'error')
         console.log(err)
       }
     },
@@ -39,14 +49,23 @@ export const useCounterStore = defineStore('counter', {
           url: `${this.baseUrl}/register`,
           data: { username, email, password }
         })
+        
+        localStorage.setItem('notify_type', 'success')
+        localStorage.setItem('notify_message', 'Register success!')
+
         this.router.push('/login')
       } catch (err) {
+        this.notify(err.response.data.message, 'error')
         console.log(err)
       }
     },
     handleLogout() {
       try {
         localStorage.clear()
+        
+        localStorage.setItem('notify_type', 'success')
+        localStorage.setItem('notify_message', 'Logout success!')
+
         this.router.push('/login')
       } catch (err) {
         console.log(err)
@@ -134,7 +153,9 @@ export const useCounterStore = defineStore('counter', {
             access_token: localStorage.getItem('access_token')
           }
         })
+        this.notify('Add bookmark success!', 'success')
       } catch (err) {
+        this.notify(err.response.data.message, 'error')
         console.log(err)
       }
     },
@@ -147,6 +168,7 @@ export const useCounterStore = defineStore('counter', {
             access_token: localStorage.getItem('access_token')
           }
         })
+        this.notify('Delete bookmark success!', 'success')
       } catch (err) {
         console.log(err)
       }
@@ -208,6 +230,6 @@ export const useCounterStore = defineStore('counter', {
       } catch (err) {
         console.log(err)
       }
-    }
+    },
   },
 })

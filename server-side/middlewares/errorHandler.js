@@ -25,7 +25,7 @@ function errorHandler(err, req, res, next) {
 
     case "InvalidToken":
       status = 401;
-      message = "Invalid token";
+      message = "Login required";
       break;
 
     case "NotFound":
@@ -41,6 +41,11 @@ function errorHandler(err, req, res, next) {
     case 'Duplicated':
         status = 409
         message = 'Already existed'
+        break;
+
+    case 'BookmarkDuplicated':
+        status = 409
+        message = 'Already bookmarked'
         break;
 
     case "SequelizeValidationError":

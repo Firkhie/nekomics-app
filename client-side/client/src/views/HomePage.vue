@@ -33,6 +33,8 @@ import Hero from '../components/Hero.vue';
 import HomePopularCard from '../components/HomePopularCard.vue';
 import HomeLatestCard from '../components/HomeLatestCard.vue';
 import Navbar from '../components/Navbar.vue';
+import { mapActions } from 'pinia'
+import { useCounterStore } from '../stores/counter'
 
 export default {
     name: 'HomePage',
@@ -41,7 +43,18 @@ export default {
     HomePopularCard,
     HomeLatestCard,
     Navbar
-}
+  },
+  methods: {
+    ...mapActions(useCounterStore, ['notify'])
+  },
+  created() {
+    const notifyType = localStorage.getItem('notify_type')
+    const notifyMessage = localStorage.getItem('notify_message')
+
+    if (notifyType && notifyMessage) this.notify(notifyMessage, notifyType)
+    localStorage.removeItem('notify_type')
+    localStorage.removeItem('notify_message')
+  }
 }
 </script>
 

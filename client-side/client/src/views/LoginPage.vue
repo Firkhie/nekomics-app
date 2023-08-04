@@ -54,9 +54,18 @@ export default {
         ...mapActions(useCounterStore, ['handleLogin']),
         submitLogin() {
             this.handleLogin(this.email, this.password);
-        }
+        },
+        ...mapActions(useCounterStore, ['notify'])
     },
-    components: { Navbar }
+    components: { Navbar },
+    created() {
+      const notifyType = localStorage.getItem('notify_type')
+      const notifyMessage = localStorage.getItem('notify_message')
+
+      if (notifyType && notifyMessage) this.notify(notifyMessage, notifyType)
+      localStorage.removeItem('notify_type')
+      localStorage.removeItem('notify_message')
+    }
 }
 </script>
 
