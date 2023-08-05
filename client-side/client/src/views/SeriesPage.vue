@@ -19,7 +19,7 @@
           </div>
         </div>
       </div>
-      <div class="relative flex items-center justify-between gap-2 mt-3 lg:text-base md:text-sm text-xs">
+      <div class="relative flex items-center justify-between gap-2 mt-3 lg:text-base md:text-sm text-xs z-30">
         <div id="sort-by-btn" class="relative w-[220px] cursor-pointer group" @click="toggleSortBy">
           <div class="flex justify-between items-center py-2 px-4 bg-[#333434] rounded-sm">
             <div>

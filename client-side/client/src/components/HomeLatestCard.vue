@@ -69,7 +69,7 @@ export default {
       } catch (err) {
         console.error(err)
       } finally {
-        this.isLoading = false
+        if (this.latestComics.length !== 0) this.isLoading = false
       }
     },
     submitComicId(comicId) {

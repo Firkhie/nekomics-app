@@ -31,6 +31,7 @@ export default {
   data() {
     return {
       isLoading: true,
+      requestSuccess: false,
       screenWidth: window.innerWidth,
     }
   },
@@ -59,7 +60,7 @@ export default {
       } catch (err) {
         console.error(err)
       } finally {
-        this.isLoading = false
+        if (this.popularComics.length !== 0) this.isLoading = false
       }
     },
     submitComicId(comicId) {

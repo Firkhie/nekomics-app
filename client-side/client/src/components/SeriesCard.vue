@@ -61,9 +61,10 @@ export default {
     async fetchData() {
       try {
         await this.fetchSeriesComics(this.searchQuery, this.currentIndex)
-        this.$emit('isLoading', false)
       } catch (err) {
         console.error(err)
+      } finally {
+        if (this.seriesComics.length !== 0) this.$emit('isLoading', false)
       }
     },
     limitedGenres(comic) {

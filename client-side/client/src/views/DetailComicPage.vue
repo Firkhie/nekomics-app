@@ -151,7 +151,7 @@ export default {
         } catch (err) {
           console.error(err)
         } finally {
-          this.isLoading = false
+          if (Object.keys(this.detailComic).length !== 0) this.isLoading = false
         }
       },
       ...mapActions(useCounterStore, ['createBookmark']),

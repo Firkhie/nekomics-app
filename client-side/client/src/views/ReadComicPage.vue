@@ -94,7 +94,7 @@ export default {
         } catch (err) {
           console.error(err)
         } finally {
-          this.isLoading = false
+          if (this.chapterPages.length !== 0) this.isLoading = false
         }
       },
       // submitChapterPagesId(chapterId, chapter) {
