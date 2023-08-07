@@ -13,6 +13,7 @@ router.get('/comics/popularcomics', ComicController.fetchComics)
 router.get('/comics/latestcomics', ComicController.fetchComics)
 router.get('/comics/seriescomics', ComicController.fetchComics)
 router.get('/comics/detail/:id', ComicController.fetchComicById)
+router.get('/comics/coverart/:comicId/:coverFileName', ComicController.fetchCoverArt)
 router.get('/comics/read/:comicId/:chapterId', ComicController.fetchChapterPages)
 
 router.post('/generate-mt-token', MidtransController.generateMidtransToken)

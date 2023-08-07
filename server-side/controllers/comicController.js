@@ -50,7 +50,6 @@ class ComicController {
       }
 
       const baseUrl = 'https://api.mangadex.org'
-      const imageBaseUrl = 'https://uploads.mangadex.org'
       const comics = await axios.get(`${baseUrl}/manga`, {
         params: {
           limit: limitPage,
@@ -61,7 +60,6 @@ class ComicController {
       let totalComics = comics.data.total
       
       let comicsData = await Promise.all(comics.data.data.map(async comic => {
-      let comicId = comic.id
       // Get comics rating
       let getRating = (await axios.get(`${baseUrl}/statistics/manga/${comic.id}`)).data.statistics
       let dataRating = Object.values(getRating)
@@ -73,14 +71,10 @@ class ComicController {
       // Get cover art picture
       let coverArtId = comic.relationships.filter(relationship => relationship.type === 'cover_art')[0].id
       let coverFileName
-      let coverArt
       if (!coverArtId) coverFileName = null
       else {
         coverFileName =  (await axios.get(`${baseUrl}/cover/${coverArtId}`)).data.data.attributes.fileName
-        coverArt = `${imageBaseUrl}/covers/${comicId}/${coverFileName}`
       }
-      // let coverArt = (await axios.get(`${imageBaseUrl}/covers/${comicId}/${coverFileName}`, { responseType: 'stream' }))
-      // let coverArtId = comic.relationships.filter(relationship => relationship.type === 'cover_art')[0].id
         return {
           id: comic.id,
           title: comic.attributes.altTitles.find(title => 'ja-ro' in title)?.['ja-ro'] || comic.attributes.title.en,
@@ -91,7 +85,7 @@ class ComicController {
           updatedAt: comicUpdateDate(comic.attributes.updatedAt),
           latestChapter: latestChapter === null ? null : latestChapter.attributes.chapter,
           publishAt: latestChapter === null ? null : latestChapter.attributes.publishAt,
-          coverArt: coverArt === null ? null : coverArt,
+          coverFileName: coverFileName === null ? null : coverFileName,
           rating: dataRating[0]?.rating?.average?.toFixed(1) || null
         }
       }))
@@ -105,7 +99,6 @@ class ComicController {
     try {
       const { id } = req.params
       const baseUrl = 'https://api.mangadex.org'
-      const imageBaseUrl = 'https://uploads.mangadex.org'
       // Get comic detail by id
       let comic = await axios.get(`${baseUrl}/manga/${id}`);
 
@@ -119,8 +112,6 @@ class ComicController {
       let author = (await axios.get(`${baseUrl}/author/${authorId}`)).data.data.attributes.name
       // Get cover art picture
       let coverFileName =  (await axios.get(`${baseUrl}/cover/${coverArtId}`)).data.data.attributes.fileName
-      // let coverArt = (await axios.get(`${imageBaseUrl}/covers/${comicId}/${coverFileName}`, { responseType: 'stream' }))
-      let coverArt = `${imageBaseUrl}/covers/${comicId}/${coverFileName}`
       // Get all comic chapters based on english languange
       let chapters = await axios({
         method: 'get',
@@ -177,22 +168,38 @@ class ComicController {
         }),
         createdAt: comic.data.data.attributes.createdAt,
         updatedAt: comicUpdateDate(comic.data.data.attributes.updatedAt),
-        coverArt: coverArt,
+        coverFileName: coverFileName,
         author: author,
         rating: setRating?.toFixed(1) || null,
         totalChapter: chapters.data.data.length,
         detailChapters: quickSort(detailChapters)
       }
-
-      // let mimeType = coverFileName.endsWith('.png') ? 'image/png' : 'image/jpeg'
-      // res.setHeader('Content-Type', mimeType);
-      // coverArt.data.pipe(res);
       
       res.status(200).json(comicData)
     } catch (err) {
       console.log(err)
     }
   }
+
+  static async fetchCoverArt(req, res, next) {
+    try {
+      const imageBaseUrl = 'https://uploads.mangadex.org'
+      let { comicId, coverFileName } = req.params
+
+      let coverArtUrl = `${imageBaseUrl}/covers/${comicId}/${coverFileName}`
+      // Mengubah URL menjadi response stream
+      const response = await axios({
+        method: 'GET',
+        url: coverArtUrl,
+        responseType: 'stream',
+      });
+      res.setHeader('Content-Type', 'image/jpeg');
+      response.data.pipe(res);
+    } catch (err) {
+       console.log(err)
+       next(err)
+    }
+ }
 
   static async fetchChapterPages(req, res, next) {
     try {

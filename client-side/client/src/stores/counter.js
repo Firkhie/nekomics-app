@@ -75,6 +75,11 @@ export const useCounterStore = defineStore('counter', {
       try {
         let popularComics = await axios.get(`${this.baseUrl}/comics/popularcomics`)
         this.popularComics = popularComics.data.comicsData
+        this.popularComics.map(data => {
+          const coverArt = `${this.baseUrl}/comics/coverart/${data.id}/${data.coverFileName}`
+          return data['coverArt'] = coverArt
+        })
+        // console.log(this.popularComics)
       } catch (err) {
         console.log(err)
       }
@@ -83,6 +88,10 @@ export const useCounterStore = defineStore('counter', {
       try {
         let latestComics = await axios.get(`${this.baseUrl}/comics/latestcomics`)
         this.latestComics = latestComics.data.comicsData
+        this.latestComics.map(data => {
+          const coverArt = `${this.baseUrl}/comics/coverart/${data.id}/${data.coverFileName}`
+          return data['coverArt'] = coverArt
+        })
       } catch (err) {
         console.log(err)
       }
@@ -91,6 +100,10 @@ export const useCounterStore = defineStore('counter', {
       try {
         let seriesComics = await axios.get(`${this.baseUrl}/comics/seriescomics?query=${query}&&page=${page}`)
         this.seriesComics = seriesComics.data.comicsData
+        this.seriesComics.map(data => {
+          const coverArt = `${this.baseUrl}/comics/coverart/${data.id}/${data.coverFileName}`
+          return data['coverArt'] = coverArt
+        })
         this.totalComics = seriesComics.data.totalComics
       } catch (err) {
         console.log(err)
@@ -101,7 +114,8 @@ export const useCounterStore = defineStore('counter', {
         let comicId = localStorage.getItem('comicId')
         const detailComic = await axios.get(`${this.baseUrl}/comics/detail/${comicId}`)
         this.detailComic = detailComic.data
-        console.log(this.detailComic)
+        const coverArt = `${this.baseUrl}/comics/coverart/${detailComic.data.id}/${detailComic.data.coverFileName}`;
+        this.detailComic['coverArt'] = coverArt
       } catch (err) {
         console.log(err)
       }
