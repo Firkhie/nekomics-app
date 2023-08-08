@@ -13,7 +13,7 @@ export const useCounterStore = defineStore('counter', {
     latestComics: [],
     seriesComics: [],
     detailComic: {},
-    chapterPages: [],
+    chapterPages: {},
     bookmarks: [],
     histories: []
   }),
@@ -92,6 +92,7 @@ export const useCounterStore = defineStore('counter', {
           const coverArt = `${this.baseUrl}/comics/coverart/${data.id}/${data.coverFileName}`
           return data['coverArt'] = coverArt
         })
+        console.log(this.latestComics)
       } catch (err) {
         console.log(err)
       }
@@ -122,7 +123,6 @@ export const useCounterStore = defineStore('counter', {
     },
     async fetchChapterPages() {
       try {
-        this.chapterPages = []
         let comicId = localStorage.getItem('comicId')
         let chapterId = localStorage.getItem('chapterId')
         const chapterPages = await axios({
@@ -131,28 +131,14 @@ export const useCounterStore = defineStore('counter', {
           headers: {
             access_token: localStorage.getItem('access_token')
           },
-          responseType: 'arraybuffer'
         })
-        const imageArrayBuffer = chapterPages.data;
-        const imageUint8Array = new Uint8Array(imageArrayBuffer);
-
-        // Split the array buffer into separate image data for each page
-        const pageImageData = [];
-        let start = 0;
-        for (let i = 0; i < imageUint8Array.length; i++) {
-          if (imageUint8Array[i] === 255 && imageUint8Array[i + 1] === 217) { // Check for end of image marker (FF D9)
-            pageImageData.push(imageUint8Array.subarray(start, i + 2));
-            start = i + 2;
-          }
-        }
-
-        // Create Blob and URL Object for each image data
-        for (const imageData of pageImageData) {
-          const blob = new Blob([imageData], { type: 'image/jpeg' });
-          this.chapterPages.push(URL.createObjectURL(blob));
-        }
-
-        this.router.push('/read');
+        this.chapterPages = chapterPages.data
+        this.chapterPages['chapterArt'] = []
+        this.chapterPages.chapterArr.map(data => {
+          const chapterArt = `${this.baseUrl}/comics/chapterpages/${this.chapterPages.chapterHash}/${data}`
+          return this.chapterPages['chapterArt'].push(chapterArt)
+        })
+        console.log(this.chapterPages, 'terbaru')
       } catch (err) {
         console.log(err)
       }

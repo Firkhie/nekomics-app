@@ -14,7 +14,7 @@
     <img
       v-bind:src="comic.coverArt"
       alt=""
-      class="w-full h-[175px] md:h-[255px] object-cover object-center rounded-sm"
+      class="w-full h-[200px] md:h-[255px] object-cover object-center rounded-sm"
     />
     <p class="line-clamp-2 font-bold mt-1">{{ comic.title }}</p>
     <p class="text-white/40 md:text-sm text-xs">Chapter {{ comic.latestChapter }}</p>

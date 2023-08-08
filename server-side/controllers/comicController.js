@@ -181,16 +181,22 @@ class ComicController {
     }
   }
 
-  static async fetchCoverArt(req, res, next) {
+  static async fetchImages(req, res, next) {
     try {
       const imageBaseUrl = 'https://uploads.mangadex.org'
-      let { comicId, coverFileName } = req.params
+      let { comicId, coverFileName, chapterHash, pageId } = req.params
 
-      let coverArtUrl = `${imageBaseUrl}/covers/${comicId}/${coverFileName}`
+      let imageUrl = null
+      if (comicId && coverFileName) {
+        imageUrl = `${imageBaseUrl}/covers/${comicId}/${coverFileName}`
+      } else if (chapterHash && pageId) {
+        imageUrl = `${imageBaseUrl}/data/${chapterHash}/${pageId}`
+      }
+
       // Mengubah URL menjadi response stream
       const response = await axios({
         method: 'GET',
-        url: coverArtUrl,
+        url: imageUrl,
         responseType: 'stream',
       });
       res.setHeader('Content-Type', 'image/jpeg');
@@ -204,7 +210,7 @@ class ComicController {
   static async fetchChapterPages(req, res, next) {
     try {
       const baseUrl = 'https://api.mangadex.org';
-      const imageBaseUrl = 'https://uploads.mangadex.org'
+      // const imageBaseUrl = 'https://uploads.mangadex.org'
       const { comicId, chapterId } = req.params
       // Add read history
       const { access_token } = req.headers
@@ -218,24 +224,25 @@ class ComicController {
       const getChapterPages = (await axios.get(`${baseUrl}/at-home/server/${chapterId}`)).data;
       let chapterHash = getChapterPages.chapter.hash
       let chapterArr = getChapterPages.chapter.data
+      res.status(200).json({chapterHash, chapterArr})
       
-      res.setHeader('Content-Type', 'image/jpeg');
+      // res.setHeader('Content-Type', 'image/jpeg');
 
-      for (const pageId of chapterArr) {
-        const response = await axios.get(`${imageBaseUrl}/data/${chapterHash}/${pageId}`, { responseType: 'stream' });
-        const imageStream = response.data;
+      // for (const pageId of chapterArr) {
+      //   const response = await axios.get(`${imageBaseUrl}/data/${chapterHash}/${pageId}`, { responseType: 'stream' });
+      //   const imageStream = response.data;
 
         // Pipe the image stream to the response object with { end: false }
-        imageStream.pipe(res, { end: false });
+        // imageStream.pipe(res, { end: false });
 
         // When the image stream ends, move to the next image
-        await new Promise((resolve) => {
-          imageStream.on('end', resolve);
-        });
-      }
+      //   await new Promise((resolve) => {
+      //     imageStream.on('end', resolve);
+      //   });
+      // }
 
       // End the response after all images are sent
-      res.end();
+      // res.end();
 
     } catch (err) { 
       console.log(err)

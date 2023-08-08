@@ -37,8 +37,8 @@
           </svg>
         </div>
       </div>
-      <div v-else class="flex flex-col justify-between items-center w-max-[700px]" v-for="(pageUrl, index) in chapterPages" :key="index">
-        <img :src="pageUrl" alt="" />
+      <div v-else class="flex flex-col justify-between items-center w-max-[700px]" v-for="(pageUrl, index) in chapterPages.chapterArt" :key="index">
+        <img v-bind:src="pageUrl" alt="" />
       </div>
       <div class="flex flex-row justify-between items-center mt-4 md:mt-10">
         <div id="chapter-btn" class="relative w-[150px] cursor-pointer group text-xs md:text-sm" @click="toggleChapter">
