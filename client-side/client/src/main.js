@@ -5,6 +5,7 @@ import { createPinia } from 'pinia'
 
 import App from './App.vue'
 import router from './router'
+import VueDisqus from 'vue-disqus'
 
 const app = createApp(App)
 const pinia = createPinia()
@@ -15,5 +16,6 @@ pinia.use(({ store }) => {
 
 app.use(pinia)
 app.use(router)
+app.use(VueDisqus, { shortname: 'nekomics' })
 
 app.mount('#app')

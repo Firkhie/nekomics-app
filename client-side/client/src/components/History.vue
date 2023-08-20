@@ -1,6 +1,6 @@
 <template>
   <div class="bg-[#1E1F1F]">
-    <div class="grid grid-cols-1 scroll-container overflow-auto max-h-[300px] sm:max-h-[400px] md:max-h-[500px] lg:max-h-[600px]">
+    <div class="grid grid-cols-1 scroll-container overflow-auto max-h-[400px] md:max-h-[500px] lg:max-h-[600px]">
       <div v-if="isLoading" class="flex justify-between gap-1 min-h-[75px] md:min-h-[140px] p-2 md:p-3 bg-white/10 animate-pulse">
         <div class="flex gap-2 md:gap-4">
           <div class="w-[40px] md:w-[72px] h-auto bg-[#515050] rounded-md"></div>

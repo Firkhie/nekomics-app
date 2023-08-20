@@ -61,7 +61,13 @@
         id="scroll-top-btn"
         class="fixed z-30 bottom-8 lg:bottom-12 right-7 w-[35px] md:w-[40px] h-[35px] md:h-[40px] flex justify-center items-center rounded-full bg-[#FC304B] hover:bg-[#E32B43] cursor-pointer"
         @click="scrollTop"
-        ><i class="fa-solid fa-chevron-up text-xs md:text-sm font-bold"></i></div>
+        ><i class="fa-solid fa-chevron-up text-xs md:text-sm font-bold"></i>
+      </div>
+      <div class="mt-10 lg:text-base md:text-sm text-xs">
+        <h4>Comment</h4>
+        <hr class="mt-2 md:mt-5 mb-5 md:mb-10">
+        <Disqus />
+      </div>
     </section>
   </main>
 </template>
@@ -70,11 +76,12 @@
 import { mapState } from 'pinia'
 import { mapActions } from 'pinia'
 import { useCounterStore } from '../stores/counter'
+import VueDisqus from 'vue-disqus'
 import Navbar from '../components/Navbar.vue';
 
 export default {
     name: 'ReadComicPage',
-    components: { Navbar },
+    components: { Navbar, VueDisqus },
     data() {
       return {
         isLoading: true,
