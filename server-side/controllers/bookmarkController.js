@@ -52,21 +52,15 @@ class BookmarkController {
         let author = (await axios.get(`${baseUrl}/author/${authorId}`)).data.data.attributes.name
         // Get cover art picture
         let coverFileName =  (await axios.get(`${baseUrl}/cover/${coverArtId}`)).data.data.attributes.fileName
-        // let coverArt = (await axios.get(`${imageBaseUrl}/covers/${comicId}/${coverFileName}`, { responseType: 'stream' }))
-        let coverArt = `${imageBaseUrl}/covers/${comicId}/${coverFileName}`
         
         return {
           id: comic.data.data.id,
           title: comic.data.data.attributes.altTitles.find(title => 'ja-ro' in title)?.['ja-ro'] || comic.data.data.attributes.title.en,
           description: comic.data.data.attributes.description.en || 'Description not found',
-          coverArt: coverArt,
+          coverFileName: coverFileName === null ? null : coverFileName,
           author: author,
         }
       }))
-
-      // let mimeType = coverFileName.endsWith('.png') ? 'image/png' : 'image/jpeg'
-      // res.setHeader('Content-Type', mimeType);
-      // coverArt.data.pipe(res);
       res.status(200).json(bookmarksData)
     } catch (err) {
       console.log(err)

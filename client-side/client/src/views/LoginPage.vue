@@ -32,7 +32,16 @@
         <button type="submit" class="max-w-[488px] min-h-[48px] rounded-full bg-[#FC304B] hover:bg-[#E32B43] font-bold mt-3 md:mt-5 lg:text-base md:text-sm text-xs">Login</button>
       </form>
       <p class="mt-5">Don't have an account? <router-link to="/register" class="text-[#FC304B] hover:text-[#E32B43]">Sign Up</router-link></p>
-      
+      <div class="flex gap-1 sm:gap-2 items-center justify-center py-2 px-3 bg-white/5 rounded-md mt-3">
+        <div>
+          <p class="text-white/40 sm:text-xs text-[11px]">Email: </p>
+          <p class="text-white/40 sm:text-xs text-[11px]">Pass: </p>
+        </div>
+        <div>
+          <p class="text-white/40 sm:text-xs text-[11px]">tester1@gmail.com </p>
+          <p class="text-white/40 sm:text-xs text-[11px]">123456 </p>
+        </div>
+      </div>
     </section>
   </main>
 </template>

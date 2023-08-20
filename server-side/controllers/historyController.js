@@ -22,7 +22,6 @@ class HistoryController {
         }
         // Get cover art picture
         let coverFileName = (await axios.get(`${baseUrl}/cover/${coverArtId}`)).data.data.attributes.fileName;
-        let coverArt = `${imageBaseUrl}/covers/${comicId}/${coverFileName}`;
     
         // Get comic chapter detail
         let chapter = null;
@@ -38,17 +37,12 @@ class HistoryController {
         return {
             comicId: comic.data.data.id,
             title: comic.data.data.attributes.altTitles.find(title => 'ja-ro' in title)?.['ja-ro'] || comic.data.data.attributes.title.en,
-            coverArt: coverArt,
+            coverFileName: coverFileName === null ? null : coverFileName,
             chapterId: chapter ? chapter.data.data.id : null,
             chapter: chapter ? chapter.data.data.attributes.chapter : null,
             openedAt: comicUpdateDate(history.createdAt)
         };
     }));
-    
-
-      // let mimeType = coverFileName.endsWith('.png') ? 'image/png' : 'image/jpeg'
-      // res.setHeader('Content-Type', mimeType);
-      // coverArt.data.pipe(res);
       res.status(200).json(historiesData)
     } catch (err) {
       console.log(err)

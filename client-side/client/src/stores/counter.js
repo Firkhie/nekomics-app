@@ -79,7 +79,6 @@ export const useCounterStore = defineStore('counter', {
           const coverArt = `${this.baseUrl}/comics/coverart/${data.id}/${data.coverFileName}`
           return data['coverArt'] = coverArt
         })
-        // console.log(this.popularComics)
       } catch (err) {
         console.log(err)
       }
@@ -92,7 +91,6 @@ export const useCounterStore = defineStore('counter', {
           const coverArt = `${this.baseUrl}/comics/coverart/${data.id}/${data.coverFileName}`
           return data['coverArt'] = coverArt
         })
-        console.log(this.latestComics)
       } catch (err) {
         console.log(err)
       }
@@ -183,7 +181,10 @@ export const useCounterStore = defineStore('counter', {
           }
         })
         this.bookmarks = bookmarks.data
-        console.log(this.bookmarks)
+        this.bookmarks.map(data => {
+          const coverArt = `${this.baseUrl}/comics/coverart/${data.id}/${data.coverFileName}`
+          return data['coverArt'] = coverArt
+        })
       } catch (err) {
         console.log(err)
       }
@@ -198,6 +199,11 @@ export const useCounterStore = defineStore('counter', {
           }
         })
         this.histories = histories.data
+        console.log(this.histories)
+        this.histories.map(data => {
+          const coverArt = `${this.baseUrl}/comics/coverart/${data.comicId}/${data.coverFileName}`
+          return data['coverArt'] = coverArt
+        })
       } catch (err) {
         console.log(err)
       }
