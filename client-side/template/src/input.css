@@ -11,7 +11,7 @@
     @apply relative bg-[#121213] flex flex-col min-h-screen
   }
   h1 {
-    @apply text-6xl font-bold;
+    @apply lg:text-6xl md:text-5xl sm:text-4xl text-3xl font-bold;
   }
   h2 {
     @apply text-5xl font-bold;

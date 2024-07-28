@@ -15,47 +15,56 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomePage
+      component: HomePage,
+      meta: { hideNavbarFooter: false }
     },
     {
       path: '/series',
       name: 'series',
-      component: SeriesPage
+      component: SeriesPage,
+      meta: { hideNavbarFooter: false }
     },
     {
       path: '/bookmark',
       name: 'bookmark',
-      component: BookmarkPage
+      component: BookmarkPage,
+      meta: { hideNavbarFooter: false }
     },
     {
       path: '/donate',
       name: 'donate',
-      component: DonationPage
+      component: DonationPage,
+      meta: { hideNavbarFooter: false }
     },
     {
       path: '/about',
       name: 'about',
-      component: AboutPage
+      component: AboutPage,
+      meta: { hideNavbarFooter: false }
     },
     {
       path: '/login',
       name: 'login',
-      component: LoginPage
+      component: LoginPage,
+      meta: { hideNavbarFooter: true }
     },
     {
       path: '/register',
       name: 'register',
-      component: RegisterPage
+      component: RegisterPage,
+      meta: { hideNavbarFooter: true }
     },
     {
       path: '/detail',
       name: 'detail',
-      component: DetailComicPage
+      component: DetailComicPage,
+      meta: { hideNavbarFooter: false }
     },
     {
       path: '/read',
       name: 'read',
-      component: ReadComicPage
+      component: ReadComicPage,
+      meta: { hideNavbarFooter: false }
     }
   ]
 })

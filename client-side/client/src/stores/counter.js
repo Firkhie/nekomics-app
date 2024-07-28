@@ -1,12 +1,12 @@
 import { defineStore } from 'pinia'
 import axios from 'axios'
-import { toast } from 'vue3-toastify';
-import 'vue3-toastify/dist/index.css';
+import { toast } from 'vue3-toastify'
+import 'vue3-toastify/dist/index.css'
 
 export const useCounterStore = defineStore('counter', {
   state: () => ({
-    // baseUrl: 'http://localhost:3000',
-    baseUrl: 'https://nekomics.firkhiep2c1server.site',
+    baseUrl: 'http://localhost:3000',
+    // baseUrl: 'https://nekomics.firkhiep2c1server.site',
     totalComics: 0,
     sortByQuery: '',
     popularComics: [],
@@ -33,7 +33,7 @@ export const useCounterStore = defineStore('counter', {
         })
         localStorage.setItem('access_token', user.data.access_token)
         localStorage.setItem('username', user.data.username)
-        
+
         localStorage.setItem('notify_type', 'success')
         localStorage.setItem('notify_message', 'Login success!')
         this.router.push('/')
@@ -49,7 +49,7 @@ export const useCounterStore = defineStore('counter', {
           url: `${this.baseUrl}/register`,
           data: { username, email, password }
         })
-        
+
         localStorage.setItem('notify_type', 'success')
         localStorage.setItem('notify_message', 'Register success!')
 
@@ -62,7 +62,7 @@ export const useCounterStore = defineStore('counter', {
     handleLogout() {
       try {
         localStorage.clear()
-        
+
         localStorage.setItem('notify_type', 'success')
         localStorage.setItem('notify_message', 'Logout success!')
 
@@ -75,9 +75,9 @@ export const useCounterStore = defineStore('counter', {
       try {
         let popularComics = await axios.get(`${this.baseUrl}/comics/popularcomics`)
         this.popularComics = popularComics.data.comicsData
-        this.popularComics.map(data => {
+        this.popularComics.map((data) => {
           const coverArt = `${this.baseUrl}/comics/coverart/${data.id}/${data.coverFileName}`
-          return data['coverArt'] = coverArt
+          return (data['coverArt'] = coverArt)
         })
       } catch (err) {
         console.log(err)
@@ -87,9 +87,9 @@ export const useCounterStore = defineStore('counter', {
       try {
         let latestComics = await axios.get(`${this.baseUrl}/comics/latestcomics`)
         this.latestComics = latestComics.data.comicsData
-        this.latestComics.map(data => {
+        this.latestComics.map((data) => {
           const coverArt = `${this.baseUrl}/comics/coverart/${data.id}/${data.coverFileName}`
-          return data['coverArt'] = coverArt
+          return (data['coverArt'] = coverArt)
         })
       } catch (err) {
         console.log(err)
@@ -97,11 +97,13 @@ export const useCounterStore = defineStore('counter', {
     },
     async fetchSeriesComics(query = 'Latest Upload', page = 0) {
       try {
-        let seriesComics = await axios.get(`${this.baseUrl}/comics/seriescomics?query=${query}&&page=${page}`)
+        let seriesComics = await axios.get(
+          `${this.baseUrl}/comics/seriescomics?query=${query}&&page=${page}`
+        )
         this.seriesComics = seriesComics.data.comicsData
-        this.seriesComics.map(data => {
+        this.seriesComics.map((data) => {
           const coverArt = `${this.baseUrl}/comics/coverart/${data.id}/${data.coverFileName}`
-          return data['coverArt'] = coverArt
+          return (data['coverArt'] = coverArt)
         })
         this.totalComics = seriesComics.data.totalComics
       } catch (err) {
@@ -113,7 +115,7 @@ export const useCounterStore = defineStore('counter', {
         let comicId = localStorage.getItem('comicId')
         const detailComic = await axios.get(`${this.baseUrl}/comics/detail/${comicId}`)
         this.detailComic = detailComic.data
-        const coverArt = `${this.baseUrl}/comics/coverart/${detailComic.data.id}/${detailComic.data.coverFileName}`;
+        const coverArt = `${this.baseUrl}/comics/coverart/${detailComic.data.id}/${detailComic.data.coverFileName}`
         this.detailComic['coverArt'] = coverArt
       } catch (err) {
         console.log(err)
@@ -128,11 +130,11 @@ export const useCounterStore = defineStore('counter', {
           url: `${this.baseUrl}/comics/read/${comicId}/${chapterId}`,
           headers: {
             access_token: localStorage.getItem('access_token')
-          },
+          }
         })
         this.chapterPages = chapterPages.data
         this.chapterPages['chapterArt'] = []
-        this.chapterPages.chapterArr.map(data => {
+        this.chapterPages.chapterArr.map((data) => {
           const chapterArt = `${this.baseUrl}/comics/chapterpages/${this.chapterPages.chapterHash}/${data}`
           return this.chapterPages['chapterArt'].push(chapterArt)
         })
@@ -181,9 +183,9 @@ export const useCounterStore = defineStore('counter', {
           }
         })
         this.bookmarks = bookmarks.data
-        this.bookmarks.map(data => {
+        this.bookmarks.map((data) => {
           const coverArt = `${this.baseUrl}/comics/coverart/${data.id}/${data.coverFileName}`
-          return data['coverArt'] = coverArt
+          return (data['coverArt'] = coverArt)
         })
       } catch (err) {
         console.log(err)
@@ -200,9 +202,9 @@ export const useCounterStore = defineStore('counter', {
         })
         this.histories = histories.data
         console.log(this.histories)
-        this.histories.map(data => {
+        this.histories.map((data) => {
           const coverArt = `${this.baseUrl}/comics/coverart/${data.comicId}/${data.coverFileName}`
-          return data['coverArt'] = coverArt
+          return (data['coverArt'] = coverArt)
         })
       } catch (err) {
         console.log(err)
@@ -210,32 +212,44 @@ export const useCounterStore = defineStore('counter', {
     },
     async midtransDonation(donateAmount, email) {
       try {
+        if (!donateAmount || !email) {
+          this.notify('Please fill in both the donation amount and email.', 'error')
+          return
+        }
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+        if (!emailRegex.test(email)) {
+          this.notify('Please enter a valid email address.', 'error')
+          return
+        }
         const midtransToken = await axios({
           url: `${this.baseUrl}/generate-mt-token`,
           method: 'post',
           data: { donateAmount, email }
         })
         window.snap.pay(midtransToken.data.token, {
-          onSuccess: function(result){
+          onSuccess: function (result) {
             /* You may add your own implementation here */
-            alert("payment success!"); console.log(result);
+            alert('payment success!')
+            console.log(result)
           },
-          onPending: function(result){
+          onPending: function (result) {
             /* You may add your own implementation here */
-            alert("waiting your payment!"); console.log(result);
+            alert('waiting your payment!')
+            console.log(result)
           },
-          onError: function(result){
+          onError: function (result) {
             /* You may add your own implementation here */
-            alert("payment failed!"); console.log(result);
+            alert('payment failed!')
+            console.log(result)
           },
-          onClose: function(){
+          onClose: function () {
             /* You may add your own implementation here */
-            alert('you closed the popup without finishing the payment');
+            alert('you closed the popup without finishing the payment')
           }
         })
       } catch (err) {
         console.log(err)
       }
-    },
-  },
+    }
+  }
 })

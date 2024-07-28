@@ -44,7 +44,7 @@ import { mapActions } from 'pinia'
 import { useCounterStore } from '../stores/counter'
 
 export default {
-  name: 'History',
+  name: 'HistoryComponent',
   data() {
     return {
       isLoading: true

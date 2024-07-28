@@ -53,7 +53,7 @@ import { mapActions } from 'pinia'
 import { useCounterStore } from '../stores/counter'
 
 export default {
-  name: 'Bookmark',
+  name: 'BookmarkComponent',
   data() {
     return {
       isLoading: true,
