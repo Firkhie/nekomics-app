@@ -1,4 +1,5 @@
 <div align="center">
+  <p align="center"><img src="./client-side/client/public/neko-logo.png" alt="Logo" width="200" height="200"></p>
   <h1 style="border: none;">Nekomics: Comic reading website using MangaDex API</h1>
   <div>
     <img src="https://img.shields.io/badge/vuejs-%2335495e.svg?style=for-the-badge&logo=vuedotjs&logoColor=%234FC08D" alt="vuejs" />
