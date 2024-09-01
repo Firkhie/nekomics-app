@@ -1,0 +1,13 @@
+name: Ping Supabase Database
+on:
+  schedule:
+    - cron: '0 23 */6 * *'
+  workflow_dispatch:
+jobs:
+  cron:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Supabase Database
+        run: |
+          curl --request GET \
+          --url 'https://nekomics-app.onrender.com/ping'
