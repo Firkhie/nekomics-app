@@ -1,5 +1,9 @@
 {
   "projects": {
-    "default": "nekomics-app"
-  }
+    "default": "nekomics-app",
+    "secondary": "nekomics-5fa59"
+  },
+  "targets": {},
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
 }

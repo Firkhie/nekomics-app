@@ -6,7 +6,6 @@ import 'vue3-toastify/dist/index.css'
 export const useCounterStore = defineStore('counter', {
   state: () => ({
     baseUrl: 'http://localhost:3000',
-    // baseUrl: 'https://nekomics-app.onrender.com',
     totalComics: 0,
     sortByQuery: '',
     popularComics: [],

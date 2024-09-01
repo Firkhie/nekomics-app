@@ -1,5 +1,5 @@
 <template>
-  <header class="w-full h-16 md:h-20 z-50 mb-8 md:mb-12 bg-[#1E1F1F] text-white relative">
+  <header class="w-full h-16 md:h-20 z-40 mb-8 md:mb-12 bg-[#1E1F1F] text-white relative">
     <!-- DESKTOP -->
     <nav
       class="items-center justify-between h-full w-full px-8 max-w-screen-xl mx-auto hidden lg:flex"
