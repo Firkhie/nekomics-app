@@ -1,10 +1,13 @@
 const BookmarkController = require("../controllers/bookmarkController");
 const ComicController = require("../controllers/comicController");
+const databaseController = require("../controllers/databaseController");
 const HistoryController = require("../controllers/historyController");
 const MidtransController = require("../controllers/midtransController");
 const UserController = require("../controllers/userController");
 const authentication = require("../middlewares/authentication");
 const router = require("express").Router();
+
+router.get('/ping', databaseController.pingDatabase)
 
 router.post('/register', UserController.register)
 router.post('/login', UserController.login)
