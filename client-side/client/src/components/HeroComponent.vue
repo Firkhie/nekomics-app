@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full max-w-screen-xl px-3 md:px-8 mx-auto">
+  <div class="w-full max-w-screen-xl mb-5 md:mb-0 px-3 md:px-8 mx-auto">
     <section class="relative overflow-hidden text-white md:mt-5 w-full">
       <!-- BACKGROUND -->
       <div

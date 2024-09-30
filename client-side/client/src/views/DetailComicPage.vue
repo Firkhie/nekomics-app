@@ -55,7 +55,7 @@
       </div>
     </section>
   </main>
-  <main v-else class="relative w-full max-w-screen-xl px-6 md:px-8 mx-auto mt-5 text-white flex-grow">
+  <main v-else class="relative w-full max-w-screen-xl px-3 md:px-8 mx-auto text-white flex-grow">
     <section
       class="w-full flex items-center md:items-start flex-col md:flex-row gap-3 lg:gap-5 md:text-base text-sm"
     >
