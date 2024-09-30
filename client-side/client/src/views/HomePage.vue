@@ -1,6 +1,6 @@
 <template>
   <HeroComponent />
-  <main class="relative w-full max-w-screen-xl px-3 md:px-8 mx-auto mt-5 text-white flex-grow">
+  <main class="relative w-full max-w-screen-xl px-3 md:px-8 mx-auto text-white flex-grow">
     <!-- ! HOME - POPULAR TODAY -->
     <section
       class="w-full p-4 sm:p-8 rounded-sm bg-[#1E1F1F] md:mt-5 flex flex-col items-center gap-2 md:gap-5"

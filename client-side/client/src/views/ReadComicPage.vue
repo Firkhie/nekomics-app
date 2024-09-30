@@ -1,5 +1,5 @@
 <template>
-  <main class="relative w-full max-w-screen-xl px-3 md:px-8 mx-auto mt-5 lg:mt-12 text-white flex-grow">
+  <main class="relative w-full max-w-screen-xl px-3 md:px-8 mx-auto lg:mt-12 text-white flex-grow">
     <section class="relative w-full flex flex-col md:text-base text-sm">
       <div class="flex flex-col justify-center items-center">
         <h4 class="text-center">{{ comicName }} Chapter {{ chapter }}</h4>
