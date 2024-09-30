@@ -1,7 +1,7 @@
 <template>
   <main
     v-if="isLoading"
-    class="relative w-full max-w-screen-xl mx-auto mt-5 px-6 md:px-8 text-white flex-grow animate-pulse"
+    class="relative w-full max-w-screen-xl mx-auto mt-5 px-3 md:px-8 text-white flex-grow animate-pulse"
   >
     <section class="w-full flex items-center md:items-start flex-col md:flex-row gap-3 lg:gap-5">
       <!-- LEFT -->

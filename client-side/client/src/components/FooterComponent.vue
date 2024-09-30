@@ -1,5 +1,5 @@
 <template>
-  <footer class="mt-10 md:mt-16 w-full lg:h-[160px] z-20 bg-[#1E1F1F] text-white font-bold">
+  <footer class="mt-8 md:mt-16 w-full lg:h-[160px] z-20 bg-[#1E1F1F] text-white font-bold">
     <!-- DESKTOP -->
     <div
       class="hidden lg:flex flex-col gap-y-5 justify-center w-full h-full max-w-screen-xl mx-auto px-6 md:px-8"

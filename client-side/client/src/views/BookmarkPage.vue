@@ -1,5 +1,5 @@
 <template>
-  <main class="relative min-h-[50vh] w-full max-w-screen-xl px-6 md:px-8 mx-auto text-white flex-grow">
+  <main class="relative min-h-[50vh] w-full max-w-screen-xl px-3 md:px-8 mx-auto text-white flex-grow">
     <section class="flex flex-col w-full">
       <ul class="flex flex-row gap-4 md:gap-12 md:text-2xl text-base font-medium md:font-bold">
         <li>

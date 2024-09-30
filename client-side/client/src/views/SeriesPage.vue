@@ -1,5 +1,5 @@
 <template>
-  <main class="relative w-full max-w-screen-xl px-6 md:px-8 mx-auto text-white flex-grow">
+  <main class="relative w-full max-w-screen-xl px-3 md:px-8 mx-auto text-white flex-grow">
     <section class="w-full">
       <div class="bg-[#1E1F1F] py-3 px-3 lg:text-base md:text-sm text-xs">
         <div class="flex gap-2">
